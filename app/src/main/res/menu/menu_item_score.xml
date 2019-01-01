@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ScoreboardNewFeeds">
+
+    <item
+        android:id="@+id/filter"
+        android:enabled="true"
+        android:icon="@drawable/filter"
+        android:title="Φιλτράρισμα"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/pdf"
+        android:enabled="true"
+        android:icon="@drawable/if_pdf"
+        android:title="Εκτύπωση"
+        app:showAsAction="always|withText" />
+
+    <item
+        android:enabled="true"
+        android:title=" "
+        app:showAsAction="always|withText" />
+
+</menu>

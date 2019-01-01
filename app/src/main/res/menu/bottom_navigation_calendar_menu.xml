@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/instagramfarm"
+        android:icon="@drawable/ic_instagram_black"
+        android:title="Κοινότητα">
+    </item>
+
+    <item
+        android:id="@+id/notesstick"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Σημειώσεις">
+    </item>
+
+
+    <item
+        android:id="@+id/scorerank"
+        android:icon="@drawable/ic_sort_white_24px"
+        android:title="Ταξινόμηση">
+    </item>
+
+    <item
+        android:id="@+id/weathernav"
+        android:icon="@drawable/ic_weather_windy_black_18dp"
+        android:title="Ταξινόμηση">
+    </item>
+
+    <item
+        android:id="@+id/profilemain"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Προφίλ">
+    </item>
+</menu>

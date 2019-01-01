@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:id="@+id/btnzoomin"
+        android:onClick="onZoom"
+        android:background="@drawable/ic_zoom_in"
+        android:layout_alignTop="@+id/map"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+    <View
+        android:layout_width="30dp"
+        android:layout_below="@+id/btnzoomin"
+        android:layout_alignParentLeft="true"
+        android:layout_height="3dp"
+        android:background="@color/gray">
+
+    </View>
+        <Button
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:id="@+id/btnzoomout"
+        android:layout_below="@+id/btnzoomin"
+        android:background="@drawable/ic_zoom_out"
+        android:onClick="onZoom"
+        android:layout_alignParentLeft="true"/>
+
+</RelativeLayout>

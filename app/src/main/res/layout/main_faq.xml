@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     tools:context="com.example.commontask.NewPostActivity">
+
+
+      <RelativeLayout
+          android:id="@+id/relLayout1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <include layout="@layout/snippet_info" />
+      </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/first"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/relLayout1"
+            android:textStyle="bold|normal"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="Πως ξεκιναώ μια νέα καταχώρηση μου?"/>
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginEnd="20dp"
+          android:gravity="start"
+          android:id="@+id/first_ans"
+          android:layout_marginTop="20dp"
+          android:layout_below="@+id/first"
+          android:textStyle="normal"
+          android:textSize="17dp"
+          android:textColor="@color/black"
+          android:text="Πατώντας το ημερολόγιο είτε με το κουμπάκι που βρίσκεται κάτω δεξιά συν είτε μέσω την επιθυμητής ημέρας που θα επιλέξω στον τρέχοντα μήνα."/>
+
+
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginEnd="20dp"
+          android:gravity="start"
+          android:id="@+id/second"
+          android:layout_marginTop="20dp"
+          android:layout_below="@+id/first_ans"
+          android:textStyle="bold|normal"
+          android:textSize="18dp"
+          android:textColor="@color/black"
+          android:text="Πως μπορώ να δώ το ιστορικό μου?"/>
+
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginEnd="20dp"
+          android:gravity="start"
+          android:id="@+id/second_ans"
+          android:layout_marginTop="20dp"
+          android:layout_below="@+id/second"
+          android:textStyle="normal"
+          android:textSize="17dp"
+          android:textColor="@color/black"
+          android:text="Πατώντας στο κάτω πλαίσιο που βρίσκεται το κουμπί ιστορικό πηγαίνουμε στο ιστορικό καταχωρήσεων μας."/>
+
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginEnd="20dp"
+          android:gravity="start"
+          android:id="@+id/third"
+          android:layout_marginTop="20dp"
+          android:layout_below="@+id/second_ans"
+          android:textStyle="bold|normal"
+          android:textSize="18dp"
+          android:textColor="@color/black"
+          android:text="Πως μπορώ να δώ τα στατιστικά μου στοιχεία?"/>
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginEnd="20dp"
+          android:gravity="start"
+          android:id="@+id/third_ans"
+          android:layout_marginTop="20dp"
+          android:layout_below="@+id/third"
+          android:textStyle="normal"
+          android:textSize="17dp"
+          android:textColor="@color/black"
+          android:text="Πηγαίνοντας στο προφίλ υπάρχει η επιλογή στατιστικά στοιχειά όπου έχουμε μια πλήρη εικόνα για το τι δραστηριότητες έχω κάνει γενικά ή σε ένα συγκεκριμένο χρονικό διάστημα."/>
+
+  </RelativeLayout>
+
+
+</ScrollView>

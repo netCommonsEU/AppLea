@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.microg:unifiednlp-api-1.5.6">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/unifiednlp-api-1.5.6.aar/cb4383a59eff788d1bf3df8fdd8c1e65/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/unifiednlp-api-1.5.6.aar/cb4383a59eff788d1bf3df8fdd8c1e65/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.microg/unifiednlp-api/1.5.6/c919b3716288ea81f3cc11d136450a87dae73fda/unifiednlp-api-1.5.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

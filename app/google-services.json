@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "857134509690",
+    "firebase_url": "https://commontask-7fd77.firebaseio.com",
+    "project_id": "commontask-7fd77",
+    "storage_bucket": "commontask-7fd77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857134509690:android:ccec77a0d7d01b06",
+        "android_client_info": {
+          "package_name": "com.example.commontask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857134509690-9vtkq864vqu4g4k9sjj7c386aq48ebri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.commontask",
+            "certificate_hash": "0855a3cd5fc66e183f30fe9ae6223ec4d09e1461"
+          }
+        },
+        {
+          "client_id": "857134509690-drlamn4tscmq8jsajpv8qqkeeosqt01k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTCc_cRu8rouUtWB8CgnOfybAtscdhenA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857134509690-drlamn4tscmq8jsajpv8qqkeeosqt01k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

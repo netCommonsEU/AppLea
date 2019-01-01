@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:com="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="250dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:layout_marginTop="20dp"
+    android:layout_height="200dp">
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:background="@drawable/pasture"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textViewOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:text="&#8942;"
+            android:textSize="25sp"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/white"
+            android:paddingStart="@dimen/activity_horizontal_margin" />
+
+        <TextView
+            android:id="@+id/name"
+            android:textStyle="normal|italic"
+            android:padding="10dp"
+            com:innerShadowDy="2dp"
+            com:innerShadowColor="#FF000000"
+            com:innerShadowRadius="1dp"
+            com:outerShadowDy="3dp"
+            com:outerShadowColor="#FF0088ff"
+            com:outerShadowRadius="10dp"
+            com:strokeColor="#FFff0000"
+            com:strokeJoinStyle="miter"
+            com:strokeWidth="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="4.5"
+            android:shadowDy="4.5"
+            android:shadowRadius="3.0"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_below="@+id/name"
+            android:layout_marginBottom="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_below="@+id/name"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/naming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:elevation="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+        </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:layout_below="@+id/frame"
+            android:text="Στρέμματα"
+            android:textStyle="normal|italic"
+            android:textSize="15dp" />
+
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+

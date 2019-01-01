@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff3f3f3"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/relLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        <include layout="@layout/snippet_edit" />
+
+    </RelativeLayout>
+
+
+    <include
+        android:id="@+id/post_author_layout"
+        layout="@layout/include_post_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relLayout1"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/name"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="50dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Όνομα Καλλιέργειας"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="normal|italic"
+        android:layout_below="@+id/post_kind"/>
+
+    <TextView
+        android:id="@+id/textdatetask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textSize="18dp"
+        android:layout_below="@+id/post_author_layout"
+        android:textStyle="normal|italic"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textdatetask"
+        android:text="Είδος Καλλιέργειας"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:textSize="18dp"
+        android:textStyle="normal|italic"/>
+
+
+    <TextView
+        android:id="@+id/textViewfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Χωράφι"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="normal|italic"
+        android:layout_below="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/name"
+        android:layout_width="30sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/textViewfield"
+        android:layout_marginStart="90dp" />
+
+
+    <com.weiwangcn.betterspinner.library.BetterSpinner
+        android:id="@+id/post_kind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView1"
+        android:textColor="@color/black"
+        android:layout_alignParentLeft="true" />
+
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Τύπος Καταχώρησης"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:textSize="18dp"
+        android:layout_below="@+id/textViewfield"
+        android:textStyle="normal|italic" />
+
+
+    <com.weiwangcn.betterspinner.library.BetterSpinner
+        android:id="@+id/spinner5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"/>
+
+
+    <com.weiwangcn.betterspinner.library.BetterSpinner
+        android:id="@+id/spinner7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner5"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Είδος Ψεκασμού"/>
+
+    <com.weiwangcn.betterspinner.library.BetterSpinner
+        android:id="@+id/spinner6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner7"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Διάρκεια/Χημική Ουσία"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Ποσότητα"
+        android:textSize="18dp"
+        android:id="@+id/count"
+        android:textStyle="normal|italic"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="30dp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/spinner6"
+        android:layout_marginLeft="30dp" />
+
+    <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+        android:id="@+id/discrete1"
+        android:layout_below="@+id/count"
+        style="@style/AlertDialog.AppCompat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dsb_min="0"
+        app:dsb_max="1000"
+        app:dsb_value="-2"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtseek"
+        android:layout_below="@+id/discrete1"
+        />
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtseek">
+
+        <Button
+            android:id="@+id/decrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:text="-"
+            android:textSize="20sp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/naming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:elevation="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/increase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/button_style"
+            android:text="+"
+            android:textSize="20sp" />
+
+    </FrameLayout>
+
+
+    <com.weiwangcn.betterspinner.library.BetterSpinner
+        android:id="@+id/spinner12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame"
+        android:layout_marginTop="30dp"
+        android:hint="Μονάδα Μέτρησης"
+        android:textStyle="normal|italic" />
+
+
+</RelativeLayout>
+
+</ScrollView>

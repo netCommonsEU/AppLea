@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.example.commontask.NewPostActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/snippet_info" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/first"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/relLayout1"
+            android:textStyle="bold|normal"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="Κάνεις την καταχώρηση σου"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/first_ans"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/first"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="Βάλε την επιθυμητή μέρα και ώρα που θές για την καταχώρηση σου,επέλεξε το είδος εργασίας που επιθυμείς να εκτελέσεις πατώντας το κουμπί αποθήκευση στην αρχική φορμα καταχώρησης και στην φόρμα αργότερα."/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/second"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/first_ans"
+            android:textStyle="bold|normal"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="Στέλνουμε την καταχώρηση σου στην βάση δεδομένων μας"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/second_ans"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/second"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="Μόλις ολοκληρώσεις την καταχώρηση σου,εκτυπώνεται αυτόματα ένα αρχείο αναλυτικά με τις λεπτομέριες της και πατώντας το κουμπι Ιστορικό εμφανίζεται άμεσα στην οθόνη σου λαμβάνοντας την."/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/third"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/second_ans"
+            android:textStyle="bold|normal"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="Η καταχώρηση σας...έφτασε"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/third_ans"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/third"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="Η καταχώρηση σας παραδίδεται απο την εφαρμογή και εσείς μπορείτε πλέον να την διαγράψεται ,επεξεργαστείτε και να φιλτράρετε ένα σωμα απο τετοιες εγγραφές-καταχωρήσεις βάσει των δικων σας κρητηρίων."/>
+
+    </RelativeLayout>
+
+
+</ScrollView>

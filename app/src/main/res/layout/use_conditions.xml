@@ -1,0 +1,142 @@
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.example.commontask.NewPostActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/snippet_info" />
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/first"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/relLayout1"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Συγκέντρωση Πληροφοριών"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/first_ans"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/first"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Η εφαρμογή σχεδιάστηκε ώστε να ο κάθε χρήστης μέσω ενός συνθηματικού email και κωδικού να μπορεί να κάνει είσοδο στην εφαρμογή.Ζητείται απο τους χρήστες ,να παρέχουν τις προσωπικές πληροφορίες μόνο στην περίπτωση καταχώρησης μίας εργασίας τους.Το AppLea συλλέγει δύο τύπους δεδομένων..α)στοιχεία που δίνει ο χρήστης κατα την εγγραφή του για να δημιουργήσει ένα προφιλ και β)στοιχεία που δίνει ο χρήστης προκειμένου να κάνει μια καταχώρηση προκειμένου να καταχωρηθεί η εκάστοτε εργασία.Το Applea κάνει χρήση των πληροφοριών που δίνονται απο τους χρήστες προκειμένου κατα την ηλεκτρονική αποστολή της φόρμας καταχώρησης και αποστέλλεται στην βάση δεδομένων για να προστεθεί στο ιστορικό αργότερα.Τα δεδομένα σας δεν χρησιμοποιούνται απο άλλους χρήστες γιατι είναι κρυπτογραφημμένα και προστατεύονται στην Παρούσα Δήλωση Προστασίας Προσωπικών Δεδομένων.Σε καμία περίπτωση δεν μπορεί το AppLea να μοιράσει τα προσωπικά δεδομένα με άλλους χωρίς πρότερη δική σας συναίνεση,εκτός και έαν απαιτηθεί μέσω της νομίμου οδού.Παρακαλέισθε να λάβετε υπόψιν σας οτι κάτω απο τις συγκεκριμένες προϋποθέσεις ,επιτρέπεται η επιβάλεται απα τον νόμο η βάση δικαστικής απόφασης, η συλλογή ,χρήση και η αποκάλυψη των προσωπικών σας δεδομένων ,τα οποία έχουν συλλεχθεί online χωρίς την εκ μέρους σας πρότερη συναίνεση(για παράδειγμα σε περίπτωση δικαστικής απόφασης)."/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/second"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/first_ans"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Διόρθωση,Τροποποίηση ή Διαγραφή Πληροφοριών"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/second_ans"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/second"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Το AppLea επιτρέπει στους χρήστες να διορθώνουν ,αλλάζουν ,συμπληρώνουν η να διαγράφουν δεδομένα και πληροφορίες που έχουν προσκομιστεί στην εφαρμογή.Για την ασφάλεια το AppLea σε περίπτωση που θέλετε να διαγράψετε μια πληροφορία, θα ενεργηθεί μια διαδικασία ώστε να διαγραφεί αυτή η πληροφορία απο τα αρχεία της άμεσα.Για την ασφάλεια σας η εφαρμογή θα λειτουργήσει έξυπνα και θα διαβεβαιωθεί ότι το πρόσωπο είναι ο κύριος κάτοχος του λογαριασμού και είναι το ίδιο άτομο με τον χρήστη."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/third"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/second_ans"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Περιοδικές Αλλαγές"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/third_ans"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/third"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Η εφαρμογή επεκτείνει,ενημερώνει και βελτιώνει τις υπηρεσίες της και θα ανανεώνει την παρούσα πολιτική."/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/forth"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/second_ans"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Προσβάση στις Πληροφορίες"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/forth_ans"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/third"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="Κάθε διεκπαιρέωση καταχώρησης μιας εργασίας απαιτεί την συλλογή προσωπικών στοιχείων ,για να εκχωρηθεί η εργασία και να δημιουργηθεί το Ιστορικό.Η εκ μέρους σας προσκόμιση των προσωπικών σας δεδομένων εκχωρούνται στις βάσεις δεδομένων."/>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

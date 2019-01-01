@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="chemistry1">
+        <item>FEMVIGOR</item>
+        <item>AGRIMARTIN_AGRIPHOS</item>
+        <item>VIVERE_FYT</item>
+        <item>FISH_GUANO</item>
+        <item>DACOTA</item>
+        <item>ACIMAR_AMINO</item>
+        <item>AGRIMARTIN_Fe</item>
+        <item>AGRIMARTIN_BIOLOGICO_LIQUIDO</item>
+        <item>PANTENTKALI</item>
+        <item>FERTOR</item>
+        <item>CALCIPHAN</item>
+        <item>GEPAVIT_E.H.S.‐26</item>
+    </string-array>
+</resources>

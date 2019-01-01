@@ -1,0 +1,472 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+<string-array name="pref_save_dates_descriptions">
+    <item name="1">@string/arrays_one_day</item>
+    <item name="7">@string/arrays_seven_days</item>
+    <item name="30">@string/arrays_thirty_days</item>
+    <item name="9999">@string/arrays_infinite</item>
+</string-array>
+<string-array
+tools:ignore="MissingTranslation"
+name="pref_save_dates_values">
+<item name="1">1</item>
+<item name="7">7</item>
+<item name="30">30</item>
+<item name="9999">9999</item>
+</string-array>
+<string-array name="pref_ping_floating_button_description">
+<item name="always">@string/pref_ping_floating_button_summary_always</item>
+<item name="typing">@string/pref_ping_floating_button_summary_typing</item>
+</string-array>
+<string-array
+tools:ignore="MissingTranslation"
+name="pref_ping_floating_button_values">
+<item name="always">always</item>
+<item name="typing">typing</item>
+</string-array>
+    <!-- floating button -->
+    <!-- notification priority -->
+<string-array name="pref_notification_priority_descriptions">
+<item name="high">@string/pref_notification_priority_high</item>
+<item name="middle">@string/pref_notification_priority_middle</item>
+<item name="low">@string/pref_notification_priority_low</item>
+</string-array>
+<string-array
+tools:ignore="MissingTranslation"
+name="pref_notification_priority_values">
+<item name="high">2</item>
+<item name="middle">1</item>
+<item name="low">0</item>
+</string-array>
+    <!-- press behavior -->
+<string-array name="pref_click_behavior_descriptions">
+<item name="false">@string/pref_click_summary_false</item>
+<item name="true">@string/pref_click_summary_true</item>
+</string-array>
+<string-array
+tools:ignore="MissingTranslation"
+name="pref_click_behavior_values">
+<item name="false">0</item>
+<item name="true">1</item>
+</string-array>
+
+    <string-array name="temperatureUnits">
+        <item name="C">@string/setting_unit_Celsuis</item>
+        <item name="F">@string/setting_unit_Fahrenheit</item>
+        <item name="K">@string/setting_unit_Kelvin</item>
+    </string-array>
+    <string-array name="temperatureUnitsValues">
+        <item name="C">°C</item>
+        <item name="F">°F</item>
+        <item name="K">K</item>
+    </string-array>
+    <string-array name="lengthUnits">
+        <item name="mm">@string/setting_unit_mm</item>
+        <item name="inch">@string/setting_unit_in</item>
+    </string-array>
+    <string-array name="lengthUnitsValues">
+        <item name="mm">mm</item>
+        <item name="inch">in</item>
+    </string-array>
+    <string-array name="speedUnits">
+        <item name="mps">@string/setting_unit_mps</item>
+        <item name="kph">@string/setting_unit_kph</item>
+        <item name="mph">@string/setting_unit_mph</item>
+        <item name="bft">@string/setting_unit_bft</item>
+        <item name="kn">@string/setting_unit_kn</item>
+    </string-array>
+    <string-array name="speedUnitsValues">
+        <item name="mps">m/s</item>
+        <item name="kph">kph</item>
+        <item name="mph">mph</item>
+        <item name="bft">bft</item>
+        <item name="kn">kn</item>
+    </string-array>
+
+    <string-array name="pressureUnits">
+        <item name="hpa">@string/setting_unit_hpa</item>
+        <item name="kpa">@string/setting_unit_kpa</item>
+        <item name="mmhg">@string/setting_unit_mmhg</item>
+        <item name="inhg">@string/setting_unit_inhg</item>
+    </string-array>
+    <string-array name="pressureUnitsValues">
+        <item name="hpa">hPa</item>
+        <item name="kpa">kPa</item>
+        <item name="mmhg">mm Hg</item>
+        <item name="inhg">in Hg</item>
+    </string-array>
+    <string-array name="windDirections">
+        <item name="n">@string/wind_direction_north</item>
+        <item name="nne">@string/wind_direction_north_north_east</item>
+        <item name="ne">@string/wind_direction_north_east</item>
+        <item name="ene">@string/wind_direction_east_north_east</item>
+        <item name="e">@string/wind_direction_east</item>
+        <item name="ese">@string/wind_direction_east_south_east</item>
+        <item name="se">@string/wind_direction_south_east</item>
+        <item name="sse">@string/wind_direction_south_south_east</item>
+        <item name="s">@string/wind_direction_south</item>
+        <item name="ssw">@string/wind_direction_south_south_west</item>
+        <item name="sw">@string/wind_direction_south_west</item>
+        <item name="wsw">@string/wind_direction_west_south_west</item>
+        <item name="w">@string/wind_direction_west</item>
+        <item name="wnw">@string/wind_direction_west_north_west</item>
+        <item name="nw">@string/wind_direction_north_west</item>
+        <item name="nnw">@string/wind_direction_north_north_west</item>
+    </string-array>
+    <string-array name="windDirectionArrows">
+        <item name="n">&#x2193;</item>
+        <item name="ne">&#x2199;</item>
+        <item name="e">&#x2190;</item>
+        <item name="se">&#x2196;</item>
+        <item name="s">&#x2191;</item>
+        <item name="sw">&#x2197;</item>
+        <item name="w">&#x2192;</item>
+        <item name="nw">&#x2198;</item>
+    </string-array>
+    <string-array name="windDirectionFormats">
+        <item name="none">@string/wind_direction_format_none</item>
+        <item name="arrow">@string/wind_direction_format_arrows</item>
+        <item name="abbr">@string/wind_direction_format_abbreviations</item>
+    </string-array>
+    <string-array name="windDirectionFormatValues">
+        <item name="none">none</item>
+        <item name="arrow">arrow</item>
+        <item name="abbr">abbr</item>
+    </string-array>
+
+    <string-array name="refreshIntervals">
+        <item name="none">@string/settings_none</item>
+        <item name="15">15 min</item>
+        <item name="30">30 min</item>
+        <item name="1">1 h</item>
+        <item name="2">2 h</item>
+        <item name="6">6 h</item>
+        <item name="12">12 h</item>
+        <item name="24">24 h</item>
+    </string-array>
+    <string-array name="refreshIntervalsValues">
+        <item name="none">0</item>
+        <item name="15">15</item>
+        <item name="30">30</item>
+        <item name="1">1</item>
+        <item name="2">2</item>
+        <item name="6">6</item>
+        <item name="12">12</item>
+        <item name="24">24</item>
+    </string-array>
+
+    <string-array name="dateFormatsValues">
+        <item>E dd.MM.yyyy - HH:mm</item>
+        <item>dd.MM.yyyy - HH:mm</item>
+        <item>E MM/dd/yyyy - hh:mm a</item>
+        <item>MM/dd/yyyy - hh:mm a</item>
+        <item>custom</item>
+    </string-array>
+
+    <string-array name="themes">
+        <item name="fresh">@string/setting_theme_fresh</item>
+        <item name="classic">@string/setting_theme_classic</item>
+        <item name="dark">@string/setting_theme_dark</item>
+        <item name="classicdark">@string/setting_theme_classic_dark</item>
+    </string-array>
+    <string-array name="themesValues">
+        <item name="fresh">fresh</item>
+        <item name="classic">classic</item>
+        <item name="dark">dark</item>
+        <item name="classicdark">classicdark</item>
+    </string-array>
+    <string-array name="pref_upload_quality_entries">
+        <item>360p</item>
+        <item>480p</item>
+        <item>720p</item>
+        <item>1080p</item>
+        <item>Original</item>
+    </string-array>
+    <string-array name="pref_upload_quality_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="pref_forecast_columns" translatable="false">
+        <item>@string/forecast_settings_column_icon</item>
+        <item>@string/forecast_settings_column_description</item>
+        <item>@string/forecast_settings_column_temperature</item>
+        <item>@string/forecast_settings_column_wind</item>
+        <item>@string/forecast_settings_column_rainsnow</item>
+        <item>@string/forecast_settings_column_humidity</item>
+        <item>@string/forecast_settings_column_pressure</item>
+    </string-array>
+    <string-array name="pref_temperature_units_entries" translatable="false">
+        <item>°C</item>
+        <item>°F</item>
+    </string-array>
+    <string-array name="pref_temperature_units_values" translatable="false">
+        <item>celsius</item>
+        <item>fahrenheit</item>
+    </string-array>
+    <string-array name="pref_temperature_type_entries" translatable="false">
+        <item>@string/measured_only</item>
+        <item>@string/measured_appearance_primary_measured</item>
+        <item>@string/measured_appearance_primary_appearance</item>
+        <item>@string/appearance_only</item>
+    </string-array>
+    <string-array name="pref_temperature_type_values" translatable="false">
+        <item>measured_only</item>
+        <item>measured_appearance_primary_measured</item>
+        <item>measured_appearance_primary_appearance</item>
+        <item>appearance_only</item>
+    </string-array>
+    <string-array name="pref_wind_units_entries" translatable="false">
+        <item>m/s</item>
+        <item>km/h</item>
+        <item>@string/wind_speed_miles</item>
+        <item>@string/wind_speed_knots</item>
+    </string-array>
+    <string-array name="pref_wind_units_values" translatable="false">
+        <item>m_per_second</item>
+        <item>km_per_hour</item>
+        <item>miles_per_hour</item>
+        <item>knots</item>
+    </string-array>
+    <string-array name="pref_pressure_units_entries" translatable="false">
+        <item>hPa</item>
+        <item>mmHg</item>
+    </string-array>
+    <string-array name="pref_pressure_units_values" translatable="false">
+        <item>hpa</item>
+        <item>mmhg</item>
+    </string-array>
+
+    <string-array name="location_update_strategy">
+        <item>@string/update_location_none</item>
+        <item>@string/update_location_full</item>
+        <item>@string/update_location_network_only</item>
+    </string-array>
+    <string-array name="location_update_strategy_values" translatable="false">
+        <item>update_location_none</item>
+        <item>update_location_full</item>
+        <item>update_location_network_only</item>
+    </string-array>
+
+    <string-array name="notification_refresh_intervals_entries">
+        <item>@string/update_period_15min</item>
+        <item>@string/update_period_30min</item>
+        <item>@string/update_period_1hour</item>
+        <item>@string/update_period_3hours</item>
+        <item>@string/update_period_6hours</item>
+        <item>@string/update_period_12hours</item>
+        <item>@string/update_period_24hours</item>
+    </string-array>
+    <string-array name="notification_refresh_interval_values" translatable="false">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>720</item>
+        <item>1440</item>
+    </string-array>
+
+    <string-array name="location_auto_update_period_entries">
+        <item>@string/update_period_nothing</item>
+        <item>@string/update_period_by_sensors</item>
+        <item>@string/update_period_15min</item>
+        <item>@string/update_period_30min</item>
+        <item>@string/update_period_1hour</item>
+        <item>@string/update_period_3hours</item>
+        <item>@string/update_period_6hours</item>
+        <item>@string/update_period_12hours</item>
+        <item>@string/update_period_24hours</item>
+    </string-array>
+    <string-array name="location_auto_update_period_values" translatable="false">
+        <item>OFF</item>
+        <item>0</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>720</item>
+        <item>1440</item>
+    </string-array>
+
+    <string-array name="location_update_period_entries">
+        <item>@string/update_period_nothing</item>
+        <item>@string/update_period_15min</item>
+        <item>@string/update_period_30min</item>
+        <item>@string/update_period_1hour</item>
+        <item>@string/update_period_3hours</item>
+        <item>@string/update_period_6hours</item>
+        <item>@string/update_period_12hours</item>
+        <item>@string/update_period_24hours</item>
+    </string-array>
+    <string-array name="location_update_period_values" translatable="false">
+        <item>0</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>720</item>
+        <item>1440</item>
+    </string-array>
+
+    <string-array name="location_cache_entries">
+        <item>@string/location_cache_enable_off</item>
+        <item>@string/location_cache_enable_on</item>
+    </string-array>
+
+    <string-array name="location_geocoder_source_entries">
+        <item>@string/location_geocoder_local</item>
+        <item>@string/location_geocoder_system</item>
+    </string-array>
+    <string-array name="location_geocoder_source_values" translatable="false">
+        <item>location_geocoder_local</item>
+        <item>location_geocoder_system</item>
+    </string-array>
+
+    <string-array name="preference_display_update_entries">
+        <item>@string/preference_display_update_nothing</item>
+        <item>@string/preference_display_update_value</item>
+        <item>@string/preference_display_update_location_source</item>
+    </string-array>
+    <string-array name="preference_display_update_values" translatable="false">
+        <item>preference_display_update_nothing</item>
+        <item>preference_display_update_value</item>
+        <item>preference_display_update_location_source</item>
+    </string-array>
+
+    <string-array name="widget_theme_entries">
+        <item>@string/theme_dark</item>
+        <item>@string/theme_light</item>
+        <item>@string/theme_transparent</item>
+    </string-array>
+    <string-array name="widget_theme_values" translatable="false">
+        <item>dark</item>
+        <item>light</item>
+        <item>transparent</item>
+    </string-array>
+
+    <!-- Wind directions array -->
+    <string-array name="wind_directions">
+        <item>@string/wind_direction_north</item>
+        <item>@string/wind_direction_north_east</item>
+        <item>@string/wind_direction_east</item>
+        <item>@string/wind_direction_south_east</item>
+        <item>@string/wind_direction_south</item>
+        <item>@string/wind_direction_south_west</item>
+        <item>@string/wind_direction_west</item>
+        <item>@string/wind_direction_north_west</item>
+    </string-array>
+    <string-array name="wind_direction_arrows" translatable="false">
+        <item name="n">&#xf058;</item>
+        <item name="ne">&#xf057;</item>
+        <item name="e">&#xf04d;</item>
+        <item name="se">&#xf088;</item>
+        <item name="s">&#xf044;</item>
+        <item name="sw">&#xf043;</item>
+        <item name="w">&#xf048;</item>
+        <item name="nw">&#xf087;</item>
+    </string-array>
+
+    <!-- Languages array -->
+    <string-array name="language_entries" translatable="false">
+        <item name="default">@string/pref_language_default</item>
+        <item name="arabic">@string/pref_language_ar</item>
+        <item name="english">English</item>
+        <item name="basque">Euskara (Basque)</item>
+        <item name="belarusian">Беларуская (Belarusian)</item>
+        <item name="catalan">Català (Catalan)</item>
+        <item name="czech">Čeština (Czech)</item>
+        <item name="greek">@string/pref_language_el</item>
+        <item name="spanish">@string/pref_language_es</item>
+        <item name="french">Français (French)</item>
+        <item name="hungarian">@string/pref_language_hu</item>
+        <item name="italian">Italiano (Italian)</item>
+        <item name="german">Deutsch (German)</item>
+        <item name="spanish">Español (Spanish)</item>
+        <item name="japanese">日本語 (Japanese)</item>
+        <item name="norwegian">@string/pref_language_nb_rNO</item>
+        <item name="dutch">@string/pref_language_nl</item>
+        <item name="nyanja">@string/pref_language_ny</item>
+        <item name="polish">Polski (Polish)</item>
+        <item name="russian">Русский (Russian)</item>
+        <item name="swahili">@string/pref_language_sw</item>
+        <item name="turkish">Türkçe (Turkish)</item>
+        <item name="chinese">@string/pref_language_zh_rcn</item>
+    </string-array>
+    <string-array name="language_values" translatable="false">
+        <item name="default">default</item>
+        <item name="arabic">ar</item>
+        <item name="english">en</item>
+        <item name="basque">eu</item>
+        <item name="belarusian">be</item>
+        <item name="catalan">ca</item>
+        <item name="czech">cs</item>
+        <item name="greek">el</item>
+        <item name="spanish">es</item>
+        <item name="french">fr</item>
+        <item name="hungarian">hu</item>
+        <item name="italian">it</item>
+        <item name="german">de</item>
+        <item name="spanish">es</item>
+        <item name="japanese">ja</item>
+        <item name="norwegian">nb-rNO</item>
+        <item name="dutch">nl</item>
+        <item name="nyanja">ny</item>
+        <item name="polish">pl</item>
+        <item name="russian">ru</item>
+        <item name="swahili">sw</item>
+        <item name="turkish">tr</item>
+        <item name="chinese">zh-rCN</item>
+    </string-array>
+
+    <!-- Themes array -->
+    <string-array name="theme_entries">
+        <item name="light">@string/theme_light</item>
+        <item name="dark">@string/theme_dark</item>
+    </string-array>
+
+    <string-array name="wake_up_strategy_entries">
+        <item>@string/nowakeup_label</item>
+        <item>@string/wakeuppartial_label</item>
+        <item>@string/wakeupfull_label</item>
+    </string-array>
+    <string-array name="wake_up_strategy_values" translatable="false">
+        <item>nowakeup</item>
+        <item>wakeuppartial</item>
+        <item>wakeupfull</item>
+    </string-array>
+    <string-array name="location_cache_lasting_entries">
+        <item>@string/location_cache_12_label</item>
+        <item>@string/location_cache_24_label</item>
+        <item>@string/location_cache_168_label</item>
+        <item>@string/location_cache_720_label</item>
+        <item>@string/location_cache_2190_label</item>
+        <item>@string/location_cache_4380_label</item>
+        <item>@string/location_cache_8760_label</item>
+        <item>@string/location_cache_88888_label</item>
+    </string-array>
+    <string-array name="location_cache_lasting_values" translatable="false">
+        <item>12</item>
+        <item>24</item>
+        <item>168</item>
+        <item>720</item>
+        <item>2190</item>
+        <item>4380</item>
+        <item>8760</item>
+        <item>88888</item>
+    </string-array>
+
+    <string-array name="weather_icon_set_entries">
+        <item>@string/weather_icon_set_fontbased</item>
+        <item>@string/weather_icon_set_merlin_the_red</item>
+    </string-array>
+    <string-array name="weather_icon_set_values" translatable="false">
+        <item>weather_icon_set_fontbased</item>
+        <item>weather_icon_set_merlinTheRed</item>
+    </string-array>
+
+</resources>

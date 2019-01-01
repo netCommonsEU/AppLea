@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#00BFFF"
+        android:minHeight="?android:attr/actionBarSize" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/click1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00BFFF">
+
+        <com.github.zagum.expandicon.ExpandIconView
+            android:id="@+id/expand_icon2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="160dp"
+            app:eiv_animationDuration="300"
+            app:eiv_color="#000"
+            app:eiv_colorLess="@color/colorPrimary"
+            app:eiv_colorMore="@color/colorAccent"
+            app:eiv_roundedCorners="false"
+            app:eiv_switchColor="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ΕΙΔΗ ΚΑΤΑΧΩΡΉΣΕΩΝ"
+            android:textStyle="normal|italic"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rl2"
+        android:layout_height="wrap_content">
+
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch5"
+            android:text="Αραίωμα"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch6"
+            android:text="Άδρευση"
+            android:layout_below="@+id/ch5"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch7"
+            android:text="Λίπανση"
+            android:layout_below="@+id/ch6"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch8"
+            android:text="Κλάδεμα"
+            android:layout_below="@+id/ch7"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch9"
+            android:text="Όργωμα"
+            android:layout_below="@+id/ch8"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch10"
+            android:text="Συγκομιδή Πρώτο Χέρι"
+            android:layout_below="@+id/ch9"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch11"
+            android:text="Συγκομιδή Δεύτερο Χέρι"
+            android:layout_below="@+id/ch10"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch12"
+            android:text="Συγκομιδή Τρίτο Χέρι"
+            android:layout_below="@+id/ch11"
+            android:layout_height="wrap_content" />
+
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch13"
+            android:text="Συγκομιδή Τέταρτο Χέρι"
+            android:layout_below="@+id/ch12"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch14"
+            android:text="Ψεκασμός"
+            android:layout_below="@+id/ch13"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch15"
+            android:text="Καλλιεργητής-Καταστροφέας"
+            android:layout_below="@+id/ch14"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch16"
+            android:text="Αγορά Λιπάσματος"
+            android:layout_below="@+id/ch15"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch17"
+            android:text="Αγορά Ραντιστικού"
+            android:layout_below="@+id/ch16"
+            android:layout_height="wrap_content" />
+
+
+
+    </RelativeLayout>
+
+     <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/select"
+    android:text="ΕΠΙΛΟΓΗ"/>
+
+
+</LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sortrank">
+        <item>18-25</item>
+        <item>25-35</item>
+        <item>35-45 </item>
+        <item>45-55</item>
+        <item>55-65</item>
+        <item>Elassona </item>
+        <item>Small Eleftherohori</item>
+        <item>Dolihi</item>
+        <item>Flabouro</item>
+        <item>Kokkinogi</item>
+        <item>Kokkinopilos</item>
+        <item>Lofos</item>
+        <item>Pithio</item>
+        <item>Kalivia</item>
+        <item>Sarantaporo</item>
+        <item>Likoudi</item>
+        <item>Geraneia</item>
+        <item>Milea</item>
+        <item>Farmaki</item>
+        <item>Tsapournia</item>
+    </string-array>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="agerank">
+        <item>18-25</item>
+        <item>25-35</item>
+        <item>35-45 </item>
+        <item>45-55</item>
+        <item>55-65</item>
+        <item>Όλα</item>
+    </string-array>
+</resources>

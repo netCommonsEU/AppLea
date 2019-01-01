@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="villagesrank">
+        <item>Μικρό Ελευθεροχώρι</item>
+        <item>Δολίχι</item>
+        <item>Φλάμπουρο</item>
+        <item>Κοκκινόγη</item>
+        <item>Κοκκινοπηλός</item>
+        <item>Λόφος</item>
+        <item>Πυθίο</item>
+        <item>Καλυβία</item>
+        <item>Σαρανταπόρο</item>
+        <item>Λυκουδί</item>
+        <item>Γεράνεια</item>
+        <item>Μηλέα</item>
+        <item>Φαρμάκη</item>
+        <item>Τσαπουρνιά</item>
+        <item>Όλα</item>
+    </string-array>
+</resources>

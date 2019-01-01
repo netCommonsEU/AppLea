@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_instagram"
+        android:enabled="true"
+        android:icon="@drawable/ic_instagram_white"
+        android:title="@string/social"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/action_score"
+        android:enabled="true"
+        android:icon="@drawable/history_post"
+        android:title="@string/history_bottom"
+        app:showAsAction="always|withText" />
+
+    <item
+        android:id="@+id/action_weather"
+        android:enabled="true"
+        android:icon="@drawable/weather"
+        android:title="@string/C"
+        app:showAsAction="always|withText" />
+
+
+    <item
+        android:id="@+id/action_profile"
+        android:enabled="true"
+        android:icon="@drawable/profile"
+        android:title="@string/profile_bottom"
+        app:showAsAction="always|withText" />
+</menu>

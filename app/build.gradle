@@ -1,0 +1,210 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'jacoco'
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+
+    defaultConfig {
+        applicationId "com.example.commontask"
+        minSdkVersion 20
+        targetSdkVersion 27
+        versionCode 1
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "FORECAST_IO_API_KEY", "\"97b232a76771e4bd5fcd985da278ac0d\""
+        vectorDrawables.useSupportLibrary = true
+        buildConfigField("String", "API_KEY", API_KEY)
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        packagingOptions {
+            exclude 'META-INF/DEPENDENCIES.txt'
+            exclude 'META-INF/LICENSE.txt'
+            exclude 'META-INF/NOTICE.txt'
+            exclude 'META-INF/NOTICE'
+            exclude 'META-INF/LICENSE'
+            exclude 'META-INF/DEPENDENCIES'
+            exclude 'META-INF/notice.txt'
+            exclude 'META-INF/license.txt'
+            exclude 'META-INF/dependencies.txt'
+            exclude 'META-INF/LGPL2.1'
+        }
+    }
+
+
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "4g"
+        incremental true
+    }
+
+
+
+    lintOptions {
+        htmlReport false
+        xmlReport false
+        textReport true
+        warningsAsErrors true
+        abortOnError true
+        explainIssues false
+        absolutePaths false
+        ignore "InvalidPackage" // square/okio#58
+    }
+
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            exceptionFormat 'full'
+        }
+        maxHeapSize = '2048m'
+        maxParallelForks = 1
+        forkEvery = 1
+
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+
+ext {
+    retrofit2Version = '2.0.0'
+    robolectricVersion = '3.0'
+    assertjVersion = '1.1.1'
+}
+dependencies {
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-vector-drawable:27.1.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //Jackson Databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.7.2'
+    // FirebaseUI
+    implementation 'com.firebaseui:firebase-ui:0.6.0'
+    implementation 'mbanje.kurt:fabbutton:1.2.1'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.firebase:firebase-messaging:11.6.0'
+    implementation 'com.github.bluejamesbond:textjustify-android:2.1.0'
+    implementation 'com.google.firebase:firebase-config:11.6.0'
+    implementation 'com.google.firebase:firebase-storage:11.6.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.google.firebase:firebase-database:11.6.0'
+    implementation 'com.google.firebase:firebase-auth:11.6.0'
+    implementation 'com.google.firebase:firebase-core:11.6.0'
+    implementation 'com.firebase:firebase-client-android:2.5.2'
+    implementation 'com.intuit.sdp:sdp-android:1.0.3'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    // annotationProcessor 'com.github.bumptech.glide:compiler:3.8.0'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.daimajia.androidanimations:library:1.1.3@aar'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    implementation 'com.google.android.gms:play-services:11.6.0'
+    implementation 'com.weiwangcn.betterspinner:library:1.1.0'
+    implementation 'com.google.android.apps.dashclock:dashclock-api:2.0.0'
+    implementation 'com.roughike:bottom-bar:1.4.0.1'
+    implementation 'com.diogobernardino:williamchart:2.2'
+    implementation 'org.adw.library:discrete-seekbar:1.0.1'
+    implementation 'com.jaredrummler:material-spinner:1.2.4'
+    //Glide transform
+    implementation 'jp.wasabeef:glide-transformations:2.0.1'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.weiwangcn.betterspinner:library-material:1.1.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.5.1'
+    implementation 'com.itextpdf:itextg:5.5.9'
+    implementation 'com.github.zagum:Android-ExpandIcon:1.2.1'
+    implementation 'com.balysv:material-ripple:1.0.2'
+    implementation 'info.hoang8f:fbutton:1.0.5'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // Recycler Pull and Refresh
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    // GSON
+    implementation 'com.google.code.gson:gson:2.8.2'
+    // Dexter, requesting permissions
+    implementation 'com.karumi:dexter:4.2.0'
+    implementation 'com.github.dmytrodanylyk:android-morphing-button:98a4986e56'
+    implementation 'com.github.ParkSangGwon:TedPicker:v1.0.10'
+    implementation 'com.squareup.okhttp:okhttp:2.7.2'
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    //Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    //Universal image loader
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //BottomNavigationViewEx library
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.1'
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version",
+            "com.squareup.retrofit2:converter-gson:$retrofit2Version"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion",
+            "org.robolectric:shadows-support-v4:$robolectricVersion",
+            'org.mockito:mockito-core:1.9.5',
+            'junit:junit:4.12'
+    testImplementation("com.squareup.assertj:assertj-android:$assertjVersion") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    implementation 'org.microg:unifiednlp-api:1.5.6'
+    implementation 'org.microg:address-formatter:0.2.1'
+    implementation 'com.obsez.android.lib.filechooser:filechooser:1.1.5'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'org.osmdroid:osmdroid-android:6.0.1'
+    implementation 'com.android.support:exifinterface:27.1.1'
+    //design library for Coordinator Layout
+    implementation 'com.android.support:design:27.1.1'
+    //Exo Player
+    implementation 'com.google.android.exoplayer:exoplayer:2.6.0'
+    //elastic header
+    implementation 'com.github.eschao:android-ElasticListView:v1.0'
+    //material dialogs
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    implementation files('libs/aspectjrt-1.7.3.jar')
+    implementation 'com.android.support:support-annotations:27.1.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-annotations:27.1.1'
+    implementation 'com.android.support:support-vector-drawable:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.android.support:palette-v7:27.1.1'
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+    reports {
+        xml.enabled true
+        xml.destination "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+        html.destination "${buildDir}/reports/coverage"
+    }
+
+    executionData = files "${buildDir}/jacoco/testDebugUnitTest.exec"
+    sourceDirectories = files android.sourceSets.main.java.srcDirs
+    classDirectories = fileTree(dir: "${buildDir}/intermediates/classes/debug",
+            exclude: ['**/R.class', '**/R$*.class'])
+
+    doLast {
+        println "coveralls report has been generated to file://${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+        println "coverage report generated at file://${reports.html.destination}/index.html"
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:title="@string/header_general">
+        <intent
+            android:action="@string/general"
+            android:targetClass="com.example.commontask.WelcomeSetting"
+            android:targetPackage="com.example.commontask" />
+    </Preference>
+    <Preference android:title="@string/header_advanced">
+        <intent
+            android:action="@string/advanced"
+            android:targetClass="com.example.commontaskt.WelcomeSetting"
+            android:targetPackage="com.example.commontask" />
+    </Preference>
+</PreferenceScreen>

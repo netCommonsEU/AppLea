@@ -1,0 +1,301 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/blue500</item>
+        <item name="colorPrimaryDark">@color/blue700</item>
+        <item name="colorAccent">@color/greenA700</item>
+        <item name="alertDialogTheme">@style/Theme.AppTheme.Dialog.Alert</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme" />
+    <style name="Base" />
+    <style name="Base.Theme" />
+
+    <style name="ThemeOverlay" />
+
+    <style name="SplashTheme1" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/farmsplash</item>
+    </style>
+
+
+    <style name="Theme.AppTheme.Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/blue500</item>
+        <item name="colorAccent">@color/greenA700</item>
+    </style>
+
+    <style name="AppTheme_picker" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/text_shadow_white</item>
+        <item name="android:textColorPrimary">@color/iron</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- the theme applied to the application or activity -->
+    <style name="CustomActionBarTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!--<item name="android:actionBarStyle">@style/MyActionBar</item>-->
+        <!--<item name="android:popupMenuStyle">@style/MyApp.PopupMenu</item>-->
+        <item name="android:popupBackground">#622389</item>
+        <item name="actionBarPopupTheme">@color/primary</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/accent</item>
+
+
+        <!--<item name="textColorPrimary"></item>-->
+        <!--<item name="windowBackground"></item>-->
+        <!--<item name="android:statusBarColor">@color/material_deep_teal_200</item>-->
+        <!--<item name="android:navigationBarColor">@color/material_deep_teal_200</item>-->
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+    </style>
+
+    <style name="TextViewAppearance.Headline2" parent="@style/TextViewAppearance">
+        <item name="typeface">robotoLight</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/global_color_primary_light</item>
+    </style>
+
+    <style name="TextViewAppearance" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="typeface">robotoRegular</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingLeft">26dp</item>
+        <item name="android:paddingRight">26dp</item>
+        <!-- Supports API Level 17+ -->
+        <!-- <item name="android:paddingStart">26dp</item> -->
+        <!-- Supports API Level 17+ -->
+        <!-- <item name="android:paddingEnd">26dp</item> -->
+    </style>
+
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/darkTheme_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkTheme_colorPrimaryDark</item>
+        <item name="colorAccent">@color/darkTheme_colorAccent</item>
+        <item name="colorBackground">@color/darkTheme_colorBackground</item>
+        <item name="colorTintedBackground">@color/darkTheme_colorTintedBackground</item>
+    </style>
+
+    <style name="AppTheme.Classic" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/classic_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/classic_colorPrimaryDark</item>
+        <item name="colorAccent">@color/classic_colorAccent</item>
+        <item name="colorBackground">@color/classic_colorBackground</item>
+        <item name="colorTintedBackground">@color/classic_colorTintedBackground</item>
+    </style>
+
+
+    <style name="AppTheme.Classic.Dark" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/classic_darkTheme_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/classic_darkTheme_colorPrimaryDark</item>
+        <item name="colorAccent">@color/classic_darkTheme_colorAccent</item>
+        <item name="colorBackground">@color/classic_darkTheme_colorBackground</item>
+        <item name="colorTintedBackground">@color/classic_darkTheme_colorTintedBackground</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar.Classic" parent="AppTheme.Classic">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Dark" parent="AppTheme.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Classic.Dark" parent="AppTheme.Classic.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay.Dark" parent="ThemeOverlay.AppCompat" />
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+
+    <style name="boldText">
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="normalText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+    <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+
+    </style>
+
+    <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+
+    </style>
+
+
+
+
+
+    <style name="Widget.AppTheme.TextView.Weather">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">@dimen/padding_text</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:paddingTop">@dimen/padding_text</item>
+        <item name="android:paddingBottom">@dimen/padding_text</item>
+    </style>
+
+    <style name="Widget.AppTheme.Drawer">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="AppTheme.NoStatusBar" parent="AppTheme.NoActionBar"></style>
+    <style name="AppBaseThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="actionBarTheme">@style/AppThemeLight.Toolbar</item>
+        <item name="actionBarPopupTheme">@style/AppThemeLight.Toolbar</item>
+    </style>
+    <style name="AppBaseThemeDark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="actionBarTheme">@style/AppThemeLight.Toolbar</item>
+        <item name="actionBarPopupTheme">@style/AppThemeLight.Toolbar</item>
+    </style>
+
+    <style name="AppThemeDark" parent="AppBaseThemeDark">
+    </style>
+
+    <style name="AppThemeLight" parent="AppBaseThemeLight">
+    </style>
+
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="AppThemeLight.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="MainLinearLayout">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_height">48dp</item>
+    </style>
+
+    <style name="MainIcon">
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginEnd" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginStart" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
+        <item name="android:textAlignment" tools:targetApi="17">gravity</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorAccentDark</item>
+    </style>
+
+    <style name="MainConditions">
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginEnd" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginStart" tools:targetApi="17">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="AppDialogWhenLargeTheme" parent="Theme.AppCompat.Light.DialogWhenLarge">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+
+
+    <style name="Widget" />
+
+    <style name="Widget.AppTheme" />
+
+    <style name="Widget.AppTheme.EventEditView">
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+    </style>
+
+    <style name="Widget.AppTheme.EventEditView.TextView">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="Widget.AppTheme.EventEditView.TextView.Selectable">
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Widget.AppTheme.EventEditView.TextView.Selectable.End">
+        <item name="android:gravity">center_vertical|end</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Hint" parent="TextAppearance.Design.Hint" />
+
+    <style name="TextAppearance.AppTheme.Hint.Disabled">
+        <item name="android:textColor">?android:attr/textColorHint</item>
+    </style>
+
+    <style name="Widget.AppTheme.TextView" />
+
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/text_shadow_white</item>
+        <item name="android:textColor">@color/orange</item>
+    </style>
+
+
+
+    <style name="Widget.AppCompat">
+        <item name="colorButtonNormal">@color/text_shadow_white</item>
+    </style>
+
+    <style name="TextAppearance"></style>
+
+    <style name="TextAppearance.Design"></style>
+
+    <style name="TextAppearance.Design.Hint"></style>
+
+
+</resources>

@@ -1,0 +1,144 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/relat"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:contextClickable="true"
+android:layout_alignParentBottom="true">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="#80000000"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:id="@+id/tab"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:layout_weight="1.25"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:contextClickable="true"
+        android:orientation="vertical"
+        tools:ignore="UnusedAttribute">
+
+        <ImageButton
+            android:id="@+id/tab1_icon"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="false"
+            android:fontFamily="sans-serif-light"
+            android:src="@drawable/if_house" />
+
+        <TextView
+            android:id="@+id/tab1_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tab1_icon"
+            android:gravity="center"
+            android:text="COMMUNITY"
+            android:textStyle="bold|italic"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tab2"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_weight="1.25"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:contextClickable="true"
+        android:orientation="vertical"
+        tools:ignore="UnusedAttribute">
+
+        <ImageButton
+            android:id="@+id/tab2_icon"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="false"
+            android:fontFamily="sans-serif-light"
+            android:src="@drawable/rsz_check" />
+
+        <TextView
+            android:id="@+id/tab2_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tab2_icon"
+            android:gravity="center"
+            android:text="NOTES"
+            android:textStyle="bold|italic"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/tab3"
+        android:layout_width="40dp"
+        android:layout_height="70dp"
+        android:layout_weight="1.25"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
+        tools:ignore="UnusedAttribute"
+        android:contextClickable="true"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/tab3_icon"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="false"
+            android:fontFamily="sans-serif-light"
+            android:src="@drawable/score" />
+
+        <TextView
+            android:id="@+id/tab3_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tab3_icon"
+            android:gravity="center"
+            android:text="RANK"
+            android:textStyle="bold|italic"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/tab4"
+        android:layout_width="40dp"
+        android:layout_height="70dp"
+        android:layout_weight="1.25"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
+        tools:ignore="UnusedAttribute"
+        android:contextClickable="true"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/tab4_icon"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="false"
+            android:fontFamily="sans-serif-light"
+            android:src="@drawable/profile" />
+
+        <TextView
+            android:id="@+id/tab4_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tab4_icon"
+            android:gravity="center"
+            android:text="PROFILE"
+            android:textStyle="bold|italic"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp" />
+    </RelativeLayout>
+</LinearLayout>
+</RelativeLayout>

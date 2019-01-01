@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+
+    <FrameLayout
+        android:id="@+id/click"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#00BFFF">
+
+        <com.github.zagum.expandicon.ExpandIconView
+            android:id="@+id/expand_icon3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            app:eiv_animationDuration="300"
+            app:eiv_color="#000"
+            app:eiv_colorLess="@color/colorPrimary"
+            app:eiv_colorMore="@color/colorAccent"
+            app:eiv_roundedCorners="false"
+            app:eiv_switchColor="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/personal_info"
+            android:textStyle="normal|italic"/>
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/ivContactItem3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:src="@drawable/messages"
+            android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+        <TextView
+            android:id="@+id/tvNumber3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/ivContactItem3"
+            android:ellipsize="end"
+            android:textSize="14dp"
+            android:layout_centerInParent="true"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#212121"
+            android:layout_toRightOf="@id/ivContactItem3" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl2"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/ivContactItem2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:src="@drawable/harvester"
+            android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+        <TextView
+            android:id="@+id/tvNumber2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/ivContactItem2"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:textSize="14dp"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#212121"
+            android:layout_toRightOf="@id/ivContactItem2" />
+    </RelativeLayout>
+
+</LinearLayout>

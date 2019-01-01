@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="insect">
+        <item>Οργανοφοσφωρικά</item>
+        <item>Καρβαμιδικά</item>
+        <item>Οργανοχλωρινικά</item>
+        <item>Φυσικά Πυροθροειδή</item>
+        <item>Συνθετικές Πυροθρίνες</item>
+        <item>Ρυθμιστές Αύξησης</item>
+    </string-array>
+</resources>

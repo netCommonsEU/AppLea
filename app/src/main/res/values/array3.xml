@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="job">
+        <item>Αγρότης</item>
+        <item>Κτηνοτρόφος</item>
+        <item>Μελλισοκόμος</item>
+        <item>Άλλο</item>
+    </string-array>
+</resources>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:com="http://schemas.android.com/tools"
+    android:background="#8c9eff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="55dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="4.5"
+            android:shadowDy="4.5"
+            android:shadowRadius="3.0"
+            android:text="AppLea"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            android:textStyle="italic"
+            com:innerShadowColor="#FF000000"
+            com:innerShadowDy="2dp"
+            com:innerShadowRadius="1dp"
+            com:outerShadowColor="#FF0088ff"
+            com:outerShadowDy="3dp"
+            com:outerShadowRadius="10dp"
+            com:strokeColor="#FFff0000"
+            com:strokeJoinStyle="miter"
+            com:strokeWidth="5dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textSize="20dp"
+                android:hint="Email "
+                android:id="@+id/input_email"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textSize="20dp"
+                android:hint="Password"
+                android:id="@+id/input_password"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:text="Save email and password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox" />
+        <CheckBox
+            android:id="@+id/cbShowPwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/etPassword"
+            android:layout_below="@+id/etPassword"
+            android:text="@string/label_show_password" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="Sign In"
+            android:id="@+id/btn_login"
+            android:padding="12dp"
+            android:background="@drawable/white_rounded_button"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="Do you have a account ? if not create one"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:id="@+id/link_signup"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="Forgot my password"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:id="@+id/reset_password"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please wait..."
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/progressBar"
+        android:layout_alignRight="@+id/progressBar"
+        android:layout_alignLeft="@+id/progressBar"
+        android:id="@+id/pleaseWait"/>
+
+</RelativeLayout>

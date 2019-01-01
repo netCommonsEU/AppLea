@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_dark">#2E7D32</color>
+    <color name="primary">#40a33c</color>
+    <color name="accent">#66BB6A</color>
+    <color name="primary_light">#A5D6A7</color>
+    <color name="primary_background">#E8F5E9</color>
+    <color name="like_black">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="background">#EEEEEE</color>
+    <color name="set_off">#FFFFFF</color>
+    <color name="colorText">#ffffff</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="ripple_primary">@color/primary_light</color>
+    <color name="ripple_high_light">#FFF59D</color>
+    <color name="windowBackground">#4db6ac</color>
+    <color name="colorAccentDark">#d84315</color>
+    <color name="swipe_red">#df5e65</color>
+    <color name="swipe_green">#42c25e</color>
+    <color name="swipe_blue">#4447da</color>
+    <color name="text_color">#302c2c</color>
+    <color name="settings_content_color">#000000</color>
+    <color name="divider_light">#ccc</color>
+    <color name="link_color">#0000FF</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="widget_darkTheme_colorBackground">#fa202020</color>
+    <color name="widget_darkTheme_textColorPrimary">#FFFFFF</color>
+    <color name="widget_darkTheme_window_colorBackground">#009688</color>
+
+    <color name="widget_lightTheme_colorBackground">#f5e7e7e7</color>
+    <color name="widget_lightTheme_textColorPrimary">#000000</color>
+    <color name="widget_lightTheme_window_colorBackground">#009688</color>
+
+    <color name="widget_transparentTheme_colorBackground">#00e7e7e7</color>
+    <color name="widget_transparentTheme_textColorPrimary">#FFFFFF</color>
+    <color name="widget_transparentTheme_window_colorBackground">#00e7e7e7</color>
+    <color name="delete">#F44336</color>
+    <color name="ripple_delete">#FFCDD2</color>
+    <color name="fab_starred">#fca503</color>
+    <color name="fab">@color/accent</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorMild">#9d9c9c</color>
+    <color name="colorDivider">#eae6e6</color>
+    <color name="text_shadow_white">#FFFFFF</color>
+    <color name="orange" >#FFFFBB33</color>
+    <color name="style_color_primary">#2d5d82</color>
+    <color name="style_color_primary_dark">#21425d</color>
+    <color name="style_color_accent">#01bcd5</color>
+    <color name="gray">#808080</color>
+    <color name="btn_context_menu_normal">#ffffff</color>
+    <color name="btn_context_menu_pressed">#40000000</color>
+    <color name="btn_context_menu_text_red">#ffff0000</color>
+    <color name="blue50">#E3F2FD</color>
+    <color name="cyan50">#E0F7FA</color>
+    <color name="btn_default_light_normal">#00000000</color>
+    <color name="btn_default_light_pressed">#40ffffff</color>
+    <color name="green50">#E8F5E9</color>
+    <color name="yellow50">#FFFDE7</color>
+    <color name="red50">#FFEBEE</color>
+    <color name="blue500">#2196F3</color>
+    <color name="blue700">#1976D2</color>
+    <color name="greenA700">#00C853</color>
+    <color name="yellow">#ffff00</color>
+    <color name="black">#000000</color>
+    <color name="red">#D7310C</color>
+    <color name="grey">#bfbfbf</color>
+    <color name="error_title">#c3c3c3</color>
+    <color name="white">#FFFFFF</color>
+    <color name="link_blue">#4d94ff</color>
+    <color name="darkRed">#cc0000</color>
+    <color name="material_animations_primary">#039BE5</color>
+    <color name="material_animations_primary_dark">#0277BD</color>
+    <color name="material_animations_blank">#424242</color>
+    <color name="material_animations_accent">#3F51B5</color>
+    <color name="background_recycle"> #E57373</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="text_dark">#616161</color>
+    <color name="text_light">@color/white</color>
+    <color name="darker_gray">#a9a9a9</color>
+    <color name="sinch_purple">#ff63029d</color>
+    <color name="bkg_card">#8C9EFF</color>
+    <color name="text_shadow">#7F000000</color>
+    <color name="global_color_primary_light">#f5f5f5</color>
+    <color name="global_color_green_primary">#4caf50</color>
+    <color name="global_color_green_primary_light">#c8e6c9</color>
+    <color name="global_color_green_primary_dark">#388e3c</color>
+    <color name="global_color_green_accent">#ffc107</color>
+    <color name="global_color_green_control_activated">#ffc107</color>
+    <color name="colorBackground">@android:color/transparent</color>
+    <color name="colorTintedBackground">#cdcdcd</color>
+
+    <color name="darkTheme_colorPrimary">#2196F3</color>
+    <color name="darkTheme_colorPrimaryDark">#1E88E5</color>
+    <color name="darkTheme_colorAccent">#2196F3</color>
+    <color name="darkTheme_colorBackground">#303030</color>
+    <color name="darkTheme_colorTintedBackground">#424242</color>
+
+    <color name="classic_colorPrimary">#607d8b</color>
+    <color name="classic_colorPrimaryDark">#455a64</color>
+    <color name="classic_colorAccent">#455a64</color>
+    <color name="classic_colorBackground">@android:color/transparent</color>
+    <color name="classic_colorTintedBackground">#cdcdcd</color>
+
+    <color name="classic_darkTheme_colorPrimary">#37474f</color>
+    <color name="classic_darkTheme_colorPrimaryDark">#263238</color>
+    <color name="classic_darkTheme_colorAccent">#90a4ae</color>
+    <color name="classic_darkTheme_colorBackground">#303030</color>
+    <color name="classic_darkTheme_colorTintedBackground">#263238</color>
+
+    <color name="splashBackground">#607d8b</color>
+    <color name="tab_indicator">#ffffff</color>
+    <color name="general">#ff33b5e5</color>
+
+
+    <color name="colordarkRed">#cc0000</color>
+
+    <color name="mcam_color_light">#FAFAFA</color>
+    <color name="mcam_color_dark">#424242</color>
+</resources>

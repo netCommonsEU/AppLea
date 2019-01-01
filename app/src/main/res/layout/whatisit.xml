@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.example.commontask.NewPostActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/snippet_info" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="start"
+            android:id="@+id/first"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/relLayout1"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="Είναι ωραίο όταν δεν υπάρχουν λέξεις να περιγράψουν την πολυτέλεια όταν ένα απλοποιημένο σύστημα μπορεί να κρατήσει όλες τις σημειώσεις μου σε μορφή αρχείου καθημερινά οποιαδήποτε στιγμή εγω θελήσω.\n\n
+Μπορεί να μην έχεις χρόνο για να καθεσαι να γράφεις και να σβήνεις ή να σκίζεις σελιδές(κουραστική διαδικασία) ώστε να παραδίνεις στον γεοπόνο σου όλες αυτές τις αναφορές για τις εγρασίες που εκτέλεσες στα χωραφία/μελίσσια/κεφάλια σου.\n\n
+Τώρα με αυτη την  εφαρμογή-πλατφόρμα σου  δίνεται η δυνατότητα  (ώς αγρότης ,κτηνοτρόφος και μελισσοκόμος) να δημιουργείς , να διαχειρίζεσαι και να φτιάχνεις  αναφορές με δεδομένα και στατιστικά στοιχεία στα δικά σου μέτρα και σταθμά."/>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

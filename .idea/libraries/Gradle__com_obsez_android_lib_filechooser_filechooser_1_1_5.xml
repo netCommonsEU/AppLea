@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.obsez.android.lib.filechooser:filechooser-1.1.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/filechooser-1.1.5.aar/3847e1d84de1d28557dadf84ae0ec683/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/filechooser-1.1.5.aar/3847e1d84de1d28557dadf84ae0ec683/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

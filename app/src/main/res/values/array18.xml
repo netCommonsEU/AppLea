@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="diafilika">
+        <item>Κάλιο</item>
+        <item>Άζωτο</item>
+        <item>Φώσφορο</item>
+        <item>Σίδηρος</item>
+        <item>Ιώδιο</item>
+        <item>Ψευδάργυρος</item>
+        <item>Χαλκός</item>
+        <item>Φθόριο</item>
+        <item>Μαγγάνιο</item>
+        <item>Σελήνιο</item>
+    </string-array>
+</resources>

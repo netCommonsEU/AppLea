@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="spray_type">
+        <item>Έντομο</item>
+        <item>Μύκητας</item>
+        <item>Ασθένεια</item>
+        <item>Διαφυλικά Λιπάσματα</item>
+    </string-array>
+
+</resources>

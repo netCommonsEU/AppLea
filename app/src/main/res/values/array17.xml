@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="mikitas">
+        <item>Ωίδιο</item>
+        <item>Βοτρύτης</item>
+        <item>Ευδεμίδα</item>
+    </string-array>
+
+</resources>

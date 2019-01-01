@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Γενικά">
+
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Κοινοποίηση Αραιώματος" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Κοινοποίηση Άδρευσης" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Κοινοποίηση Λίπανσης" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Κοινοποίηση Κλαδέματος" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Κοινοποίηση Οργώματος" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Κοινοποίηση Συγκομιδής" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Κοινοποίηση Ψεκασμού" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Κοινοποίηση Καλλιεργητή-Καταστροφέα" />
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

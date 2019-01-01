@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Αρχική" />
+        <item
+            android:id="@+id/info"
+            android:icon="@drawable/ic_info"
+            android:title="Σχετικά" />
+
+       <item
+           android:id="@+id/send"
+           android:icon="@drawable/ic_menu_send"
+          android:title="Επικοινωνία" />
+
+
+    </group>
+
+
+
+</menu>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="">
+
+        <Preference
+            android:selectable="false"
+            android:summary="@string/summary_about_info" />
+
+        <Preference android:title="@string/privacy_policy">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.example.commontask"
+                android:targetClass="com.example.commontask.PolicyActivity"/>/>
+
+        </Preference>
+
+        <Preference android:title="@string/title_terms">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+
+                android:targetPackage="com.example.commontask"
+                android:targetClass="com.example.commontask.UseConditions"/>
+
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

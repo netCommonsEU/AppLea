@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="shopping_item">
+        <item>Μήλο</item>
+        <item>Καρύδι</item>
+        <item>Πορτοκάλι</item>
+        <item>Φιστίκι</item>
+        <item>Αμύγδαλο</item>
+        <item>Αμπέλι</item>
+    </string-array>
+</resources>

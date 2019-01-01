@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="duration">
+        <item>0.5 ώρα - 1 ώρα</item>
+        <item>1 ώρα</item>
+        <item>1 ώρα-1.5 ώρα</item>
+        <item>2 ώρες</item>
+        <item>2 και παραπάνω ώρες</item>
+    </string-array>
+</resources>

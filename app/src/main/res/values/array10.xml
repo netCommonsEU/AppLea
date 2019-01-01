@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="activity">
+
+        <item>Αραίωμα</item>
+        <item>Άδρευση</item>
+        <item>Λίπανση</item>
+        <item>Κλάδεμα</item>
+        <item>Όργωμα</item>
+        <item>Συγκομιδή Πρώτο Χέρι</item>
+        <item>Συγκομιδή Δεύτερο Χέρι</item>
+        <item>Συγκομιδή Τρίτο Χέρι</item>
+        <item>Συγκομιδή Τέταρτο Χέρι</item>
+        <item>Ψεκασμός</item>
+        <item>Καλλιεργητής-Καταστροφέας</item>
+        <item>Αγορά Λιπάσματος</item>
+        <item>Αγορά Ραντιστικού</item>
+
+    </string-array>
+
+</resources>

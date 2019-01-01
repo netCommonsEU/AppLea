@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="astheneia">
+        <item>Βορδιγάλειος Πολτός</item>
+        <item>Οξυχλωριούχος Χαλκός</item>
+        <item>Θειϊκός Χαλκός-Γαλαζόπετρα</item>
+    </string-array>
+</resources>
