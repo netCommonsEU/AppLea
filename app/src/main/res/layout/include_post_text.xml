@@ -20,7 +20,7 @@
         android:maxLines="1"
         android:textSize="15dp"
         android:textStyle="normal|italic"
-        android:text="Μήνας"
+        android:text="Month"
         />
 
     <TextView
@@ -35,7 +35,7 @@
         android:layout_below="@+id/title"/>
     <TextView
         android:id="@+id/_body1"
-        android:text="Χωράφι"
+        android:text="Field"
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/post_month"
         android:layout_marginTop="20dp"
@@ -58,7 +58,7 @@
         android:id="@+id/_body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Είδος Καλλιέργειας"
+        android:text="Kind Entry"
         android:textSize="15dp"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/post_body"
@@ -79,7 +79,7 @@
         android:id="@+id/_body3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Εργασία Καταχώρησης"
+        android:text="Task"
         android:textSize="15dp"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/post1_body"
@@ -99,7 +99,7 @@
         android:id="@+id/_body4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Διάρκεια-Ποσότητα"
+        android:text="Duration-Quantity"
         android:textSize="15dp"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/post2_body"

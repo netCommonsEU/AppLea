@@ -1,5 +1,6 @@
 package com.example.commontask.Share;
 
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -12,9 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+
+
 import com.example.commontask.Profile.AccountSettingsActivity;
 import com.example.commontask.R;
 import com.example.commontask.utils.Permissions;
+
+
 
 public class PhotoFragment extends Fragment {
     private static final String TAG = "PhotoFragment";

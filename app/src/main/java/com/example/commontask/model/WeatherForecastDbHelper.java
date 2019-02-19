@@ -2,22 +2,30 @@ package com.example.commontask.model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.location.Address;
 import android.os.Parcel;
+import android.preference.PreferenceManager;
+
+import com.example.commontask.utils.Constants;
 
 import static com.example.commontask.model.WeatherForecastContract.SQL_CREATE_TABLE_WEATHER_FORECAST;
 import static com.example.commontask.model.WeatherForecastContract.SQL_DELETE_TABLE_WEATHER_FORECAST;
+import static com.example.commontask.utils.LogToFile.appendLog;
 
 public class WeatherForecastDbHelper extends SQLiteOpenHelper {
+
+    private static final String TAG = "WeatherForecastDbHelper";
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "WeatherForecast.db";
     private static WeatherForecastDbHelper instance;
+    private Context context;
 
-    public static WeatherForecastDbHelper getInstance(Context ctx) {
+    public synchronized static WeatherForecastDbHelper getInstance(Context ctx) {
         if (instance == null) {
             instance = new WeatherForecastDbHelper(ctx.getApplicationContext());
         }
@@ -26,6 +34,7 @@ public class WeatherForecastDbHelper extends SQLiteOpenHelper {
 
     private WeatherForecastDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -68,14 +77,18 @@ public class WeatherForecastDbHelper extends SQLiteOpenHelper {
         if (oldWeatherForecast == null) {
             db.insert(WeatherForecastContract.WeatherForecast.TABLE_NAME, null, values);
         } else {
-            db.update(WeatherForecastContract.WeatherForecast.TABLE_NAME,
+            db.updateWithOnConflict(WeatherForecastContract.WeatherForecast.TABLE_NAME,
                     values,
                     WeatherForecastContract.WeatherForecast.COLUMN_NAME_LOCATION_ID + "=" + locationId,
-                    null);
+                    null,
+                    SQLiteDatabase.CONFLICT_IGNORE);
         }
     }
 
     public WeatherForecastRecord getWeatherForecast(long locationId) {
+
+        checkVersionOfStoredForecastInDb();
+
         SQLiteDatabase db = getReadableDatabase();
 
         String[] projection = {
@@ -98,6 +111,9 @@ public class WeatherForecastDbHelper extends SQLiteOpenHelper {
             if (cursor.moveToNext()) {
                 CompleteWeatherForecast completeWeatherForecast = getCompleteWeatherForecastFromBytes(
                         cursor.getBlob(cursor.getColumnIndexOrThrow(WeatherForecastContract.WeatherForecast.COLUMN_NAME_WEATHER_FORECAST)));
+                if (completeWeatherForecast == null) {
+                    return null;
+                }
                 return new WeatherForecastRecord(
                         cursor.getLong(cursor.getColumnIndexOrThrow(WeatherForecastContract.WeatherForecast.COLUMN_NAME_LAST_UPDATED_IN_MS)),
                         completeWeatherForecast);
@@ -112,6 +128,9 @@ public class WeatherForecastDbHelper extends SQLiteOpenHelper {
     }
 
     public static CompleteWeatherForecast getCompleteWeatherForecastFromBytes(byte[] addressBytes) {
+        if ((addressBytes == null) || (addressBytes.length == 0)) {
+            return null;
+        }
         final Parcel parcel = Parcel.obtain();
         parcel.unmarshall(addressBytes, 0, addressBytes.length);
         parcel.setDataPosition(0);
@@ -145,5 +164,20 @@ public class WeatherForecastDbHelper extends SQLiteOpenHelper {
         public CompleteWeatherForecast getCompleteWeatherForecast() {
             return completeWeatherForecast;
         }
+    }
+
+    private void checkVersionOfStoredForecastInDb() {
+
+        int initialGuideVersion = PreferenceManager.getDefaultSharedPreferences(context)
+                .getInt(Constants.APP_INITIAL_GUIDE_VERSION, 0);
+        if (initialGuideVersion != 1) {
+            return;
+        }
+        appendLog(context, TAG, "Old version of stored forecast, clearing forecast DB");
+        SQLiteDatabase db = getWritableDatabase();
+        onUpgrade(db, 0, 1);
+        SharedPreferences.Editor preferences = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        preferences.putInt(Constants.APP_INITIAL_GUIDE_VERSION, 2);
+        preferences.apply();
     }
 }

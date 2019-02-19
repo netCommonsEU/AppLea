@@ -248,11 +248,11 @@ public class ProfileActivity extends AppCompatActivity implements  CompoundButto
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                   userTestName = ((HashMap) dataSnapshot.getValue()).get("username").toString();
-                   userTestLocation = ((HashMap) dataSnapshot.getValue()).get("location").toString();
-                   userTestJob = ((HashMap) dataSnapshot.getValue()).get("job").toString();
-                   userTestUse = ((HashMap) dataSnapshot.getValue()).get("use").toString();
-                   userEmail = ((HashMap) dataSnapshot.getValue()).get("email").toString();
+                 userTestName = ((HashMap) dataSnapshot.getValue()).get("username").toString();
+                 userTestLocation = ((HashMap) dataSnapshot.getValue()).get("location").toString();
+                 userTestJob = ((HashMap) dataSnapshot.getValue()).get("job").toString();
+                 userTestUse = ((HashMap) dataSnapshot.getValue()).get("use").toString();
+                 userEmail = ((HashMap) dataSnapshot.getValue()).get("email").toString();
 
                 if(userTestName!=null){
                     textView.setText(userTestName);

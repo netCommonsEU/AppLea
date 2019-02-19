@@ -3,19 +3,19 @@
 
     <string-array name="activity">
 
-        <item>Αραίωμα</item>
-        <item>Άδρευση</item>
-        <item>Λίπανση</item>
-        <item>Κλάδεμα</item>
-        <item>Όργωμα</item>
-        <item>Συγκομιδή Πρώτο Χέρι</item>
-        <item>Συγκομιδή Δεύτερο Χέρι</item>
-        <item>Συγκομιδή Τρίτο Χέρι</item>
-        <item>Συγκομιδή Τέταρτο Χέρι</item>
-        <item>Ψεκασμός</item>
-        <item>Καλλιεργητής-Καταστροφέας</item>
-        <item>Αγορά Λιπάσματος</item>
-        <item>Αγορά Ραντιστικού</item>
+        <item>Dilution</item>
+        <item>Irrigation</item>
+        <item>Fertilization</item>
+        <item>Pruning</item>
+        <item>Tillage</item>
+        <item>Harvesting</item>
+        <item>Harvesting Second Hand</item>
+        <item>Harvesting Third Hand</item>
+        <item>Harvesting Fourth Hand</item>
+        <item>Spraying</item>
+        <item>Barlery Farmer-Destroyer</item>
+        <item>Buy Filtizer</item>
+        <item>Buy Atomizer</item>
 
     </string-array>
 

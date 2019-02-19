@@ -3,10 +3,10 @@
 <resources>
 
     <string-array name="spray_type">
-        <item>Έντομο</item>
-        <item>Μύκητας</item>
-        <item>Ασθένεια</item>
-        <item>Διαφυλικά Λιπάσματα</item>
+        <item>Insect</item>
+        <item>Fungus</item>
+        <item>Illness</item>
+        <item>Fertilizer</item>
     </string-array>
 
 </resources>

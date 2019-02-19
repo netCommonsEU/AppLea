@@ -439,6 +439,21 @@ name="pref_click_behavior_values">
         <item>wakeuppartial</item>
         <item>wakeupfull</item>
     </string-array>
+
+    <string-array name="widget_actions">
+        <item>@string/widget_action_main_screen</item>
+        <item>@string/widget_action_forecast_screen</item>
+        <item>@string/widget_action_graphs_screen</item>
+        <item>@string/widget_action_switch_location</item>
+    </string-array>
+    <string-array name="forecast_number_of_days_hours">
+        <item>@string/forecast_number_of_days_hours_3_days</item>
+        <item>@string/forecast_number_of_days_hours_4_days</item>
+        <item>@string/forecast_number_of_days_hours_5_days</item>
+        <item>@string/forecast_number_of_days_hours_3_hours</item>
+        <item>@string/forecast_number_of_days_hours_4_hours</item>
+        <item>@string/forecast_number_of_days_hours_5_hours</item>
+    </string-array>
     <string-array name="location_cache_lasting_entries">
         <item>@string/location_cache_12_label</item>
         <item>@string/location_cache_24_label</item>
@@ -459,7 +474,28 @@ name="pref_click_behavior_values">
         <item>8760</item>
         <item>88888</item>
     </string-array>
-
+    <string-array name="pref_date_style_values" translatable="false">
+        <item>system</item>
+        <item>date_style_dots</item>
+        <item>date_style_slash_month_first</item>
+        <item>date_style_slash_day_first</item>
+    </string-array>
+    <string-array name="pref_date_style_entries" translatable="false">
+        <item>@string/time_style_system</item>
+        <item>@string/date_style_dots</item>
+        <item>@string/date_style_slash_month_first</item>
+        <item>@string/date_style_slash_day_first</item>
+    </string-array>
+    <string-array name="pref_time_style_values" translatable="false">
+        <item>system</item>
+        <item>12h</item>
+        <item>24h</item>
+    </string-array>
+    <string-array name="pref_time_style_entries" translatable="false">
+        <item>@string/time_style_system</item>
+        <item>@string/time_style_12_h</item>
+        <item>@string/time_style_24_h</item>
+    </string-array>
     <string-array name="weather_icon_set_entries">
         <item>@string/weather_icon_set_fontbased</item>
         <item>@string/weather_icon_set_merlin_the_red</item>
@@ -468,5 +504,67 @@ name="pref_click_behavior_values">
         <item>weather_icon_set_fontbased</item>
         <item>weather_icon_set_merlinTheRed</item>
     </string-array>
+    <string-array name="pref_wind_direction_values" translatable="false">
+        <item>nothing</item>
+        <item>abbreviation</item>
+        <item>deg</item>
+    </string-array>
 
+    <string-array name="pref_rain_snow_units_values" translatable="false">
+        <item>mm</item>
+        <item>inches</item>
+    </string-array>
+
+    <string-array name="notification_visual_style_values" translatable="false">
+        <item>build_in</item>
+        <item>custom_with_forecast</item>
+    </string-array>
+    <string-array name="pref_wind_direction_entries" translatable="false">
+        <item>@string/wind_direction_nothing</item>
+        <item>@string/wind_direction_abbreviation</item>
+        <item>@string/wind_direction_deg</item>
+    </string-array>
+
+    <string-array name="pref_rain_snow_units_entries" translatable="false">
+        <item>@string/millimetre_label</item>
+        <item>@string/inches_label</item>
+    </string-array>
+    <string-array name="pref_graphs" translatable="false">
+        <item>@string/forecast_settings_graph_combined</item>
+        <item>@string/forecast_settings_graph_temperature</item>
+        <item>@string/forecast_settings_graph_wind</item>
+        <item>@string/forecast_settings_graph_rain</item>
+        <item>@string/forecast_settings_graph_rain_bar</item>
+        <item>@string/forecast_settings_graph_snow</item>
+        <item>@string/forecast_settings_graph_snow_bar</item>
+        <item>@string/forecast_settings_graph_pressure</item>
+    </string-array>
+    <string-array name="notification_visual_style_entries">
+        <item>@string/notification_visual_style_build_in</item>
+        <item>@string/notification_visual_style_custom_with_forecast</item>
+    </string-array>
+
+
+    <string-array name="notification_status_icon_entries">
+        <item>@string/notification_status_icon_sun</item>
+        <item>@string/notification_status_icon_temperature</item>
+        <item>@string/notification_status_icon_one_invisible_point</item>
+    </string-array>
+    <string-array name="notification_status_icon_values" translatable="false">
+        <item>icon_sun</item>
+        <item>icon_temperature</item>
+        <item>one_invisible_point</item>
+    </string-array>
+
+
+    <string-array name="notification_presence_entries">
+        <item>@string/notification_when_updated</item>
+        <item>@string/notification_permanent</item>
+        <item>@string/notification_on_lock_screen</item>
+    </string-array>
+    <string-array name="notification_presence_values" translatable="false">
+        <item>when_updated</item>
+        <item>permanent</item>
+        <item>on_lock_screen</item>
+    </string-array>
 </resources>

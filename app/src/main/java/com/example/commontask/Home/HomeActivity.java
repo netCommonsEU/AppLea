@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.bottomnavigation.LabelVisibilityMode;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -15,11 +17,18 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import com.example.commontask.Likes.LikesActivity;
+import com.example.commontask.MainWeatherAppActivity;
+import com.example.commontask.Profile.ProfileActivity;
 import com.example.commontask.R;
+import com.example.commontask.Search.SearchActivity;
+import com.example.commontask.Share.ShareActivity;
+import com.example.commontask.fragment.PostListFragment;
 import com.example.commontask.models.Photo;
 import com.example.commontask.opengl.AddToStoryDialog;
 import com.example.commontask.opengl.NewStoryActivity;
 import com.example.commontask.ui.GeneralListActivity;
+
 import com.example.commontask.utils.BottomNavigationViewHelper;
 import com.example.commontask.utils.FirebaseMethods;
 import com.example.commontask.utils.MainfeedListAdapter;
@@ -78,6 +87,56 @@ public class HomeActivity extends AppCompatActivity implements
         initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
+
+        BottomNavigationViewEx bottomNavigationView = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
+
+        com.example.commontask.BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+
+
+        bottomNavigationView.setItemIconTintList(null);
+
+        bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                               case R.id.ic_house:
+                                Intent intent1 = new Intent(getApplicationContext(), HomeActivity.class);//ACTIVITY_NUM = 0
+                                startActivityForResult(intent1, 0);
+
+
+                                break;
+
+                            case R.id.ic_search:
+                                Intent intent2  = new Intent(getApplicationContext(), SearchActivity.class);//ACTIVITY_NUM = 1
+                                startActivityForResult(intent2, 0);
+
+
+                                break;
+
+                            case R.id.ic_circle:
+                                Intent intent3 = new Intent(getApplicationContext(), ShareActivity.class);//ACTIVITY_NUM = 2
+                                startActivityForResult(intent3, 0);
+
+
+                                break;
+
+                            case R.id.ic_alert:
+                                Intent intent4 = new Intent(getApplicationContext(), LikesActivity.class);//ACTIVITY_NUM = 3
+                                startActivityForResult(intent4, 0);
+                                break;
+
+                            case R.id.ic_android:
+                                Intent intent5 = new Intent(getApplicationContext(), ProfileActivity.class);//ACTIVITY_NUM = 4
+                                startActivityForResult(intent5, 0);
+                                break;
+                        }
+                        return false;
+                    }
+                });
 
     }
 
@@ -192,14 +251,10 @@ public class HomeActivity extends AppCompatActivity implements
 
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
-        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
-        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableNavigation(mContext, this,bottomNavigationViewEx);
-        Menu menu = bottomNavigationViewEx.getMenu();
-        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
-        menuItem.setChecked(true);
-    }
 
+
+
+    }
 
      private void checkCurrentUser(FirebaseUser user){
          Log.d(TAG, "checkCurrentUser: checking if user is logged in.");

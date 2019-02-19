@@ -26,13 +26,14 @@
         <compilerSettings />
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/debug" />
+          <option name="classpath" value="$MODULE_DIR$/libs/aspectjrt-1.7.3.jar;D:/AppLea/app/libs/isoparser-1.0.6.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/6f9a7982bd89916f35e9b6540357d795/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/library-1.1.0.aar/b801ddf2c2cb209c40ef4f17aa497a75/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/bottom-bar-1.4.0.1.aar/b6190100d84c29734b2558c2ecd1b2b1/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/library-material-1.1.0.aar/a03cd570ac30ee87a9d8a616af3eeb95/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/android-image-cropper-2.5.1.aar/971d6dac8144a8da6e67eb9ece4f4d15/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/Android-ExpandIcon-1.2.1.aar/3efe31f575855c48f6a9ca2aea4464fd/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/dexter-4.2.0.aar/ea570ccdedb7666bfc0a0768329b5c56/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/android-morphing-button-98a4986e56.aar/f700d4e195abe0725b49fc945796f067/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/TedPicker-v1.0.10.aar/955e63daa1609e99eed5f2cc4fc70bd1/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/fabbutton-1.2.1.aar/a4a97f5744cc25ed41c7c1fbc97f37c1/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/BottomNavigationViewEx-1.1.9.aar/6a5a88169a3e25a332adec3180bddd5c/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-ui-0.6.0.aar/420874142757cbfa183fd633acf287bb/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-ui-auth-0.6.0.aar/06007538715b06f2b282cd4650026b37/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/8e8faab26d77a8c951dba61ae46a6ff5/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/android-ElasticListView-v1.0.aar/dbc12ceda0a8d2dca885d0799b5feb2b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/core-0.9.6.0.aar/22e5fe4b41932ea0f396d2f2b804a9ab/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-ui-database-0.6.0.aar/187c87b9e3a1356af18aed55b641840a/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-ui-storage-0.6.0.aar/1272b3eb6ad38a1b08f333f1443ab17a/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/library-2.0.3.aar/a109235233a1e384459a291bfafec3a0/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/library-1.4.2.aar/99b8b0a2e5cbb3a0e95ee37fd0104bb1/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-11.6.0.aar/2908267db7da8489af2ea7acddd97c58/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-cast-framework-11.6.0.aar/6cd14fb4101a921b1a0aa386f257f4e4/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-cast-11.6.0.aar/29d637fd97d74f60180296fea9cb5253/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.2.0.aar/cda0b346332ba65e7ad19d44d14121fc/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/371ad151d309d6ad8bf9488ab57b7ece/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/59533db43b3b8a93391b784d51afd348/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/2a754ac1807882b3fa0fc22ad8a82aa5/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.5.2/f19f10d6276aa0b380e2d05d2ab3272d693a5433/firebase-client-android-2.5.2.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.5.2/91731b8f5868a3e8a8a773f29b8d06b5c358f5bb/firebase-client-jvm-2.5.2.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.7.2/84ffa765dd258dbab8695963c41308b054f3a1cb/jackson-databind-2.7.2.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-messaging-11.6.0.aar/2d8b17fdf514b02479cce4ea0f0f69f4/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/textjustify-android-2.1.0.aar/257ce45d75ed2a569666c21b12806daf/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-config-11.6.0.aar/80ccfe123bf56f6ff416063e78fd6c11/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-storage-11.6.0.aar/49de68ae28af9046d05321216bec185a/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-database-11.6.0.aar/3d5fa0774e1deefafd3558050ca89891/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-auth-11.6.0.aar/dc66a6f2da0c41b7cc95439c1373414b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-core-11.6.0.aar/37e184e7786bbfd4fe34436edd864242/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/sdp-android-1.0.3.aar/4415823a3548e1471f04e5c8ba1565b3/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/glide-transformations-2.0.1.aar/3122b7e12dc4ee3d4bf7caa4b0da4afd/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.8.0/9bada650e1afe9c6174ddc0d113c1fce4dc26fe0/glide-3.8.0.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/circleimageview-2.1.0.aar/a828e87ce8ba16f15ffd1d2bb3bbe7c8/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/library-1.1.3.aar/b28197816e46dd156f8e057e7ea1e620/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/butterknife-8.4.0.aar/3c98fb7c5a84538bf960234b7a845552/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.google.android.apps.dashclock/dashclock-api/2.0.0/fe40ba5457e17502d11114f39b45e9dfe3f51c6d/dashclock-api-2.0.0.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/williamchart-2.2.aar/f203f0c429b7b5c78edfa87d4f220c36/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/discrete-seekbar-1.0.1.aar/6b2a789e8d8559e9277ecb2e4a874118/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/material-spinner-1.2.4.aar/73a839c7d59d3c4210fe31f2b1f5ed23/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/588d671607c8b6af85224ff9114bf7c2/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.itextpdf/itextg/5.5.9/3580383b2c7db8fa2fee1ffbe1993017a9ea296e/itextg-5.5.9.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/material-ripple-1.0.2.aar/aa2068a38052a711006e2bae6f3cadd6/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.0.0/49eb3ad545e7701234e4dd83db8dc1344b577f23/converter-gson-2.0.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.7.2/20f6463eb19ac61960c5d91a094c2f4f0727dc2e/okhttp-2.7.2.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.flaviofaria/kenburnsview/1.0.7/ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1/kenburnsview-1.0.7.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.0/5c06d197fb7fa875ad452f562e3310dd9949d066/retrofit-2.0.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.11/4839661cf6ce3c14b65ed7dcf5b9249b44ecca16/kotlin-stdlib-jdk7-1.3.11.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/android-flat-button-v1.1.aar/5d56b1cdec3c9080feee04b13f023677/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.0.3/92fb46ea210fc3f0ab1125f28b33cf098583e8cf/MPAndroidChart-v3.0.3.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/unifiednlp-api-1.5.6.aar/25a27a903ccef80a310efb51c3b08546/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/org.microg/address-formatter/0.2.1/3de5532fe15e6fe4a913353f3995990460bf5620/address-formatter-0.2.1.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/filechooser-1.1.5.aar/8cdc65c972a632dd4c59bcf82367397c/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/osmdroid-android-6.0.2.aar/602e7630699cdefb90310fcd5371bf48/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/exifinterface-28.0.0.aar/dc0b3306e62142548f620a641b8f445a/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/exoplayer-2.6.0.aar/9902eb3950d62f85d5a554eae8e0a2d4/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/b4ecd7eb813d59158307765ba6878f7b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.14.1.aar/a00eafd9269a07a1b57a55fc4f78d7c9/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/db509ff82d9ef6effd745163d461d554/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/palette-v7-28.0.0.aar/9e1006c65a9bbd48364aed4cb4dd9b21/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-crash-11.6.0.aar/9f2f593da50d5fb8152a0a6e33ee45ae/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-11.6.0.aar/2dc18653299969dc5100f73f15123a6f/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-api-11.6.0.aar/de0159a9114f6676699c9d238563233b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.6.0.aar/54e639cf5ddd6b53cd85b00f49e335a1/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.6.0.aar/d0bfaf62d0771b7d784ef4aaa5b6f291/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.6.0.aar/59cb11a3d81af35ab075a804478211f4/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-11.6.0.aar/955135f7b0fde98b1f5a30596f4397c3/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-appinvite-11.6.0.aar/3da4c597e294fa63a6b41524488a05b6/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-dynamic-links-11.6.0.aar/eb9ec33170a9f8d1f45018e2139ec9d7/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-appindexing-11.6.0.aar/6bc78d15ded20e5384a854a588dfe9fd/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-common-11.6.0.aar/d77cfc9717fc7d3e11434a7c2ba4872f/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-analytics-11.6.0.aar/a34978c9c6d0b52e01ab0558ef2ce5b9/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-11.6.0.aar/b2615b63ab7a5b02471d625b1ae394e2/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-11.6.0.aar/d5ce4eab0d3c5b0ebf087e4678e1ee9e/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-auth-11.6.0.aar/7a9a3cf33243ed89d2aedf57e2cabbf6/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-11.6.0.aar/61a975825bfc099107348f45ca132cb0/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-11.6.0.aar/be8efa702ca9f0ac6ba0048eacc64b5c/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-awareness-11.6.0.aar/3a848b1bd9bfa6fe7b31a41406bbb8d7/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-games-11.6.0.aar/5566b5e2cc358eddd76ac9fb23faec34/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-drive-11.6.0.aar/630a9e48b5692498a14542515de140ae/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-fido-11.6.0.aar/d108ea200f807bfe71fdde0c69649fc6/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-fitness-11.6.0.aar/f83ab8ecce2a5cd4b896ca03fc1db0c7/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.6.0.aar/cf9a65b1e2f37e35f26d858e26769689/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-wallet-11.6.0.aar/119a635667c962f4b4921f17d61b9ecb/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-identity-11.6.0.aar/8dbeb03bb83e081484a110e6c523e566/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.6.0.aar/9498022b4b7dfb563a746ea018601993/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-instantapps-11.6.0.aar/9f2596e52fe53ef804d8c733a45a38bb/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-location-11.6.0.aar/dae85e932e03b5f6e3023920475df0ca/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-places-11.6.0.aar/6558f4aa806a49edc36dab1e997e5e4f/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.6.0.aar/13d0b11c5b8cdae69a4f251a5ad39fef/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-nearby-11.6.0.aar/2f03751359166b6a9c1c05ee03da1b7d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-panorama-11.6.0.aar/417fe09d57679fd92feea48bc5935e32/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-plus-11.6.0.aar/75ebd416d57fe1c7be88373aaedaca3f/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-safetynet-11.6.0.aar/7c8ae05cfff4f95e6369668c4ad63b63/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-vision-11.6.0.aar/11e59803c2d9872eba5785c335195b11/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-11.6.0.aar/2de5a9b8c5a51ef51b94895c80f383d8/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-wearable-11.6.0.aar/c2249525d94ad80d4c799e25de77a0f0/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-base-11.6.0.aar/669db8b7d31e664460c582ca6b00ece3/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.6.0.aar/110b9582739bd5bc2f2a1aa7b26a573d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-11.6.0.aar/20f873b7e0e2f339d0c6c445885a6bab/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-ads-11.6.0.aar/7e4c9a3921d86944ff2b3c77142245ad/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-11.6.0.aar/5a6db0679f8c2d9e02b103afcbb2e342/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-gass-11.6.0.aar/9c4c526885503dbd6c6f610bea251be0/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.6.0.aar/1be12ca2b949fdc74bc2bcee39bbd0b0/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/customtabs-23.4.0.aar/3dc549fa173472ac4194c824655c1b91/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/support-v4-25.2.0.aar/1d1c3a643671fe94f34131202ba13c93/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/11013016a065265eabcbdaa3c16da64a/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/9d27df32b2cee9d1ae5655a42d2188d2/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/42d0910f6f52b4b0b9c9fbb7bc5f286a/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/4ff74a38cbed9b0e4ade95dbee0d1c2f/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/e5682911bc7de3d5639a8ad2a2c1a753/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/24ab476e0b5fc813ba413b6ca65a0b71/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/3d9cbd970cd9053f303435ba175259b7/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/84cf69a42191884399825ebfd7def79d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/de71a8ef59a5b489315a4c6005bb4b81/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/57b68e7eb22e6a2ed8b9928ab584986b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/b8a59e98c4143de752fd06464bc5e21d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/fc22624200dfcd6f9e7c08eef98df555/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.2.0.aar/3ffce478ca00b156cbc56a0009928bd0/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/397c6686ca53a1b97d6c552b8bd658df/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.6.0.aar/a14638022100699bfb1fd51dba2d2b5c/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.6.0.aar/6aa8c6abad39e11263d1909a8c852d05/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/exoplayer-smoothstreaming-2.6.0.aar/9bfe87ee3078b22b46e97f7b7b56d234/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.0.aar/2bbe9224cb587bb6ee5c5dcbd161675a/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.6.0.aar/4c408ad1f1a789b8b579139ba89d2309/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/dd7adc93df2ea0f09f5126c9fd097b92/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.android.support/collections/28.0.0/c1bcdade4d3cc2836130424a3f3e4182c666a745/collections-28.0.0.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/acbfeec6e5be177001a162a4fe69b9c5/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/d74dc8dd1a105b784ae1ee7f7ba8c96d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/f8ecf853b4f9f94b80b7e3f389c17579/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/a6447fc88bdd4ec733d34450347e127c/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/74cc17237f757838df663b9c2a255f0f/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/7914a8da1710394ee553f6d2c360b896/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b82441e7d24cbd3270e32df8083f2da2/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/02af3aaa9611cd7e3314fe75dccdca9b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/aeef86d255053dea0e1d6f7f8e34119c/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.1/207a6efae6a3555e326de41f76bdadd9a239cbce/common-1.1.1.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/4311c8a15ca5a712b7e1ac5b87397d5e/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.1/e55b70d1f5620db124b3e85a7f4bdc7bd48d9f95/common-1.1.1.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/28.0.0/ed73f5337a002d1fd24339d5fb08c2c9d9ca60d8/support-annotations-28.0.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.7.0/19f42c154ffc689f40a77613bc32caeb17d744e3/jackson-annotations-2.7.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.7.2/8b8310381b690e317f5f0574e9b2dd7034778b4c/jackson-core-2.7.2.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-messaging-license-11.6.0.aar/279c8e8670aebb27be60bd69cfc3377b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-config-license-11.6.0.aar/150fc807741fe889693be9585083f4df/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-storage-license-11.6.0.aar/e8822456bd693e9194afc730db35bf6d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-database-license-11.6.0.aar/cdd47e0cadd3a91c5a50bf17c293e40d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-auth-license-11.6.0.aar/b2bc98b8729647e7f259f513b50f7cc4/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.android.support.constraint/constraint-layout-solver/1.1.3/bde0667d7414c16ed62d3cfe993cff7f9d732373/constraint-layout-solver-1.1.3.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/camera-0.6.12.aar/e078fab160a17cc0794799b65167a272/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.11/4cbc5922a54376018307a731162ccaf3ef851a39/kotlin-stdlib-1.3.11.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.18/8f407244032a0587376cf9200c1f74f79ce79b5f/snakeyaml-1.18-android.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-iid-license-11.6.0.aar/54086053f0aa349585cb9f15fdbae624/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-11.6.0.aar/8f74c13e176217167485e126add3269b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-common-license-11.6.0.aar/d0135d7e9660f59708bdf6072d228041/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-base-license-11.6.0.aar/6531adcd8633757b49b982388f9b2df6/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-11.6.0.aar/e0dc0173c8083259552ee0f479d673d5/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-storage-common-license-11.6.0.aar/24be4e15cf84e1134a1ebd316345450d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-license-11.6.0.aar/e1018a670bffdb63ee9142517cb4a7e8/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-analytics-license-11.6.0.aar/f809abe09f3c67dbe9122c8bcd7a7467/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.12/6ec0bbd3e161a73ed672284b587fd32309a86d7a/tubesock-0.0.12.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-ads-license-11.6.0.aar/d43d82424580f26f28a4b35e6d572292/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-license-11.6.0.aar/ae1dedc1202326c873826e8f9b2dddb7/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-analytics-license-11.6.0.aar/89ec0574eff62039c684e3255263dcce/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-license-11.6.0.aar/0e6d08ff9f1228bda5ea4f2e95f941f8/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-appinvite-license-11.6.0.aar/32d038c5a85d9be0c6b676c95f417ed6/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-license-11.6.0.aar/cc5b6624999609e242743b454bba64d2/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-license-11.6.0.aar/de9770e4767d106bb6a92f7e9f24e5c2/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-cast-framework-license-11.6.0.aar/d97da2d2d20b747f06a3eddf06ef6e92/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-cast-license-11.6.0.aar/81dfcf4a0e0052b9066eba063f256b53/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-awareness-license-11.6.0.aar/0e5940102e331d8af15bcb93295ffe5c/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-crash-license-11.6.0.aar/1d61b58b8b653165e81eb25efb4b8aa1/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-drive-license-11.6.0.aar/cbf9af6fe60c07b7327c5a645f31f9d5/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-fido-license-11.6.0.aar/453c129b315de4a7541d2fb8f6375053/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-dynamic-links-license-11.6.0.aar/99d1d0ace5a04919433f8fefb6d016c9/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-fitness-license-11.6.0.aar/0e6724dc244aea437b79a311cc876c3f/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-games-license-11.6.0.aar/a9dd37267f2d1ad02b18b71c624be3bb/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-gass-license-11.6.0.aar/1f44fe1e7d84c9c1c9962f7f0391fdde/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-gcm-license-11.6.0.aar/7ee05734ea397ba4c56e416919053d34/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-appindexing-license-11.6.0.aar/d8adc84d6138f0993d56fa8486b9c42c/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-identity-license-11.6.0.aar/00bb039a051a8e22671e290aeb569e01/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-iid-license-11.6.0.aar/0018e2a70cf3362af3e6e602f09a8e8a/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-instantapps-license-11.6.0.aar/18faab7cfab6a32fe4eeabe66ac8996b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-location-license-11.6.0.aar/d011c1e6eb12bd0351c8cd2a7461411d/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-maps-license-11.6.0.aar/8b13229cb2416930efcbf7128a8ce324/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-license-11.6.0.aar/2a7f865b094f2ce8cf8e7a215868a1cd/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-nearby-license-11.6.0.aar/7316a66512ffe94eec8a86b40a1817dc/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-panorama-license-11.6.0.aar/636002d4ab76b0e2dc8506411feb08ec/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-places-license-11.6.0.aar/0f50035fefa33b078e9611b784860946/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-plus-license-11.6.0.aar/6c3a7e4c93f70ea6a390ce4994b927aa/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-safetynet-license-11.6.0.aar/5d416e14ed34f633f6127f193f6e8da8/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-api-license-11.6.0.aar/926f29c5a929a15e3765252619b49fa4/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-license-11.6.0.aar/9a5a835215af1f3c4c85922ae2a5c42b/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-license-11.6.0.aar/d1c2561d58a80465298e150c48c1451f/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-11.6.0.aar/00ba4526342b20fcfd8e0520d6c6ab90/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-11.6.0.aar/cc4fee3ab6a8b4ef4590107cc34a3721/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-wallet-license-11.6.0.aar/cea90c0faa7d7d29ede9bbe1343055a9/jars/classes.jar;C:/Users/Αρης/.gradle/caches/transforms-1/files-1.1/play-services-wearable-license-11.6.0.aar/191c32722ecdea3a221368ba84f46292/jars/classes.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.11/d8b8e746e279f1c4f5e08bc14a96b82e6bb1de02/kotlin-stdlib-common-1.3.11.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.4.0/cc174c559b5177982887bf6e1b76003aebad9516/bolts-android-1.4.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar;C:/Users/Αρης/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar;D:/sdk/platforms/android-28/android.jar" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="app_debug" />
           <option name="addCompilerBuiltIns" value="true" />
           <option name="loadBuiltInsFromDependencies" value="true" />
-          <option name="languageVersion" value="1.2" />
-          <option name="apiVersion" value="1.2" />
+          <option name="languageVersion" value="1.3" />
+          <option name="apiVersion" value="1.3" />
           <option name="pluginOptions">
             <array>
               <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
@@ -42,7 +43,7 @@
           </option>
           <option name="pluginClasspaths">
             <array>
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.2.40/5f124db1c11af4500eee2313ab4092f1c3f3f304/kotlin-android-extensions-1.2.40.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.11/61615dc1b4490a6a1940454da57496356067e488/kotlin-android-extensions-1.3.11.jar" />
             </array>
           </option>
         </compilerArguments>
@@ -50,25 +51,26 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/build/intermediates/classes/debug" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/debug" />
+    <output url="file://$MODULE_DIR$/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/debug/compileDebugAidl/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/debug/compileDebugRenderscript/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/debugAndroidTest" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/debugAndroidTest/compileDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/debugAndroidTest/compileDebugAndroidTestRenderscript/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/debugUnitTest" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/test/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
@@ -112,267 +114,294 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/build/generated/not_namespaced_r_class_sources" />
+      <excludeFolder url="file://$MODULE_DIR$/build/generated/source/r" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotation_processor_list" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/apk_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check-manifest" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundle_manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check_manifest_result" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/compatible_screen_manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant_app_manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant_run_merged_manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javac" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/legacy_multidex_aapt_derived_proguard_rules" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_assets" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/metadata_application_id" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/metadata_feature_manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/prebuild" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/processed_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shader_assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/splits-support" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/signing_config" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/kotlin" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 27 Platform (2)" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-v4-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-appindexing-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-fido-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-maps:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.robolectric:shadows-core:3.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-fido-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-panorama-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-hls-2.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-v4-impl:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.2.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.osmdroid:osmdroid-android-6.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-iid-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-1.1.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-appinvite:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:cursoradapter:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.firebaseui:firebase-ui-auth:0.6.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-core:3.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-compat:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: cz.msebera.android:httpclient:4.3.6@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.firebaseui:firebase-ui-auth-0.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-safetynet-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-games-license-11.6.0" level="project" />
     <orderEntry type="library" name="Gradle: com.firebase:firebase-client-jvm:2.5.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-messaging-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.weiwangcn.betterspinner:library-material-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-api-phone-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-license:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-places-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-dynamic-links-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-framework-license:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.robolectric:shadows-support-v4:3.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:design-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.theartofdev.edmodo:android-image-cropper-2.5.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-places-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-drive-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-safetynet-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.obsez.android.lib.filechooser:filechooser:1.1.5@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.jaredrummler:material-spinner:1.2.4@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7:28.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.objenesis:objenesis:1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.facebook.android:facebook-android-sdk-4.14.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-api-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.karumi:dexter:4.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-panorama:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:28.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-impl-license:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.almworks.sqlite4java:sqlite4java:0.282@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-maps-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-auth-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-drive:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-safetynet:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-api-phone:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.1.3@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: net.sf.kxml:kxml2:2.3.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:transition-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.bluejamesbond:textjustify-android-2.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-drive-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.firebaseui:firebase-ui-storage-0.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-location-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.ittianyu:BottomNavigationViewEx:1.1.9@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.ow2.asm:asm:5.0.1@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.ow2.asm:asm-util:5.0.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-compat-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-api-phone-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.intuit.sdp:sdp-android-1.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.osmdroid:osmdroid-android:6.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:exifinterface:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wearable-license:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.ibm.icu:icu4j:53.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-common-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-api-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: jp.wasabeef:glide-transformations-2.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:customtabs:23.4.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.apps.dashclock:dashclock-api:2.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.balysv:material-ripple-1.0.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.bluejamesbond:textjustify-android:2.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:asynclayoutinflater:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: me.zhanghai.android.materialprogressbar:library:1.4.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.findbugs:jsr305:2.0.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-api:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.nineoldandroids:library:2.4.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.core:common:1.1.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-appindexing-license:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-nearby-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-auth-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-location-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:viewpager:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.ParkSangGwon:TedPicker:v1.0.10@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:customview:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat:25.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer:2.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.theartofdev.edmodo:android-image-cropper:2.5.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.PhilJay:MPAndroidChart:v3.0.3@jar" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.1.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.ow2.asm:asm-analysis:5.0.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\AppLea\app\libs\isoparser-1.0.6.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:mediarouter-v7-25.2.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-nearby-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:palette-v7-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-27.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel:1.1.1@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:runner:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-instantapps:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: mbanje.kurt:fabbutton:1.2.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.11@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:multidex-1.0.3" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-awareness-11.6.0" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: info.hoang8f:fbutton-1.0.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.android.apps.common.testing.accessibility.framework:accessibility-test-framework:1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-panorama-license:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.mockito:mockito-core:1.9.5@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-config-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:cardview-v7:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-core:2.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-connection-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:palette-v7:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-iid-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-fido:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-common:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.7.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.afollestad.material-dialogs:core-0.9.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.firebaseui:firebase-ui-database-0.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.1.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-appinvite-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gcm-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-smoothstreaming:2.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-places:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata:1.1.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-ui:2.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-v4:25.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-games:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.loopj.android:android-async-http:1.4.9@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.karumi:dexter-4.2.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-identity:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.ximpleware:vtd-xml:2.11@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:runner-1.0.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.firebaseui:firebase-ui-0.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.zagum:Android-ExpandIcon-1.2.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-panorama-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.firebaseui:firebase-ui-storage:0.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.parse.bolts:bolts-android:1.4.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-core-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-smoothstreaming-2.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:slidingpanelayout:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-plus-license:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.parse.bolts:bolts-tasks:1.4.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.robolectric:robolectric-utils:3.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.maven:maven-ant-tasks:2.1.3@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-iid-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview-2.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.40@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.daimajia.androidanimations:library-1.1.3" level="project" />
-    <orderEntry type="library" name="Gradle: com.diogobernardino:williamchart-2.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-common-license:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:3.8.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-safetynet-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crash-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-common-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-impl-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.40@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-core-3.0.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.rengwuxian.materialedittext:library-2.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-appinvite-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-common-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-nearby-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-config:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:versionedparcelable:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.jaredrummler:material-spinner-1.2.4" level="project" />
-    <orderEntry type="library" name="Gradle: com.roughike:bottom-bar-1.4.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-identity-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.dmytrodanylyk:android-morphing-button-98a4986e56" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-license-11.6.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-idling-resource-3.0.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wearable-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wearable:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-license:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.picasso:picasso:2.5.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata-core-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:exifinterface-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-plus-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-identity-license:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.robolectric:robolectric:3.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-library:1.3@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-integration:1.3@jar" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.core:common:1.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.ParkSangGwon:TedPicker-v1.0.10" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gass-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-framework-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.firebaseui:firebase-ui:0.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gcm:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crash-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-appindexing:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:localbroadcastmanager:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.eschao:android-ElasticListView:v1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:loader:28.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.robolectric:robolectric-annotations:3.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-dynamic-links-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata-core:1.1.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.11@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife-annotations:8.4.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-common-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-connection-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:customtabs-23.4.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-impl-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.zagum:Android-ExpandIcon:1.2.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime:1.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.18:android@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-common:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-license:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp:okhttp:2.7.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-fragment-27.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-fido-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-config-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gcm-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.core:runtime-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gass-11.6.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:monitor-1.0.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation-1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.roughike:bottom-bar:1.4.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.7.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crash-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-common-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-messaging-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wallet-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:cardview-v7-27.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.intuit.sdp:sdp-android:1.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.dmytrodanylyk:android-morphing-button:98a4986e56@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-location:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-api-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gass-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-api-phone-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.adw.library:discrete-seekbar:1.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-config-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.diogobernardino:williamchart:2.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-nearby:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.flaviofaria:kenburnsview:1.0.7@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-ui-2.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.weiwangcn.betterspinner:library-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-awareness-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.jakewharton:butterknife-8.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-dynamic-links-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-messaging-license:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.parse.bolts:bolts-applinks:1.4.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable-27.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-fitness:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-auth:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.7.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.squareup.assertj:assertj-android:1.1.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils-27.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:28.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.ant:ant-launcher:1.8.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.microg:unifiednlp-api:1.5.6@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-instantapps-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout:1.1.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.itextpdf:itextg:5.5.9@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-framework-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gcm-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-fitness-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-iid:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-messaging:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.robolectric:robolectric-resources:3.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.ittianyu:BottomNavigationViewEx-1.2.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-dash-2.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-v4-impl-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-instantapps-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-maps-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-plus-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-core-2.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.daimajia.androidanimations:library:1.1.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.1.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-auth-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-crash:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:design:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.android:facebook-android-sdk:4.14.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-fragment:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: jp.wasabeef:glide-transformations:2.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-impl:11.6.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-idling-resource:3.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.weiwangcn.betterspinner:library:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.core:runtime:1.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\AppLea\app\libs\aspectjrt-1.7.3.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-games-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-fitness-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-drive-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.obsez.android.lib.filechooser:filechooser-1.1.5" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-2.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-core:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gass:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.apache.ant:ant:1.8.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-appinvite-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-places-license-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-maps-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.jakewharton:butterknife:8.4.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.bouncycastle:bcprov-jdk16:1.46@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-fitness-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wallet-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-location-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wallet-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview:2.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-cast-framework:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-awareness-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-plus:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wallet:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.firebaseui:firebase-ui-database:0.6.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test:monitor:1.0.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.6.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-connection-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-instantapps-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.microg:unifiednlp-api-1.5.6" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:interpolator:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:transition:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.afollestad.material-dialogs:core:0.9.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:drawerlayout:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-games-license:11.6.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.firebase:tubesock:0.0.12@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.firebase:firebase-client-android:2.5.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-appindexing-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.commonsware.cwac:camera-0.6.12" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:27.1.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:documentfile:28.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.ow2.asm:asm-tree:5.0.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.adw.library:discrete-seekbar-1.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: me.zhanghai.android.materialprogressbar:library-1.4.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-v4-impl-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: mbanje.kurt:fabbutton-1.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.weiwangcn.betterspinner:library-material:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:28.0.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:collections:28.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-dynamic-links:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-hls:2.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-dash:2.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.balysv:material-ripple:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.rengwuxian.materialedittext:library:2.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.microg:address-formatter:0.2.1@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.ow2.asm:asm-commons:5.0.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:print:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.nostra13.universalimageloader:universal-image-loader:1.9.5@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wearable-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-license-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-11.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-awareness:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-v4-impl-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tagmanager-license:11.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.assertj:assertj-core:1.7.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-identity-11.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.eschao:android-ElasticListView-v1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-license:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.jd-alexander:android-flat-button:v1.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:mediarouter-v7:25.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:coordinatorlayout:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:swiperefreshlayout:28.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:multidex:1.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-connection:11.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.commonsware.cwac:camera:0.6.12@aar" level="project" />
   </component>
 </module>

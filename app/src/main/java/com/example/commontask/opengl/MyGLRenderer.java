@@ -1,5 +1,6 @@
 package com.example.commontask.opengl;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -54,7 +55,7 @@ import com.example.commontask.R;
 
 
 import static java.lang.Math.round;
-
+import static java.lang.String.format;
 
 
 public class MyGLRenderer implements GLSurfaceView.Renderer{
@@ -451,12 +452,12 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
     //            if(0 + (4 * surface1MediaIndexMultiple) < mMedia.size()){
                 if(0 + (4 * surface1MediaIndexMultiple) < mNumResources){
     //                getMedia(mMedia.get(0 + (4 * surface1MediaIndexMultiple)).getMedia(), 0); // 0
-                    getMedia(mUserStories.getJSONObject(0 + (4 * surface1MediaIndexMultiple))
+                    getMedia(mUserStories.getJSONObject((4 * surface1MediaIndexMultiple))
                             .getJSONArray(mContext.getString(R.string.user_stories)), 0); // 0
                 }
                 else{
 //                    getMedia(mMedia.get(0 + (4 * (surface1MediaIndexMultiple - 1))).getMedia(), 0); // 0
-                    getMedia(mUserStories.getJSONObject(0 + (4 * (surface1MediaIndexMultiple - 1)))
+                    getMedia(mUserStories.getJSONObject((4 * (surface1MediaIndexMultiple - 1)))
                             .getJSONArray(mContext.getString(R.string.user_stories)), 0); // 0
                 }
 
@@ -2901,18 +2902,14 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
         float A = (max - min) / 2;
         float z;
         double temp = A * -Math.abs(Math.sin(2 * (round(angleRectangle) * pi / 180))) + max;
-        String s = String.format("%.2f", temp);
+        @SuppressLint("DefaultLocale") String s = format("%.2f", temp);
         z = Float.parseFloat(s);
         depth = z;
     }
 
 
 
-    /**
-     * setup the height, width and depth matrices
-     * @param width
-     * @param height
-     */
+
     private void setMatrices(float width, float height){
 
         float[][] heightMatrix = {

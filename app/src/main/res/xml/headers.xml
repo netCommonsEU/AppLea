@@ -9,7 +9,7 @@
 
         <extra
             android:name="category"
-            android:value="Γενικά"/>
+            android:value="General"/>
     </header>
 
     <header
@@ -18,7 +18,7 @@
 
         <extra
             android:name="category"
-            android:value="Ειδικά" />
+            android:value="Advanced" />
     </header>
 
 </preference-headers>

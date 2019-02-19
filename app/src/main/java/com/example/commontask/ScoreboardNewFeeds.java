@@ -12,7 +12,7 @@ import com.example.commontask.fragment.MyPostsFragment;
 import com.example.commontask.fragment.MyTopPostsFragment;
 
 
-public class ScoreboardNewFeeds extends BaseActivity {
+public class ScoreboardNewFeeds  {
 
 
    /* private FragmentPagerAdapter mPagerAdapter;

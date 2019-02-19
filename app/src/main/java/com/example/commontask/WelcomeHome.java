@@ -18,36 +18,36 @@ import butterknife.ButterKnife;
 
 public class WelcomeHome extends Fragment {
 
-    Activity activity;
-    Button button0;
-    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        activity = (Activity) context;
-    }
+  Activity activity;
+  Button button0;
+  private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+  @Override
+  public void onAttach(Context context) {
+    super.onAttach(context);
+    activity = (Activity) context;
+  }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.frag_splash_page, container, false);
-        ButterKnife.bind(this, root);
+    View root = inflater.inflate(R.layout.frag_splash_page, container, false);
+    ButterKnife.bind(this, root);
 
-        Animation anim = AnimationUtils.loadAnimation(getActivity(),R.anim.zoom);
-        TextView text = (TextView) root.findViewById(R.id.textView2);
-        text.setAnimation(anim);
-        button0 = (Button) root.findViewById(R.id.button15);
-        button0.setOnClickListener(new View.OnClickListener() {
+    Animation anim = AnimationUtils.loadAnimation(getActivity(),R.anim.zoom);
+    TextView text = (TextView) root.findViewById(R.id.textView2);
+    text.setAnimation(anim);
+    button0 = (Button) root.findViewById(R.id.button15);
+    button0.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(buttonClick);
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivityForResult(intent, 0);
-            }
-        });
+      @Override
+      public void onClick(View view) {
+        view.startAnimation(buttonClick);
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivityForResult(intent, 0);
+      }
+    });
 
 
-        return root;
-    }
+    return root;
+  }
 }

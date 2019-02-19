@@ -95,7 +95,7 @@ public class NewPostActivity1  extends BaseActivity{
     Uri selectedImage;
     String key,currentUserEmail1,userTestEmail;
     String  em;
-    BetterSpinner spinner5;
+    BetterSpinner spinner5,spinner,spinner2;
     String item1,item2,item3,item4;
     TextView textView2,textView3,textView4,textView5,textView6,textView7,textView8;
     String userTestLocation;
@@ -115,7 +115,7 @@ public class NewPostActivity1  extends BaseActivity{
         setContentView(R.layout.activity_new_post3);
 
         mView=NewPostActivity1.this;
-
+        String[] list = getResources().getStringArray(R.array.harvest);
         String[] list2 = getResources().getStringArray(R.array.shopping_item);
         String[] list4 = getResources().getStringArray(R.array.kilos);
         // [START initialize_database_ref]
@@ -123,7 +123,7 @@ public class NewPostActivity1  extends BaseActivity{
         // [END initialize_database_ref]
         key = mDatabase.child("posts").push().getKey();
         spinner3=(Spinner) findViewById(R.id.spinner3);
-
+        spinner2=(BetterSpinner) findViewById(R.id.spinner51);
         textView8=(TextView) findViewById(R.id.txtseek);
         textView2=(TextView) findViewById(R.id.txttask);
         textView3=(TextView) findViewById(R.id.textView5);
@@ -153,7 +153,8 @@ public class NewPostActivity1  extends BaseActivity{
         ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, list4);
 
-
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, list);
 
         DiscreteSeekBar discreteSeekBar1 = (DiscreteSeekBar) findViewById(R.id.discrete1);
         discreteSeekBar1.setNumericTransformer(new DiscreteSeekBar.NumericTransformer() {
@@ -201,7 +202,7 @@ public class NewPostActivity1  extends BaseActivity{
         textView2.setText(item1);
         spinner3.setAdapter(adapter2);
         spinner5.setAdapter(adapter4);
-
+        spinner2.setAdapter(adapter);
 
 
         textView6.setOnClickListener(new View.OnClickListener() {

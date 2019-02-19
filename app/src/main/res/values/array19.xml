@@ -2,8 +2,8 @@
 
 <resources>
     <string-array name="astheneia">
-        <item>Βορδιγάλειος Πολτός</item>
-        <item>Οξυχλωριούχος Χαλκός</item>
-        <item>Θειϊκός Χαλκός-Γαλαζόπετρα</item>
+        <item>Bordew pulp</item>
+        <item>Copper oxychloride</item>
+        <item>Blue vitriol</item>
     </string-array>
 </resources>

@@ -1,13 +1,19 @@
 package com.example.commontask.receiver;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 
-import com.example.commontask.service.NotificationService;
+import com.example.commontask.service.StartAutoLocationJob;
 import com.example.commontask.utils.AppPreference;
 import com.example.commontask.utils.Constants;
+
+import static com.example.commontask.utils.LogToFile.appendLog;
 
 public class StartupReceiver extends BroadcastReceiver {
 
@@ -15,13 +21,31 @@ public class StartupReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        appendLog(context, TAG, "onReceive start");
         removeOldPreferences(context);
-        boolean isNotificationEnabled = AppPreference.isNotificationEnabled(context);
-        NotificationService.setNotificationServiceAlarm(context, isNotificationEnabled);
-        Intent intentToStartUpdate = new Intent("com.example.commontask.action.START_ALARM_SERVICE");
+        appendLog(context, TAG, "scheduleStart start");
+        AppPreference.setLastSensorServicesCheckTimeInMs(context, 0);
+        scheduleStart(context);
+        appendLog(context, TAG, "scheduleStart end");
+        Intent intentToStartUpdate = new Intent("android.appwidget.action.APPWIDGET_UPDATE");
         intentToStartUpdate.setPackage("com.example.commontask");
         context.startService(intentToStartUpdate);
-        context.sendBroadcast(new Intent("android.appwidget.action.APPWIDGET_UPDATE"));
+    }
+
+    private void scheduleStart(Context context) {
+        appendLog(context, TAG, "scheduleStart at boot, SDK=", Build.VERSION.SDK_INT);
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
+            ComponentName serviceComponent = new ComponentName(context, StartAutoLocationJob.class);
+            JobInfo.Builder builder = new JobInfo.Builder(StartAutoLocationJob.JOB_ID, serviceComponent);
+            builder.setMinimumLatency(1 * 1000); // wait at least
+            builder.setOverrideDeadline(3 * 1000); // maximum delay
+            JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
+            jobScheduler.schedule(builder.build());
+        } else {
+            Intent intentToStartUpdate = new Intent("com.example.commontask.action.START_ALARM_SERVICE");
+            intentToStartUpdate.setPackage("com.example.commontask");
+            context.startService(intentToStartUpdate);
+        }
     }
 
     private void removeOldPreferences(Context context) {
@@ -59,7 +83,5 @@ public class StartupReceiver extends BroadcastReceiver {
         editor.commit();
         context.getSharedPreferences(Constants.PREF_WEATHER_NAME,
                 Context.MODE_PRIVATE).edit().clear().commit();
-
-
     }
 }

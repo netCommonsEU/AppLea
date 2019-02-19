@@ -15,6 +15,7 @@ import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,21 +30,17 @@ public class LocationNetworkSourcesService {
     private LocationNetworkSourcesService() {
     }
 
-    public static LocationNetworkSourcesService getInstance() {
-
-
+    public synchronized static LocationNetworkSourcesService getInstance() {
         if (instance == null) {
             instance = new LocationNetworkSourcesService();
         }
         return instance;
-
     }
 
     public List<Cell> getCells(Context context, TelephonyManager mTelephonyManager) {
-
         List<Cell> cells = new ArrayList<>();
-        String operator = mTelephonyManager.getNetworkOperator();
 
+        String operator = mTelephonyManager.getNetworkOperator();
         int mnc;
         int mcc;
 
@@ -51,8 +48,7 @@ public class LocationNetworkSourcesService {
         if (operator != null && operator.length() > 3) {
             mcc = Integer.valueOf(operator.substring(0, 3));
             mnc = Integer.valueOf(operator.substring(3));
-        }
-        else {
+        } else {
             appendLog(context, TAG, "Error retrieving network operator, skipping cell");
             mcc = 0;
             mnc = 0;
@@ -63,15 +59,13 @@ public class LocationNetworkSourcesService {
         }
 
         CellLocation cellLocation = null;
-
         try {
             cellLocation = mTelephonyManager.getCellLocation();
-        }
-        catch (SecurityException securityException) {
+        } catch (SecurityException securityException) {
             appendLog(context, TAG, "SecurityException when getCellLocation is called ", securityException);
         }
 
-        appendLog(context, TAG, "getCells():cellLocation:" + cellLocation);
+        appendLog(context, TAG, "getCells():cellLocation:", cellLocation);
 
         if (cellLocation != null) {
             if (cellLocation instanceof GsmCellLocation) {
@@ -82,44 +76,31 @@ public class LocationNetworkSourcesService {
                 cell.mcc = mcc;
                 cell.mnc = mnc;
                 cell.technology = mTelephonyManager.getNetworkType();
-
-                appendLog(context, TAG, "GsmCellLocation for cell:" + cell);
-
+                appendLog(context, TAG, "GsmCellLocation for cell:", cell);
                 cells.add(cell);
-            }
-            else if (cellLocation instanceof CdmaCellLocation) {
+            } else if (cellLocation instanceof CdmaCellLocation) {
                 appendLog(context, TAG, "getCells():cellLocation - CdmaCellLocation: Using CDMA cells for NLP is not yet implemented");
-            }
-            else {
+            } else {
                 appendLog(context, TAG, "getCells():cellLocation - Got a CellLocation of an unknown class");
             }
-        }
-        else {
+        } else {
             appendLog(context, TAG, "getCellLocation returned null");
         }
 
         List<NeighboringCellInfo> neighboringCells = null;
         try {
             neighboringCells = mTelephonyManager.getNeighboringCellInfo();
-        }
-        catch (SecurityException securityException) {
+        } catch (SecurityException securityException) {
             appendLog(context, TAG, "SecurityException when getCellLocation is called ", securityException);
         }
-        appendLog(context, TAG, "getCells():neighboringCells:" + neighboringCells);
-
+        appendLog(context, TAG, "getCells():neighboringCells:", neighboringCells);
         if (neighboringCells != null) {
-            appendLog(context, TAG, "getCells():neighboringCells.size:" + neighboringCells.size());
-            appendLog(context, TAG, "getNeighboringCellInfo found " + neighboringCells.size() + " cells");
-        }
-        else {
+            appendLog(context, TAG, "getCells():neighboringCells.size:", neighboringCells.size());
+        } else {
             appendLog(context, TAG, "getNeighboringCellInfo returned null");
         }
 
-
-
-
         if (neighboringCells != null) {
-
             for (NeighboringCellInfo c : neighboringCells) {
                 Cell cell = new Cell();
                 cell.cellId = c.getCid();
@@ -129,27 +110,22 @@ public class LocationNetworkSourcesService {
                 cell.psc = c.getPsc();
                 cell.signal = c.getRssi();
                 cell.technology = c.getNetworkType();
-                appendLog(context, TAG, "GsmCellLocation for cell:" + cell);
+                appendLog(context, TAG, "GsmCellLocation for cell:", cell);
                 cells.add(cell);
             }
-
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             List<CellInfo> cellsRawList = null;
             try {
                 cellsRawList = mTelephonyManager.getAllCellInfo();
-            }
-            catch (SecurityException securityException) {
+            } catch (SecurityException securityException) {
                 appendLog(context, TAG, "SecurityException when getCellLocation is called ", securityException);
             }
-            appendLog(context, TAG, "getCells():getAllCellInfo:cellsRawList:" + cellsRawList);
-
+            appendLog(context, TAG, "getCells():getAllCellInfo:cellsRawList:", cellsRawList);
             if (cellsRawList != null) {
-                appendLog(context, TAG, "getCells():cellsRawList.size:" + cellsRawList.size());
-                appendLog(context, TAG, "getAllCellInfo found " + cellsRawList.size() + " cells");
-            }
-            else {
+                appendLog(context, TAG, "getAllCellInfo found cells: ", cellsRawList);
+            } else {
                 appendLog(context, TAG, "getAllCellInfo returned null");
             }
 
@@ -160,7 +136,7 @@ public class LocationNetworkSourcesService {
             appendLog(context, TAG, "getAllCellInfo is not available (requires API 17)");
         }
 
-        appendLog(context, TAG, "getCells():return cells.size: " + cells.size());
+        appendLog(context, TAG, "getCells():return cells.size: ", cells);
         return cells;
     }
 
@@ -181,7 +157,7 @@ public class LocationNetworkSourcesService {
                 cell.mnc = ((CellInfoGsm)c).getCellIdentity().getMnc();
                 cell.psc = ((CellInfoGsm)c).getCellIdentity().getPsc();
                 cell.technology = mTelephonyManager.getNetworkType();
-                appendLog(context, TAG, String.format("CellInfoGsm for %d|%s|%d|%d|%s", cell.mcc, cell.mnc, cell.area, cell.cellId, cell.technology));
+                appendLog(context, TAG, "CellInfoGsm for ", cell.mcc, cell.mnc, cell.area, cell.cellId, cell.technology);
             } else if (c instanceof CellInfoCdma) {
                 /* object.put("cellId", ((CellInfoCdma)s).getCellIdentity().getBasestationId());
                     object.put("locationAreaCode", ((CellInfoCdma)s).getCellIdentity().getLac());
@@ -195,7 +171,7 @@ public class LocationNetworkSourcesService {
                 cell.mcc = ((CellInfoLte)c).getCellIdentity().getMcc();
                 cell.mnc = ((CellInfoLte)c).getCellIdentity().getMnc();
                 cell.technology = mTelephonyManager.getNetworkType();
-                appendLog(context, TAG, String.format("CellInfoLte for %d|%s|%d|%d|%s|%d", cell.mcc, cell.mnc, cell.area, cell.cellId, cell.technology, ((CellInfoLte)c).getCellIdentity().getPci()));
+                appendLog(context, TAG, "CellInfoLte for ", cell.mcc, cell.mnc, cell.area, cell.cellId, cell.technology, ((CellInfoLte)c).getCellIdentity().getPci());
             } else if (c instanceof CellInfoWcdma) {
                 //Log.v(TAG, "CellInfoWcdma cell found");
                 cell.cellId = ((CellInfoWcdma) c).getCellIdentity().getCid();
@@ -204,7 +180,7 @@ public class LocationNetworkSourcesService {
                 cell.mnc = ((CellInfoWcdma)c).getCellIdentity().getMnc();
                 cell.psc = ((CellInfoWcdma)c).getCellIdentity().getPsc();
                 cell.technology = mTelephonyManager.getNetworkType();
-                appendLog(context, TAG, String.format("CellInfoWcdma for %d|%s|%d|%d|%s|%d", cell.mcc, cell.mnc, cell.area, cell.cellId, cell.technology, ((CellInfoWcdma) c).getCellIdentity().getPsc()));
+                appendLog(context, TAG, "CellInfoLte for ", cell.mcc, cell.mnc, cell.area, cell.cellId, cell.technology, ((CellInfoWcdma) c).getCellIdentity().getPsc());
             } else {
                 appendLog(context, TAG, "CellInfo of unexpected type: " + c);
             }

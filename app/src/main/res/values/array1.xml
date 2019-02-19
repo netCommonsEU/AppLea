@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="villages">
-        <item>Μικρό Ελευθεροχώρι</item>
-        <item>Δολίχη</item>
-        <item>Φλάμπουρο</item>
-        <item>Κοκκινόγη</item>
-        <item>Κοκκινοπυλός</item>
-        <item>Λόφος</item>
-        <item>Πύθιο</item>
-        <item>Καλύβια</item>
-        <item>Σαραντάπορο</item>
-        <item>Λικούδι</item>
-        <item>Γεράνεια</item>
-        <item>Μηλέα</item>
-        <item>Φαρμάκη</item>
-        <item>Τσαπουρνιά</item>
+        <item>Small Eleutheroxori</item>
+        <item>Dolihi</item>
+        <item>Flampouro</item>
+        <item>Kokkinogi</item>
+        <item>Kokkinopylos</item>
+        <item>Lofos</item>
+        <item>Pythio</item>
+        <item>Kalyvia</item>
+        <item>Sarantaporo</item>
+        <item>Likoudi</item>
+        <item>Geraneia</item>
+        <item>Milea</item>
+        <item>Farmaki</item>
+        <item>Tsapournia</item>
     </string-array>
 </resources>

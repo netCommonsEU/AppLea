@@ -1,8 +1,9 @@
 package com.example.commontask.service;
 
 import android.content.Context;
-import android.content.Intent;
 import android.location.Address;
+import android.location.Location;
+
 import java.util.List;
 
 import static com.example.commontask.utils.LogToFile.appendLog;
@@ -12,19 +13,22 @@ public class MozillaProcessResultFromAddressResolution implements ProcessResultF
     public static final String TAG = "MozillaProcessResultFromAddressResolution";
 
     private Context context;
-    private Intent sendIntent;
+    private Location location;
+    private MozillaLocationService mozillaLocationService;
 
-    public MozillaProcessResultFromAddressResolution(Context context, Intent sendIntent) {
+    public MozillaProcessResultFromAddressResolution(Context context, Location location, MozillaLocationService mozillaLocationService) {
         this.context = context;
-        this.sendIntent = sendIntent;
+        this.location = location;
+        this.mozillaLocationService = mozillaLocationService;
     }
 
     public void processAddresses(List<Address> addresses) {
-        appendLog(context, TAG, "processUpdateOfLocation:addresses:" + addresses);
+        appendLog(context, TAG, "processUpdateOfLocation:addresses:", addresses);
+        Address resolvedAddress = null;
         if ((addresses != null) && (addresses.size() > 0)) {
-            sendIntent.putExtra("addresses", addresses.get(0));
+            resolvedAddress = addresses.get(0);
         }
-        appendLog(context, TAG, "processUpdateOfLocation:sendIntent:" + sendIntent);
-        context.startService(sendIntent);
+        appendLog(context, TAG, "processUpdateOfLocation:location:", location, ", address=", resolvedAddress);
+        mozillaLocationService.reportNewLocation(location, resolvedAddress);
     }
 }

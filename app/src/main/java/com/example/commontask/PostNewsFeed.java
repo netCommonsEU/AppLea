@@ -12,7 +12,7 @@ import com.example.commontask.fragment.MyPostsFragment;
 import com.example.commontask.fragment.MyTopPostsFragment;
 import com.example.commontask.fragment.RecentPostsFragment;
 
-public class PostNewsFeed  extends BaseActivity{
+public class PostNewsFeed  {
     private static final String TAG = "PostNewsFeed";
 
    /* private FragmentPagerAdapter mPagerAdapter;

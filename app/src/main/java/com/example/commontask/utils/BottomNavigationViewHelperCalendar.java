@@ -8,7 +8,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.commontask.ActivityMainStick;
+
 import com.example.commontask.Home.HomeActivity;
 import com.example.commontask.R;
 import com.example.commontask.ScoreboardNewFeeds;
@@ -22,6 +22,7 @@ public class BottomNavigationViewHelperCalendar {
 
     public static void setupBottomNavigationView(BottomNavigationViewEx bottomNavigationViewEx){
         Log.d(TAG, "setupBottomNavigationView: Setting up BottomNavigationView");
+
         bottomNavigationViewEx.enableAnimation(false);
         bottomNavigationViewEx.enableItemShiftingMode(false);
         bottomNavigationViewEx.enableShiftingMode(false);
@@ -41,12 +42,6 @@ public class BottomNavigationViewHelperCalendar {
                         callingActivity.overridePendingTransition(R.anim.fadein, R.anim.fade_out);
                         break;
 
-                    case R.id.notesstick:
-                        Intent intent2  = new Intent(context.getApplicationContext().getApplicationContext(), ActivityMainStick.class);//ACTIVITY_NUM = 1
-                        intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(intent2);
-                        callingActivity.overridePendingTransition(R.anim.fadein, R.anim.fade_out);
-                        break;
 
 
                     case R.id.scorerank:

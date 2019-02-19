@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.zagum:Android-ExpandIcon:1.2.1@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Android-ExpandIcon-1.2.1.aar/3efe31f575855c48f6a9ca2aea4464fd/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Android-ExpandIcon-1.2.1.aar/3efe31f575855c48f6a9ca2aea4464fd/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/Android-ExpandIcon-1.2.1.aar/3efe31f575855c48f6a9ca2aea4464fd/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

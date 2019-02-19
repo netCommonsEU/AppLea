@@ -2,9 +2,9 @@
 
 <resources>
     <string-array name="mikitas">
-        <item>Ωίδιο</item>
-        <item>Βοτρύτης</item>
-        <item>Ευδεμίδα</item>
+        <item>Iodine</item>
+        <item>Botrytis</item>
+        <item>Esdemida</item>
     </string-array>
 
 </resources>

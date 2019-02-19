@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="use_truck">
-        <item>Eλαφρά</item>
-        <item>Μέτρια</item>
-        <item>Βαριά</item>
+        <item>Lightly</item>
+        <item>Moderate</item>
+        <item>Heavy</item>
     </string-array>
 </resources>

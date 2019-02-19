@@ -939,8 +939,10 @@ public  class PostListFragment extends AppCompatActivity {
         }
         File filePath = new File(path);
         try {
-            document.writeTo(new FileOutputStream(filePath));
-        }
+
+                document.writeTo(new FileOutputStream(filePath));
+            }
+
         catch (IOException e) {
             e.printStackTrace();
 

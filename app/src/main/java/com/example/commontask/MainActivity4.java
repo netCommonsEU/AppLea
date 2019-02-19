@@ -350,22 +350,22 @@ public class MainActivity4 extends BaseActivity implements MaterialSpinner.OnIte
     public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
 
         if(position==0){
-            state= new String []{"Οργανοφοσφωρικά","Καρβαμιδικά","Οργανοχλωρινικά","Φυσικά Πυροθροειδή","Συνθετικές Πυροθρίνες","Ρυθμιστές Αύξησης"};
+            state= new String []{"Organophosphates","Carbamate","Organochlorines","Blow molding pyrethroids","Synthetic pyrethroids","Regulator Increaser"};
 
         }
 
         if(position==1){
-            state= new String []{"Ιώδιο","Βοτρύτης","Ευδεμίδα"};
+            state= new String []{"Iodine","Botrytis","Esdemida"};
 
         }
 
         if(position==2){
-            state= new String []{"Κάλιο","Άζωτο","Φώσφορο","Σίδηρος","Ιώδιο","Ψευδάργυρος","Χαλκός","Φθόριο","Μαγγάνιο","Σελήνιο"};
+            state= new String []{"Potassium","Nitrogen","Phosphorus","Iodine","Zinc","Copper","Fluorine","Manganese","Selenium"};
 
         }
 
         if(position==3){
-            state= new String []{"Βορδιγάλειος Πολτός","Οξυχλωριούχος Χαλκός","Φυσικά Πυροθροειδή","Θειϊκός Χαλκός-Γαλαζόπετρα"};
+            state= new String []{"Bordew Pulp","Copper Oxychloride","Blue Vitriol"};
 
         }
 

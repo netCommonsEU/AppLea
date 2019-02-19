@@ -115,6 +115,7 @@ public class RegisterActivity   extends AppCompatActivity{
                 .orderByChild(getString(R.string.field_username))
                 .equalTo(email);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -138,9 +139,12 @@ public class RegisterActivity   extends AppCompatActivity{
         });
     }
 
+
     /**
      * Setup the firebase auth object
      */
+
+
     private void setupFirebaseAuth(){
         Log.d(TAG, "setupFirebaseAuth: setting up firebase auth.");
 

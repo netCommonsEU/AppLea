@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabaseLockedException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.location.Address;
 import android.os.Parcel;
@@ -18,9 +19,11 @@ public class CurrentWeatherDbHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "CurrentWeather.db";
+    private static int GET_READABLE_DATABASE_RETRIES = 3;
+    private static int GET_READABLE_DATABASE_WAIT_TIME_MS = 500;
     private static CurrentWeatherDbHelper instance;
 
-    public static CurrentWeatherDbHelper getInstance(Context ctx) {
+    public synchronized static CurrentWeatherDbHelper getInstance(Context ctx) {
         if (instance == null) {
             instance = new CurrentWeatherDbHelper(ctx.getApplicationContext());
         }
@@ -42,6 +45,27 @@ public class CurrentWeatherDbHelper extends SQLiteOpenHelper {
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
+    }
+
+    @Override
+    public SQLiteDatabase getReadableDatabase() {
+        int retryCounter = 0;
+        do {
+            try {
+                return super.getReadableDatabase();
+            } catch (SQLiteDatabaseLockedException dbLockException) {
+                retryCounter++;
+                if (retryCounter > GET_READABLE_DATABASE_RETRIES) {
+                    return null;
+                }
+                try {
+                    Thread.currentThread().sleep(GET_READABLE_DATABASE_WAIT_TIME_MS);
+                } catch (InterruptedException e) {
+                    //
+                }
+            }
+        } while (retryCounter <= GET_READABLE_DATABASE_RETRIES);
+        return null;
     }
 
     public void deleteRecordByLocation(Location location) {
@@ -75,31 +99,47 @@ public class CurrentWeatherDbHelper extends SQLiteOpenHelper {
         return weatherBytes;
     }
 
-    public void saveWeather(long locationId, long weatherUpdateTime, Weather weather) {
-        SQLiteDatabase db = getWritableDatabase();
+    public void saveWeather(final long locationId,
+                            final long weatherUpdateTime,
+                            final Weather weather) {
+        new Thread(new Runnable() {
+            public void run() {
+                SQLiteDatabase db = getWritableDatabase();
 
-        WeatherRecord oldWeather = getWeather(locationId);
+                WeatherRecord oldWeather = getWeather(locationId);
 
-        ContentValues values = new ContentValues();
-        values.put(CurrentWeatherContract.CurrentWeather.COLUMN_NAME_WEATHER, getWeatherAsBytes(weather));
-        values.put(CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LOCATION_ID, locationId);
-        values.put(CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LAST_UPDATED_IN_MS, weatherUpdateTime);
-        if (oldWeather == null) {
-            db.insert(CurrentWeatherContract.CurrentWeather.TABLE_NAME, null, values);
-        } else {
-            db.update(CurrentWeatherContract.CurrentWeather.TABLE_NAME,
-                    values,
-                    CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LOCATION_ID + "=" + locationId,
-                    null);
-        }
+                ContentValues values = new ContentValues();
+                values.put(CurrentWeatherContract.CurrentWeather.COLUMN_NAME_WEATHER, getWeatherAsBytes(weather));
+                values.put(CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LOCATION_ID, locationId);
+                values.put(CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LAST_UPDATED_IN_MS, weatherUpdateTime);
+                if (oldWeather == null) {
+                    db.insert(CurrentWeatherContract.CurrentWeather.TABLE_NAME, null, values);
+                } else {
+                    db.updateWithOnConflict(CurrentWeatherContract.CurrentWeather.TABLE_NAME,
+                            values,
+                            CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LOCATION_ID + "=" + locationId,
+                            null,
+                            SQLiteDatabase.CONFLICT_IGNORE);
+                }
+            }
+        }).start();
     }
 
-    public void updateLastUpdatedTime(long locationId, long weatherUpdateTime) {
-        SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LAST_UPDATED_IN_MS, weatherUpdateTime);
+    public void updateLastUpdatedTime(final long locationId, final long weatherUpdateTime) {
+        new Thread(new Runnable() {
+            public void run() {
+                SQLiteDatabase db = getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LAST_UPDATED_IN_MS, weatherUpdateTime);
 
-        db.update(CurrentWeatherContract.CurrentWeather.TABLE_NAME,values,CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LOCATION_ID + "=" + locationId,null);
+                db.updateWithOnConflict(
+                        CurrentWeatherContract.CurrentWeather.TABLE_NAME,
+                        values,
+                        CurrentWeatherContract.CurrentWeather.COLUMN_NAME_LOCATION_ID + "=" + locationId,
+                        null,
+                        SQLiteDatabase.CONFLICT_IGNORE);
+            }
+        }).start();
     }
 
     public WeatherRecord getWeather(long locationId) {

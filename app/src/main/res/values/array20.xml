@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="harvest">
+        <item>First Hand</item>
+        <item>Second Hand</item>
+        <item>Third Hand</item>
+        <item>Fourth Hand</item>
+    </string-array>
+</resources>

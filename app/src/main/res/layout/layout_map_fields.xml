@@ -116,7 +116,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/white"
             android:layout_below="@+id/frame"
-            android:text="Στρέμματα"
+            android:text="acres"
             android:textStyle="normal|italic"
             android:textSize="15dp" />
 

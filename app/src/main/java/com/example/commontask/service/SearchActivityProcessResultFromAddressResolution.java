@@ -4,7 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
-import android.support.v4.content.LocalBroadcastManager;
+
 import java.util.List;
 
 import static com.example.commontask.utils.LogToFile.appendLog;
@@ -23,7 +23,6 @@ public class SearchActivityProcessResultFromAddressResolution implements Process
         this.context = context;
         this.sendIntent = sendIntent;
         this.mProgressDialog = mProgressDialog;
-
     }
 
     public void processAddresses(List<Address> addresses) {
@@ -31,13 +30,11 @@ public class SearchActivityProcessResultFromAddressResolution implements Process
             mProgressDialog.dismiss();
             mProgressDialog = null;
         }
-        appendLog(context, TAG, "processUpdateOfLocation:addresses:" + addresses);
+        appendLog(context, TAG, "processUpdateOfLocation:addresses:", addresses);
         if ((addresses != null) && (addresses.size() > 0)) {
             sendIntent.putExtra("addresses", addresses.get(0));
         }
-        appendLog(context, TAG, "processUpdateOfLocation:sendIntent:" + sendIntent);
-        LocalBroadcastManager.getInstance(context).sendBroadcast(sendIntent);
+        appendLog(context, TAG, "processUpdateOfLocation:sendIntent:", sendIntent);
+        context.sendBroadcast(sendIntent);
     }
-
-
 }

@@ -8,13 +8,13 @@
         android:id="@+id/filter"
         android:enabled="true"
         android:icon="@drawable/filter"
-        android:title="Φιλτράρισμα"
+        android:title="Filter"
         app:showAsAction="always|withText" />
     <item
         android:id="@+id/pdf"
         android:enabled="true"
         android:icon="@drawable/if_pdf"
-        android:title="Εκτύπωση"
+        android:title="Print"
         app:showAsAction="always|withText" />
 
     <item

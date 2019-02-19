@@ -2,11 +2,11 @@
 
 <resources>
     <string-array name="insect">
-        <item>Οργανοφοσφωρικά</item>
-        <item>Καρβαμιδικά</item>
-        <item>Οργανοχλωρινικά</item>
-        <item>Φυσικά Πυροθροειδή</item>
-        <item>Συνθετικές Πυροθρίνες</item>
-        <item>Ρυθμιστές Αύξησης</item>
+        <item>Organophosphates</item>
+        <item>Carbamate</item>
+        <item>Organochlorines</item>
+        <item>blow molding pyrethroids</item>
+        <item>Synthetic pyrethroids</item>
+        <item>Regulator Increaser</item>
     </string-array>
 </resources>

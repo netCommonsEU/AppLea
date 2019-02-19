@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
@@ -12,6 +13,7 @@ import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintDocumentInfo;
 import android.print.PrintManager;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -154,7 +156,9 @@ public class FilesAdapter extends BaseAdapter {
                                         break;
 
                                     case 3: //Print
-                                        doPrint(fileName);
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                            doPrint(fileName);
+                                        }
                                         break;
 
                                     case 4: //Email
@@ -245,6 +249,7 @@ public class FilesAdapter extends BaseAdapter {
      *
      * @param fileName Path of file to be printed
      */
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void doPrint(String fileName) {
         PrintManager printManager = (PrintManager) mContext
                 .getSystemService(Context.PRINT_SERVICE);
@@ -291,7 +296,9 @@ public class FilesAdapter extends BaseAdapter {
                     output.write(buf, 0, bytesRead);
                 }
 
-                callback.onWriteFinished(new PageRange[]{PageRange.ALL_PAGES});
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    callback.onWriteFinished(new PageRange[]{PageRange.ALL_PAGES});
+                }
 
             } catch (Exception e) {
                 //Catch exception
@@ -317,14 +324,21 @@ public class FilesAdapter extends BaseAdapter {
                              Bundle extras) {
 
             if (cancellationSignal.isCanceled()) {
-                callback.onLayoutCancelled();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    callback.onLayoutCancelled();
+                }
                 return;
             }
-            PrintDocumentInfo pdi = new PrintDocumentInfo.Builder("myFile")
-                    .setContentType(PrintDocumentInfo.CONTENT_TYPE_DOCUMENT)
-                    .build();
+            PrintDocumentInfo pdi = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                pdi = new PrintDocumentInfo.Builder("myFile")
+                        .setContentType(PrintDocumentInfo.CONTENT_TYPE_DOCUMENT)
+                        .build();
+            }
 
-            callback.onLayoutFinished(pdi, true);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                callback.onLayoutFinished(pdi, true);
+            }
         }
     };
 

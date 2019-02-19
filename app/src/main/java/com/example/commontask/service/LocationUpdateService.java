@@ -1,192 +1,93 @@
 package com.example.commontask.service;
 
 import android.Manifest;
-import android.app.Service;
-import android.content.BroadcastReceiver;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.PersistableBundle;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
 
-import com.example.commontask.model.CurrentWeatherDbHelper;
+import com.example.commontask.ConnectionDetector;
+import com.example.commontask.R;
 import com.example.commontask.model.LocationsDbHelper;
 import com.example.commontask.utils.AppPreference;
-import com.example.commontask.utils.AppWakeUpManager;
 import com.example.commontask.utils.Constants;
 import com.example.commontask.utils.PermissionUtil;
 import com.example.commontask.utils.PreferenceUtil;
 import com.example.commontask.utils.Utils;
-import com.example.commontask.widget.ExtLocationWidgetService;
-import com.example.commontask.widget.LessWidgetService;
-import com.example.commontask.widget.MoreWidgetService;
 
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.Locale;
+import java.util.Queue;
 
 import static com.example.commontask.utils.LogToFile.appendLog;
 
-public class LocationUpdateService extends Service implements LocationListener {
+public class LocationUpdateService extends AbstractCommonService implements LocationListener {
 
     private static final String TAG = "LocationUpdateService";
 
     private static final long LOCATION_TIMEOUT_IN_MS = 30000L;
+    private static final long NETWORK_AVAILABILITY_TIMEOUT_IN_MS = 30000L;
     private static final long GPS_LOCATION_TIMEOUT_IN_MS = 30000L;
-    private static final float LENGTH_UPDATE_LOCATION_LIMIT = 1500;
-    private static final float LENGTH_UPDATE_LOCATION_SECOND_LIMIT = 30000;
-    private static final float LENGTH_UPDATE_LOCATION_LIMIT_NO_LOCATION = 200;
-    private static final long UPDATE_WEATHER_ONLY_TIMEOUT = 900000; //15 min
-    private static final long REQUEST_UPDATE_WEATHER_ONLY_TIMEOUT = 180000; //3 min
-    private static final long ACCELEROMETER_UPDATE_TIME_SPAN = 900000000000l; //15 min
-    private static final long ACCELEROMETER_UPDATE_TIME_SECOND_SPAN = 300000000000l; //5 min
-    private static final long ACCELEROMETER_UPDATE_TIME_SPAN_NO_LOCATION = 300000000000l; //5 min
-    private static final long REFRESH_LOCATION_FROM_DB_TIMEOUT = 300000000000l; //5 min
+    private static final long GPS_MAX_LOCATION_AGE_IN_MS = 350000L; //5min
+    private static final long LOCATION_UPDATE_RESEND_INTERVAL_IN_MS = 10000L; //20s
 
-    private PowerManager powerManager;
+    public enum LocationUpdateServiceActions {
+        START_LOCATION_AND_WEATHER_UPDATE, START_LOCATION_ONLY_UPDATE, LOCATION_UPDATE
+    }
+
+    private final IBinder binder = new LocationUpdateServiceBinder();
+    private static Queue<NetworkLocationProviderActionData> networkLocationProviderActions = new LinkedList<>();
+    NetworkLocationProvider networkLocationProvider;
+
     private LocationManager locationManager;
-    private SensorManager senSensorManager;
-    private Sensor senAccelerometer;
 
     private String updateSource;
-
+    private boolean forceUpdate;
     private volatile long lastLocationUpdateTime;
-    private volatile long lastUpdatedPossition = 0;
-    private volatile long lastUpdate = 0;
-    private volatile float currentLength = 0;
-    private float currentLengthLowPassed = 0;
-    private float gravity[] = new float[3];
-    private MoveVector lastMovement;
-    public static volatile boolean autolocationForSensorEventAddressFound;
-
-    private SensorEventListener sensorListener = new SensorEventListener() {
-
-        @Override
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            try {
-                Sensor mySensor = sensorEvent.sensor;
-
-                if (mySensor.getType() != Sensor.TYPE_ACCELEROMETER) {
-                    return;
-                }
-                processSensorEvent(sensorEvent);
-            } catch (Exception e) {
-                appendLog(getBaseContext(), TAG, "Exception on onSensorChanged", e);
-            }
-        }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int i) {
-        }
-    };
-
-    private BroadcastReceiver screenOnReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            appendLog(context, TAG, "receive intent: " + intent);
-
-            CurrentWeatherDbHelper currentWeatherDbHelper = CurrentWeatherDbHelper.getInstance(getBaseContext());
-            LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
-            com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
-            CurrentWeatherDbHelper.WeatherRecord weatherRecord = currentWeatherDbHelper.getWeather(currentLocation.getId());
-            long storedWeatherTime = (weatherRecord != null)?weatherRecord.getLastUpdatedTime():0;
-            long now = System.currentTimeMillis();
-            appendLog(context, TAG, "SCREEN_ON called, lastUpdate=" +
-                    currentLocation.getLastLocationUpdate() +
-                    ", now=" +
-                    now +
-                    ", storedWeatherTime=" +
-                    storedWeatherTime);
-            if ((now <= (storedWeatherTime + UPDATE_WEATHER_ONLY_TIMEOUT)) || (now <= (currentLocation.getLastLocationUpdate() + REQUEST_UPDATE_WEATHER_ONLY_TIMEOUT))) {
-                timerScreenOnHandler.postDelayed(timerScreenOnRunnable, UPDATE_WEATHER_ONLY_TIMEOUT - (now - storedWeatherTime));
-                return;
-            }
-            requestWeatherCheck("-");
-            timerScreenOnHandler.postDelayed(timerScreenOnRunnable, UPDATE_WEATHER_ONLY_TIMEOUT);
-        }
-    };
-
-    private BroadcastReceiver screenOffReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            appendLog(context, TAG, "receive intent: " + intent);
-            timerScreenOnHandler.removeCallbacksAndMessages(null);
-        }
-    };
-
-    Handler timerScreenOnHandler = new Handler();
-    Runnable timerScreenOnRunnable = new Runnable() {
-
-        @Override
-        public void run() {
-            if (!powerManager.isScreenOn()) {
-                return;
-            }
-            CurrentWeatherDbHelper currentWeatherDbHelper = CurrentWeatherDbHelper.getInstance(getBaseContext());
-            LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
-            com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
-            CurrentWeatherDbHelper.WeatherRecord weatherRecord = currentWeatherDbHelper.getWeather(currentLocation.getId());
-
-            if (weatherRecord == null) {
-                requestWeatherCheck("-");
-                timerScreenOnHandler.postDelayed(timerScreenOnRunnable, UPDATE_WEATHER_ONLY_TIMEOUT);
-                return;
-            }
-
-            long storedWeatherTime = weatherRecord.getLastUpdatedTime();
-            long now = System.currentTimeMillis();
-
-            appendLog(getBaseContext(), TAG, "screen timer called, lastUpdate=" +
-                    currentLocation.getLastLocationUpdate() +
-                    ", now=" +
-                    now +
-                    ", storedWeatherTime=" +
-                    storedWeatherTime);
-
-            if ((now <= (storedWeatherTime + UPDATE_WEATHER_ONLY_TIMEOUT)) || (now <= (currentLocation.getLastLocationUpdate() + REQUEST_UPDATE_WEATHER_ONLY_TIMEOUT))) {
-                timerScreenOnHandler.postDelayed(timerScreenOnRunnable, REQUEST_UPDATE_WEATHER_ONLY_TIMEOUT);
-                return;
-            }
-            requestWeatherCheck("-");
-            timerScreenOnHandler.postDelayed(timerScreenOnRunnable, UPDATE_WEATHER_ONLY_TIMEOUT);
-        }
-    };
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
+    public static volatile boolean updateLocationInProcess;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Intent intent = new Intent(getApplicationContext(), NetworkLocationProvider.class);
+        getApplicationContext().bindService(intent, networkLocationProviderConnection, Context.BIND_AUTO_CREATE);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        currentLength = 0;
-        currentLengthLowPassed = 0;
-        lastUpdate = 0;
-        lastUpdatedPossition = 0;
-        gravity[0] = 0;
-        gravity[1] = 0;
-        gravity[2] = 0;
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return binder;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        if (networkLocationProvider != null) {
+            getApplicationContext().unbindService(networkLocationProviderConnection);
+        }
+        return false;
     }
 
     @Override
@@ -195,74 +96,76 @@ public class LocationUpdateService extends Service implements LocationListener {
         if (intent == null) {
             return ret;
         }
-        appendLog(getBaseContext(), TAG, "onStartCommand:intent.getAction():" + intent.getAction());
+        forceUpdate = false;
+        updateSource = null;
+        appendLog(getBaseContext(), TAG, "onStartCommand:intent.getAction():", intent.getAction());
         switch (intent.getAction()) {
-            case "android.intent.action.START_SENSOR_BASED_UPDATES": return startSensorBasedUpdates(ret);
-            case "android.intent.action.STOP_SENSOR_BASED_UPDATES": stopSensorBasedUpdates(); return ret;
-            case "android.intent.action.LOCATION_UPDATE": startLocationUpdateOnly(intent); return ret;
             case "android.intent.action.START_LOCATION_AND_WEATHER_UPDATE": startLocationAndWeatherUpdate(intent); return ret;
+            case "android.intent.action.START_LOCATION_ONLY_UPDATE": updateNetworkLocation(intent); return ret;
             default: return ret;
         }
     }
 
     @Override
     public void onLocationChanged(Location location) {
-        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
-        com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
-        locationsDbHelper.updateLocationSource(currentLocation.getId(), "G");
         onLocationChanged(location, null);
     }
     
     public void onLocationChanged(Location location, Address address) {
-        AppWakeUpManager.getInstance(getBaseContext()).wakeDown();
+        appendLog(getBaseContext(), TAG, "onLocationChanged");
+        sendMessageToWakeUpService(
+                AppWakeUpManager.FALL_DOWN,
+                AppWakeUpManager.SOURCE_LOCATION_UPDATE
+        );
         lastLocationUpdateTime = System.currentTimeMillis();
         timerHandler.removeCallbacksAndMessages(null);
         removeUpdates(this);
 
-        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
-        /*com.example.commontask.model.Location autoLocation = locationsDbHelper.getLocationByOrderId(0);
-        float storedLocationAccuracy = autoLocation.getAccuracy();
-        long storedLocationTime = autoLocation.getLastLocationUpdate();
 
-        Calendar now = Calendar.getInstance();
-        now.add(Calendar.MILLISECOND, -300000);
-
-        // remove acccuracy checking to get fast responses
-        if ((storedLocationTime > now.getTimeInMillis()) && (location != null) && (location.getAccuracy() > storedLocationAccuracy)) {
-            appendLog(getBaseContext(), TAG, "stored location is recent and more accurate, stored location accuracy = " +
-                    storedLocationAccuracy + ", location accuracy =" + ((location != null)?location.getAccuracy():"") +
-                    ", stored location time = " + storedLocationTime + ", location time" + ((location != null)?location.getTime():""));
-            locationDbHelper.updateLocationSource(currentLocation.getId(), locationSource);
-            requestWeatherCheck();
-            return;
-        }*/
-
-        if(location == null) {
-            gpsRequestLocation();
+        if ((location == null) && gpsRequestLocation()) {
             return;
         }
+
+        com.example.commontask.model.Location currentLocation;
+        if (location == null) {
+            LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
+            currentLocation = locationsDbHelper.getLocationByOrderId(0);
+            locationsDbHelper.updateLocationSource(currentLocation.getId(), getString(R.string.location_weather_update_status_location_not_reachable));
+        } else {
+            currentLocation = processUpdateOfLocation(location, address);
+        }
+        appendLog(getBaseContext(), TAG, "send intent to get weather, updateSource ", updateSource);
+        updateLocationInProcess = false;
+        stopRefreshRotation("onLocationChanged",3);
+        sendMessageToCurrentWeatherService(currentLocation, updateSource, AppWakeUpManager.SOURCE_CURRENT_WEATHER, forceUpdate, false);
+        sendMessageToWeatherForecastService(currentLocation.getId(), updateSource, forceUpdate);
+    }
+
+    private com.example.commontask.model.Location processUpdateOfLocation(Location location, Address address) {
+        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
 
         String updateDetailLevel = PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString(
                 Constants.KEY_PREF_UPDATE_DETAIL, "preference_display_update_nothing");
 
         com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
 
+        String currentLocationSource = currentLocation.getLocationSource();
         if ("gps".equals(location.getProvider())) {
-            locationsDbHelper.updateLocationSource(currentLocation.getId(), "G");
+            currentLocationSource = getString(R.string.location_weather_update_status_location_from_gps);
         } else if (updateDetailLevel.equals("preference_display_update_location_source")) {
             StringBuilder networkSourceBuilder = new StringBuilder();
-            networkSourceBuilder.append("N");
+            networkSourceBuilder.append(getString(R.string.location_weather_update_status_location_from_network));
             boolean additionalSourceSetted = false;
 
             if ((location.getExtras() != null) && (location.getExtras().containsKey("source"))) {
                 String networkSource = location.getExtras().getString("source");
                 if (networkSource != null) {
                     if (networkSource.contains("cells")) {
-                        networkSourceBuilder.append("c");
+                        networkSourceBuilder.append(getString(R.string.location_weather_update_status_location_from_network_cells));
                         additionalSourceSetted = true;
                     }
                     if (networkSource.contains("wifis")) {
-                        networkSourceBuilder.append("w");
+                        networkSourceBuilder.append(getString(R.string.location_weather_update_status_location_from_network_wifis));
                         additionalSourceSetted = true;
                     }
                 }
@@ -270,21 +173,20 @@ public class LocationUpdateService extends Service implements LocationListener {
             if (!additionalSourceSetted) {
                 networkSourceBuilder.append(location.getProvider().substring(0, 1));
             }
-            String updateSource = networkSourceBuilder.toString();
-            appendLog(getBaseContext(), TAG, "send update source to " + updateSource);
-            locationsDbHelper.updateLocationSource(currentLocation.getId(), updateSource);
-        } else if ("-".equals(currentLocation.getLocationSource())) {
-            locationsDbHelper.updateLocationSource(currentLocation.getId(), "N");
+            currentLocationSource = networkSourceBuilder.toString();
+            appendLog(getBaseContext(), TAG, "send update source to ", currentLocationSource);
+        } else if (getString(R.string.location_weather_update_status_update_started).equals(currentLocationSource)) {
+            currentLocationSource = getString(R.string.location_weather_update_status_location_from_network);
         }
         currentLocation = locationsDbHelper.getLocationById(currentLocation.getId());
-        locationsDbHelper.updateAutoLocationGeoLocation(location.getLatitude(), location.getLongitude(), currentLocation.getLocationSource(), location.getAccuracy(), getLocationTimeInMilis(location));
-        appendLog(getBaseContext(), TAG, "put new location from location update service, latitude=" + location.getLatitude() + ", longitude=" + location.getLongitude());
+        locationsDbHelper.updateAutoLocationGeoLocation(location.getLatitude(), location.getLongitude(), currentLocationSource, location.getAccuracy(), getLocationTimeInMilis(location));
+        appendLog(getBaseContext(), TAG, "put new location from location update service, latitude=", location.getLatitude(), ", longitude=", location.getLongitude());
         if (address != null) {
-            locationsDbHelper.updateAutoLocationAddress(PreferenceUtil.getLanguage(getBaseContext()), address);
+            locationsDbHelper.updateAutoLocationAddress(getBaseContext(), PreferenceUtil.getLanguage(getBaseContext()), address);
         } else {
             String geocoder = AppPreference.getLocationGeocoderSource(this);
-            boolean resolveAddressByOS = !("location_geocoder_unifiednlp".equals(geocoder) || "location_geocoder_local".equals(geocoder));
-            locationsDbHelper.setNoLocationFound(getBaseContext());
+            boolean resolveAddressByOS = !"location_geocoder_local".equals(geocoder);
+            locationsDbHelper.setNoLocationFound();
             Utils.getAndWriteAddressFromGeocoder(new Geocoder(this, new Locale(PreferenceUtil.getLanguage(this))),
                     address,
                     location.getLatitude(),
@@ -292,8 +194,7 @@ public class LocationUpdateService extends Service implements LocationListener {
                     resolveAddressByOS,
                     this);
         }
-        appendLog(getBaseContext(), TAG, "send intent to get weather, updateSource " + currentLocation.getLocationSource());
-        sendIntentToGetWeather(currentLocation);
+        return currentLocation;
     }
 
     Handler lastKnownLocationTimerHandler = new Handler();
@@ -302,7 +203,7 @@ public class LocationUpdateService extends Service implements LocationListener {
         @Override
         public void run() {
             appendLog(getBaseContext(), TAG, "send update source to N - update location by network, lastKnownLocation timeouted");
-            updateNetworkLocationByNetwork(null, false);
+            updateNetworkLocationByNetwork(null, false, null, 0);
         }
     };
 
@@ -311,7 +212,36 @@ public class LocationUpdateService extends Service implements LocationListener {
 
         @Override
         public void run() {
-            requestWeatherCheck("-");
+            appendLog(getBaseContext(), TAG, "timerRunnable:requestWeatherCheck");
+            LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
+            com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
+            requestWeatherCheck(currentLocation.getId(), updateSource, AppWakeUpManager.SOURCE_CURRENT_WEATHER, forceUpdate);
+        }
+    };
+
+    Handler timerNetworkAvailabilityHandler = new Handler();
+    Runnable timerNetworkAvailabilityRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+            appendLog(getBaseContext(), TAG, "timerNetworkAvailabilityRunnable:run");
+            ConnectionDetector connectionDetector = new ConnectionDetector(getApplicationContext());
+            LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getApplicationContext());
+            com.example.commontask.model.Location currentLocationForSensorEvent = locationsDbHelper.getLocationByOrderId(0);
+            if (!connectionDetector.isNetworkAvailableAndConnected()) {
+                locationsDbHelper.updateLocationSource(
+                        currentLocationForSensorEvent.getId(),
+                        getString(R.string.location_weather_update_status_location_not_reachable));
+                stopRefreshRotation("updateNetworkLocation", 3);
+                sendMessageToWakeUpService(
+                        AppWakeUpManager.FALL_DOWN,
+                        AppWakeUpManager.SOURCE_LOCATION_UPDATE
+                );
+                SensorLocationUpdater.getInstance(getBaseContext()).clearMeasuredLength();
+                updateLocationInProcess = false;
+            } else {
+                updateNetworkLocation(false, null, 0);
+            }
         }
     };
 
@@ -322,7 +252,8 @@ public class LocationUpdateService extends Service implements LocationListener {
         public void run() {
             locationManager.removeUpdates(gpsLocationListener);
             setNoLocationFound();
-            stopRefreshRotation();
+            updateLocationInProcess = false;
+            stopRefreshRotation("timerRunnableGpsLocation", 3);
         }
     };
 
@@ -331,20 +262,12 @@ public class LocationUpdateService extends Service implements LocationListener {
         public void onLocationChanged(Location location) {
             locationManager.removeUpdates(gpsLocationListener);
             timerHandlerGpsLocation.removeCallbacksAndMessages(null);
-            Intent sendIntent = new Intent("android.intent.action.START_LOCATION_UPDATE");
-            if ("location_geocoder_unifiednlp".equals(AppPreference.getLocationGeocoderSource(getBaseContext()))) {
-                sendIntent.setPackage("org.microg.nlp");
-            } else {
-                sendIntent.setPackage("com.example.commontask");
-            }
-            sendIntent.putExtra("destinationPackageName", "com.example.commontask");
-            sendIntent.putExtra("inputLocation", location);
-            sendIntent.putExtra("resolveAddress", true);
-            startService(sendIntent);
-            appendLog(getBaseContext(), TAG, "send intent START_LOCATION_UPDATE:locationSource G:" + sendIntent);
+            appendLog(getBaseContext(), TAG, "start START_LOCATION_UPDATE:locationsource is N or G");
+            startLocationUpdate(location, true);
+            appendLog(getBaseContext(), TAG, "start START_LOCATION_UPDATE:locationSource G");
             LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
             com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
-            locationsDbHelper.updateLocationSource(currentLocation.getId(), "G");
+            locationsDbHelper.updateLocationSource(currentLocation.getId(), getString(R.string.location_weather_update_status_location_from_gps));
             timerHandler.postDelayed(timerRunnable, LOCATION_TIMEOUT_IN_MS);
         }
 
@@ -377,95 +300,78 @@ public class LocationUpdateService extends Service implements LocationListener {
         if (intent.getExtras() == null) {
             return;
         }
-        Location inputLocation = (Location) intent.getExtras().getParcelable("inputLocation");
-        Address addresses = (Address) intent.getExtras().getParcelable("addresses");
-        appendLog(getBaseContext(), TAG, "LOCATION_UPDATE recieved:" + inputLocation + ":" + addresses);
+        Location inputLocation = null;
+        if (intent.getExtras().getParcelable("inputLocation") != null) {
+            inputLocation = (Location) intent.getExtras().getParcelable("inputLocation");
+        }
+        Address addresses = null;
+        if (intent.getExtras().getParcelable("addresses") != null) {
+            addresses = (Address) intent.getExtras().getParcelable("addresses");
+        }
+        appendLog(getBaseContext(), TAG, "LOCATION_UPDATE recieved:", inputLocation, ":", addresses);
         onLocationChanged(inputLocation, addresses);
     }
 
     private void startLocationAndWeatherUpdate(Intent intent) {
+        appendLog(getBaseContext(), TAG, "startLocationAndWeatherUpdate:", intent);
         if (intent.getExtras() == null) {
             return;
         }
+        this.updateSource = intent.getStringExtra("updateSource");
+        this.forceUpdate = intent.getBooleanExtra("forceUpdate", false);
+        processLocationAndWeatherUpdate(intent);
+    }
+
+    public void startLocationAndWeatherUpdate(String updateSource) {
+        this.updateSource = updateSource;
+        processLocationAndWeatherUpdate(null);
+    }
+
+    public void startLocationAndWeatherUpdate() {
+        processLocationAndWeatherUpdate(null);
+    }
+
+    public void processLocationAndWeatherUpdate(Intent intent) {
         boolean isGPSEnabled = AppPreference.isGpsEnabledByPreferences(this) &&
                 locationManager.getAllProviders().contains(LocationManager.GPS_PROVIDER)
                 && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         boolean isNetworkEnabled = locationManager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER)
                 && locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-        updateSource = intent.getStringExtra("updateSource");
+        appendLog(getBaseContext(), TAG, "startLocationAndWeatherUpdate:isGPSEnabled=",
+                                        isGPSEnabled, ", isNetworkEnabled=", isNetworkEnabled);
+
         LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
         com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
-        locationsDbHelper.updateLocationSource(currentLocation.getId(), "-");
-        AppWakeUpManager.getInstance(getBaseContext()).wakeUp();
+        locationsDbHelper.updateLocationSource(currentLocation.getId(), getString(R.string.location_weather_update_status_update_started));
 
         boolean isUpdateOfLocationEnabled = AppPreference.isUpdateLocationEnabled(this, currentLocation);
-        appendLog(this, TAG, "START_LOCATION_AND_WEATHER_UPDATE, isUpdateOfLocationEnabled=" +
-                isUpdateOfLocationEnabled +
-                ", isGPSEnabled=" +
-                isGPSEnabled +
-                ", isNetworkEnabled=" +
+        appendLog(this, TAG,
+                "START_LOCATION_AND_WEATHER_UPDATE, isUpdateOfLocationEnabled=",
+                isUpdateOfLocationEnabled,
+                ", isGPSEnabled=",
+                isGPSEnabled,
+                ", isNetworkEnabled=",
                 isNetworkEnabled);
         String geocoder = AppPreference.getLocationGeocoderSource(this);
         if (isUpdateOfLocationEnabled && (isGPSEnabled || isNetworkEnabled || !"location_geocoder_system".equals(geocoder))) {
-            appendLog(getBaseContext(), TAG, "Widget calls to update location, geocoder = " + geocoder);
-            if ("location_geocoder_unifiednlp".equals(geocoder) || "location_geocoder_local".equals(geocoder)) {
-                updateNetworkLocation(false);
+            appendLog(getBaseContext(), TAG, "Widget calls to update location, geocoder = ", geocoder);
+            sendMessageToWakeUpService(
+                    AppWakeUpManager.WAKE_UP,
+                    AppWakeUpManager.SOURCE_LOCATION_UPDATE
+            );
+            if ("location_geocoder_local".equals(geocoder)) {
+                updateNetworkLocation(false, intent, 0);
             } else {
                 detectLocation();
             }
         } else {
-            requestWeatherCheck("-");
+            appendLog(getBaseContext(), TAG, "startLocationAndWeatherUpdate:requestWeatherCheck");
+            requestWeatherCheck(currentLocation.getId(), updateSource, AppWakeUpManager.SOURCE_CURRENT_WEATHER, forceUpdate);
         }
     }
 
-    private void stopSensorBasedUpdates() {
-        if (senSensorManager == null) {
-            return;
-        }
-        appendLog(getBaseContext(), TAG, "STOP_SENSOR_BASED_UPDATES recieved");
-        getApplication().unregisterReceiver(screenOnReceiver);
-        getApplication().unregisterReceiver(screenOffReceiver);
-        senSensorManager.unregisterListener(sensorListener);
-        senSensorManager = null;
-        senAccelerometer = null;
-    }
-
-    private int startSensorBasedUpdates(int initialReturnValue) {
-        if (senSensorManager != null) {
-            return initialReturnValue;
-        }
-        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
-        com.example.commontask.model.Location autoLocation = locationsDbHelper.getLocationByOrderId(0);
-        if (!autoLocation.isEnabled()) {
-            return initialReturnValue;
-        }
-        autolocationForSensorEventAddressFound = autoLocation.isAddressFound();
-        registerSensorListener();
-        registerScreenListeners();
-        return START_STICKY;
-    }
-
-    private void registerSensorListener() {
-        appendLog(getBaseContext(), TAG, "START_SENSOR_BASED_UPDATES recieved");
-        senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        appendLog(getBaseContext(), TAG, "Selected accelerometer sensor:" + senAccelerometer);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            senSensorManager.registerListener(sensorListener, senAccelerometer , 300000000, 600000000);
-        } else {
-            senSensorManager.registerListener(sensorListener, senAccelerometer , 300000000);
-        }
-    }
-
-    private void registerScreenListeners() {
-        IntentFilter filterScreenOn = new IntentFilter(Intent.ACTION_SCREEN_ON);
-        IntentFilter filterScreenOff = new IntentFilter(Intent.ACTION_SCREEN_OFF);
-        getApplication().registerReceiver(screenOnReceiver, filterScreenOn);
-        getApplication().registerReceiver(screenOffReceiver, filterScreenOff);
-    }
-
-    private void gpsRequestLocation() {
+    private boolean gpsRequestLocation() {
         boolean isGPSEnabled = AppPreference.isGpsEnabledByPreferences(getBaseContext()) &&
                 locationManager.getAllProviders().contains(LocationManager.GPS_PROVIDER)
                 && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -473,7 +379,13 @@ public class LocationUpdateService extends Service implements LocationListener {
             Looper locationLooper = Looper.myLooper();
             appendLog(getBaseContext(), TAG, "get location from GPS");
             timerHandlerGpsLocation.postDelayed(timerRunnableGpsLocation, GPS_LOCATION_TIMEOUT_IN_MS);
-            locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, gpsLocationListener, locationLooper);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+                locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, gpsLocationListener, locationLooper);
+            }
+            startRefreshRotation("gpsRequestLocation", 3);
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -485,13 +397,31 @@ public class LocationUpdateService extends Service implements LocationListener {
         if (lastLocationUpdate > now.getTimeInMillis()) {
             return;
         }
-        locationDbHelper.setNoLocationFound(this);
-        updateWidgets();
+        locationDbHelper.setNoLocationFound();
+        stopRefreshRotation("setNoLocationFound", 3);
+        updateWidgets(updateSource);
     }
 
-    private boolean updateNetworkLocation(boolean bylastLocationOnly) {
+    private void updateNetworkLocation(Intent intent) {
+        if (intent.getExtras() == null) {
+            return;
+        }
+        boolean byLastLocationOnly = intent.getExtras().getBoolean("byLastLocationOnly");
+        updateNetworkLocation(byLastLocationOnly, intent, 0);
+    }
 
-        if (!PermissionUtil.checkPermissionsAndSettings(this)) {
+    public boolean updateNetworkLocation(boolean bylastLocationOnly,
+                                      Intent originalIntent,
+                                      Integer attempts) {
+        forceUpdate = false;
+        updateSource = null;
+        updateLocationInProcess = true;
+        startRefreshRotation("updateNetworkLocation", 3);
+        boolean permissionsGranted = PermissionUtil.checkPermissionsAndSettings(this);
+        appendLog(getBaseContext(), TAG, "updateNetworkLocation:", permissionsGranted);
+        if (!permissionsGranted) {
+            updateLocationInProcess = false;
+            stopRefreshRotation("updateNetworkLocation", 3);
             return false;
         }
         boolean isNetworkEnabled = locationManager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER)
@@ -502,74 +432,201 @@ public class LocationUpdateService extends Service implements LocationListener {
         String geocoder = AppPreference.getLocationGeocoderSource(getBaseContext());
         boolean networkNotEnabled = !isNetworkEnabled && "location_geocoder_system".equals(geocoder);
 
+        appendLog(getBaseContext(), TAG,
+                "updateNetworkLocation:networkNotEnabled=",
+                networkNotEnabled,
+                ", isGPSEnabled=",
+                isGPSEnabled,
+                ", bylastLocationOnly=",
+                bylastLocationOnly,
+                ", isNetworkEnabled=",
+                isNetworkEnabled);
+        sendMessageToWakeUpService(
+                AppWakeUpManager.WAKE_UP,
+                AppWakeUpManager.SOURCE_LOCATION_UPDATE
+        );
         if (networkNotEnabled && isGPSEnabled && !bylastLocationOnly) {
-            startRefreshRotation();
-            gpsRequestLocation();
-            return true;
+            appendLog(getBaseContext(), TAG, "updateNetworkLocation:request GPS and start rotation");
+            if (gpsRequestLocation()) {
+                return true;
+            }
         }
-        AppWakeUpManager.getInstance(getBaseContext()).wakeUp();
-        startRefreshRotation();
-        try {
 
+        try {
+            ConnectionDetector connectionDetector = new ConnectionDetector(getApplicationContext());
+            LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getApplicationContext());
+            com.example.commontask.model.Location currentLocationForSensorEvent = locationsDbHelper.getLocationByOrderId(0);
+            if (!connectionDetector.isNetworkAvailableAndConnected()) {
+                appendLog(this, TAG, "Network is not available");
+                if (!timerNetworkAvailabilityHandler.hasMessages(0) && !updateLocationInProcess) {
+                    timerNetworkAvailabilityHandler.postDelayed(timerNetworkAvailabilityRunnable, NETWORK_AVAILABILITY_TIMEOUT_IN_MS);
+                }
+                return false;
+            }
+            timerNetworkAvailabilityHandler.removeCallbacksAndMessages(null);
+            locationsDbHelper.updateLocationSource(currentLocationForSensorEvent.getId(),
+                    getString(R.string.location_weather_update_status_update_started));
+        } catch (Exception e) {
+            appendLog(this, TAG, "Exception occured during database update", e);
+            updateLocationInProcess = false;
+            stopRefreshRotation("updateNetworkLocation", 3);
+            sendMessageToWakeUpService(
+                    AppWakeUpManager.FALL_DOWN,
+                    AppWakeUpManager.SOURCE_LOCATION_UPDATE
+            );
+            return false;
+        }
+
+        appendLog(getBaseContext(), TAG, "updateNetworkLocation:wakeup and start rotation");
+        try {
             Location lastLocation = null;
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 lastKnownLocationTimerHandler.postDelayed(lastKnownLocationTimerRunnable, LOCATION_TIMEOUT_IN_MS);
                 lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 lastKnownLocationTimerHandler.removeCallbacksAndMessages(null);
             }
-            return updateNetworkLocationByNetwork(lastLocation, bylastLocationOnly);
+            updateNetworkLocationByNetwork(lastLocation, bylastLocationOnly, originalIntent, attempts);
+            return true;
         } catch (Exception e) {
             appendLog(getBaseContext(), TAG, "Exception during update of network location", e);
         }
+        updateLocationInProcess = false;
+        stopRefreshRotation("updateNetworkLocation", 3);
+        sendMessageToWakeUpService(
+                AppWakeUpManager.FALL_DOWN,
+                AppWakeUpManager.SOURCE_LOCATION_UPDATE
+        );
         return false;
     }
 
-    private void startRefreshRotation() {
-        Intent sendIntent = new Intent("android.intent.action.START_ROTATING_UPDATE");
-        sendIntent.setPackage("com.example.commontask");
-        startService(sendIntent);
+    private boolean isInteractive() {
+        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
+            return powerManager.isInteractive();
+        } else {
+            return powerManager.isScreenOn();
+        }
     }
 
-    private void stopRefreshRotation() {
-        Intent sendIntent = new Intent("android.intent.action.STOP_ROTATING_UPDATE");
-        sendIntent.setPackage("com.example.commontask");
-        startService(sendIntent);
-    }
-
-    private boolean updateNetworkLocationByNetwork(Location lastLocation,
-                                                   boolean bylastLocationOnly) {
-        Intent sendIntent = new Intent("android.intent.action.START_LOCATION_UPDATE");
-        sendIntent.putExtra("destinationPackageName", "com.example.commontask");
+    private void updateNetworkLocationByNetwork(Location lastLocation,
+                                                boolean byLastLocationOnly,
+                                                Intent originalIntent,
+                                                Integer attempts) {
+        updateLocationInProcess = true;
+        startRefreshRotation("updateNetworkLocationByNetwork", 3);
+        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
+        com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
+        if (resendRequestWhenNetworkNotAvailable(byLastLocationOnly, originalIntent, attempts)) {
+            return;
+        }
 
         Calendar now = Calendar.getInstance();
         now.add(Calendar.MINUTE, -5);
 
-        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
         com.example.commontask.model.Location autoLocation = locationsDbHelper.getLocationByOrderId(0);
         long lastLocationUpdate = autoLocation.getLastLocationUpdate();
-        if ("location_geocoder_unifiednlp".equals(AppPreference.getLocationGeocoderSource(this))) {
-            sendIntent.setPackage("org.microg.nlp");
-        } else {
-            sendIntent.setPackage("com.example.commontask");
+        long gpsLastLocationTime = getLocationTimeInMilis(lastLocation);
+        appendLog(getBaseContext(), TAG,
+                "Comparison of last location from GPS time = ",
+                gpsLastLocationTime,
+                ", and location last update time = ",
+                lastLocationUpdate);
+        Location inputLocation = null;
+        if ((lastLocation != null) &&
+                (gpsLastLocationTime > (System.currentTimeMillis() - GPS_MAX_LOCATION_AGE_IN_MS)) &&
+                (gpsLastLocationTime > lastLocationUpdate)) {
+            inputLocation = lastLocation;
+            locationsDbHelper.updateLocationSource(currentLocation.getId(), getString(R.string.location_weather_update_status_location_from_gps));
+        } else if (byLastLocationOnly) {
+            updateLocationInProcess = false;
+            sendMessageToWakeUpService(
+                    AppWakeUpManager.FALL_DOWN,
+                    AppWakeUpManager.SOURCE_LOCATION_UPDATE
+            );
+            stopRefreshRotation("updateNetworkLocationByNetwork:3", 3);
+            return;
         }
 
-        long gpsLastLocationTime = getLocationTimeInMilis(lastLocation);
-        appendLog(getBaseContext(), TAG, "Comparison of last location from GPS time = " +
-                gpsLastLocationTime +
-                ", and location last update time = " +
-                lastLocationUpdate);
-        if ((lastLocation != null) && gpsLastLocationTime > lastLocationUpdate) {
-            sendIntent.putExtra("inputLocation", lastLocation);
-            com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
-            locationsDbHelper.updateLocationSource(currentLocation.getId(), "G");
-        } else if (bylastLocationOnly) {
+        appendLog(getBaseContext(), TAG, "start START_LOCATION_UPDATE:locationsource is N or G");
+        startLocationUpdate(inputLocation, true);
+        timerHandler.postDelayed(timerRunnable, LOCATION_TIMEOUT_IN_MS);
+    }
+
+    /**
+     * Resending of network location request helps to get response when:
+     * - andoroid has wifi connection only
+     * - and wifi connection is established when the screen is on only
+     *
+     * Therefore when user swtich the phone on the wifi connection is starting and
+     * is not available at the moment. Updater has to wait to get wifi on and
+     * try to get the location again.
+     *
+     * @param byLastLocationOnly - param to be resend for JobService
+     * @param originalIntent - original intent for old API solution
+     * @param attempts - number of attempts for JobService
+     * @return true when we cannot continue with location discovery
+     */
+    private boolean resendRequestWhenNetworkNotAvailable(boolean byLastLocationOnly,
+                                                         Intent originalIntent,
+                                                         Integer attempts) {
+        ConnectionDetector connectionDetector = new ConnectionDetector(this);
+        if (connectionDetector.isNetworkAvailableAndConnected()) {
             return false;
         }
+        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
+        com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
 
-        sendIntent.putExtra("resolveAddress", true);
-        startService(sendIntent);
-        appendLog(getBaseContext(), TAG, "send intent START_LOCATION_UPDATE:updatesource is N or G:" + sendIntent);
-        timerHandler.postDelayed(timerRunnable, LOCATION_TIMEOUT_IN_MS);
+        int numberOfAttempts;
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
+            numberOfAttempts = attempts;
+        } else if (originalIntent != null) {
+            numberOfAttempts = originalIntent.getIntExtra("attempts", 0);
+        } else {
+            updateLocationInProcess = false;
+            stopRefreshRotation("updateNetworkLocationByNetwork:1", 3);
+            sendMessageToWakeUpService(
+                    AppWakeUpManager.FALL_DOWN,
+                    AppWakeUpManager.SOURCE_LOCATION_UPDATE
+            );
+            return true;
+        }
+
+        if (numberOfAttempts > 2) {
+            locationsDbHelper.updateLocationSource(
+                    currentLocation.getId(),
+                    getString(R.string.location_weather_update_status_location_not_reachable));
+            updateLocationInProcess = false;
+            stopRefreshRotation("updateNetworkLocationByNetwork:2", 3);
+            sendMessageToWakeUpService(
+                    AppWakeUpManager.FALL_DOWN,
+                    AppWakeUpManager.SOURCE_LOCATION_UPDATE
+            );
+            return true;
+        }
+
+        numberOfAttempts++;
+
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M) {
+            PersistableBundle bundle = new PersistableBundle();
+            bundle.putBoolean("byLastLocationOnly", byLastLocationOnly);
+            bundle.putInt("attempts", numberOfAttempts);
+            ComponentName serviceComponent = new ComponentName(this, LocationUpdateServiceRetryJob.class);
+            JobInfo.Builder builder = new JobInfo.Builder(LocationUpdateServiceRetryJob.JOB_ID, serviceComponent);
+            builder.setMinimumLatency(LOCATION_UPDATE_RESEND_INTERVAL_IN_MS); // wait at least
+            builder.setOverrideDeadline(LOCATION_UPDATE_RESEND_INTERVAL_IN_MS + (5 * 1000)); // maximum delay
+            builder.setExtras(bundle);
+            JobScheduler jobScheduler = getSystemService(JobScheduler.class);
+            jobScheduler.schedule(builder.build());
+        } else {
+            originalIntent.putExtra("attempts", numberOfAttempts);
+            resendTheIntentInSeveralSeconds(LOCATION_UPDATE_RESEND_INTERVAL_IN_MS, originalIntent);
+        }
+        updateLocationInProcess = false;
+        stopRefreshRotation("updateNetworkLocationByNetwork:2", 3);
+        sendMessageToWakeUpService(
+                AppWakeUpManager.FALL_DOWN,
+                AppWakeUpManager.SOURCE_LOCATION_UPDATE
+        );
         return true;
     }
 
@@ -581,13 +638,16 @@ public class LocationUpdateService extends Service implements LocationListener {
 
     private void detectLocation() {
         if (!PermissionUtil.checkPermissionsAndSettings(this)) {
-            updateWidgets();
+            updateWidgets(updateSource);
             stopSelf();
             return;
         }
         boolean isNetworkEnabled = locationManager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER)
                 && locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        appendLog(getBaseContext(), TAG, "detectLocation:isNetworkEnabled=", isNetworkEnabled);
         if (isNetworkEnabled && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            appendLog(getBaseContext(), TAG, "detectLocation:afterCheckSelfPermission");
+            startRefreshRotation("detectLocation", 3);
             final Looper locationLooper = Looper.myLooper();
             locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, this, locationLooper);
             final LocationListener locationListener = this;
@@ -596,20 +656,21 @@ public class LocationUpdateService extends Service implements LocationListener {
                 @Override
                 public void run() {
                     locationManager.removeUpdates(locationListener);
+                    appendLog(getBaseContext(), TAG, "detectLocation:lastLocationUpdateTime=", lastLocationUpdateTime);
                     if ((System.currentTimeMillis() - (2 * LOCATION_TIMEOUT_IN_MS)) < lastLocationUpdateTime) {
                         return;
                     }
                     LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
                     com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
-                    locationsDbHelper.updateLocationSource(currentLocation.getId(), "-");
+                    locationsDbHelper.updateLocationSource(currentLocation.getId(), getString(R.string.location_weather_update_status_update_started));
                     if (ContextCompat.checkSelfPermission(LocationUpdateService.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                         Location lastNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                         Location lastGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                         if ((lastGpsLocation == null) && (lastNetworkLocation != null)) {
-                            locationsDbHelper.updateLocationSource(currentLocation.getId(), "N");
+                            locationsDbHelper.updateLocationSource(currentLocation.getId(), getString(R.string.location_weather_update_status_location_from_network));
                             locationListener.onLocationChanged(lastNetworkLocation);
                         } else if ((lastGpsLocation != null) && (lastNetworkLocation == null)) {
-                            locationsDbHelper.updateLocationSource(currentLocation.getId(), "G");
+                            locationsDbHelper.updateLocationSource(currentLocation.getId(), getString(R.string.location_weather_update_status_location_from_gps));
                             locationListener.onLocationChanged(lastGpsLocation);
                         } else if (AppPreference.isGpsEnabledByPreferences(getBaseContext())){
                             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
@@ -626,155 +687,10 @@ public class LocationUpdateService extends Service implements LocationListener {
                             }.start();
                         }
                     }
-                    requestWeatherCheck(null);
+                    appendLog(getBaseContext(), TAG, "detectLocation:requestWeatherCheck");
+                    requestWeatherCheck(currentLocation.getId(), updateSource, AppWakeUpManager.SOURCE_CURRENT_WEATHER, forceUpdate);
                 }
             }, LOCATION_TIMEOUT_IN_MS);
-        }
-    }
-
-    private void requestWeatherCheck(String locationSource) {
-        startRefreshRotation();
-        boolean updateLocationInProcess = updateNetworkLocation(true);
-        appendLog(getBaseContext(), TAG, "requestWeatherCheck, updateLocationInProcess=" +
-                updateLocationInProcess);
-        if (updateLocationInProcess) {
-            updateWidgets();
-            return;
-        }
-        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
-        com.example.commontask.model.Location currentLocation = locationsDbHelper.getLocationByOrderId(0);
-        if (locationSource != null) {
-            locationsDbHelper.updateLocationSource(currentLocation.getId(), "-");
-            currentLocation = locationsDbHelper.getLocationById(currentLocation.getId());
-        }
-        sendIntentToGetWeather(currentLocation);
-    }
-
-    private void sendIntentToGetWeather(com.example.commontask.model.Location currentLocation) {
-        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
-        CurrentWeatherDbHelper currentWeatherDbHelper = CurrentWeatherDbHelper.getInstance(getBaseContext());
-        currentWeatherDbHelper.updateLastUpdatedTime(currentLocation.getId(), System.currentTimeMillis());
-        Intent intentToCheckWeather = new Intent(getBaseContext(), CurrentWeatherService.class);
-        intentToCheckWeather.putExtra("location", locationsDbHelper.getLocationById(currentLocation.getId()));
-        intentToCheckWeather.putExtra("updateSource", updateSource);
-        startService(intentToCheckWeather);
-    }
-    
-    private void updateWidgets() {
-        stopRefreshRotation();
-        startService(new Intent(getBaseContext(), LessWidgetService.class));
-        startService(new Intent(getBaseContext(), MoreWidgetService.class));
-        startService(new Intent(getBaseContext(), ExtLocationWidgetService.class));
-        if (updateSource != null) {
-            switch (updateSource) {
-                case "MAIN":
-                    sendIntentToMain();
-                    break;
-                case "NOTIFICATION":
-                    startService(new Intent(getBaseContext(), NotificationService.class));
-                    break;
-            }
-        }
-    }
-    
-    private void sendIntentToMain() {
-        Intent intent = new Intent(CurrentWeatherService.ACTION_WEATHER_UPDATE_RESULT);
-        intent.putExtra(CurrentWeatherService.ACTION_WEATHER_UPDATE_RESULT, CurrentWeatherService.ACTION_WEATHER_UPDATE_FAIL);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-    }
-
-    private void processSensorEvent(SensorEvent sensorEvent) {
-        double countedtLength = 0;
-        double countedAcc = 0;
-        long now = sensorEvent.timestamp;
-        try {
-            final float dT = (float) (now - lastUpdate) / 1000000000.0f;
-            lastUpdate = now;
-
-            if (lastMovement != null) {
-                countedAcc = (float) Math.sqrt((lastMovement.getX() * lastMovement.getX()) + (lastMovement.getY() * lastMovement.getY()) + (lastMovement.getZ() * lastMovement.getZ()));
-                countedtLength = countedAcc * dT *dT;
-
-                float lowPassConst = 0.1f;
-
-                if (countedAcc < lowPassConst) {
-                    if (dT > 1.0f) {
-                        appendLog(getBaseContext(), TAG, "acc under limit, currentLength = " + String.format("%.8f", currentLength) +
-                                ":counted length = " + String.format("%.8f", countedtLength) + ":countedAcc = " + countedAcc +
-                                ", dT = " + String.format("%.8f", dT));
-                    }
-                    currentLengthLowPassed += countedtLength;
-                    lastMovement = highPassFilter(sensorEvent);
-                    return;
-                }
-                currentLength += countedtLength;
-            } else {
-                countedtLength = 0;
-                countedAcc = 0;
-            }
-            lastMovement = highPassFilter(sensorEvent);
-
-            if ((lastUpdate%1000 < 5) || (countedtLength > 10)) {
-                appendLog(getBaseContext(), TAG, "current currentLength = " + String.format("%.8f", currentLength) +
-                        ":counted length = " + String.format("%.8f", countedtLength) + ":countedAcc = " + countedAcc +
-                        ", dT = " + String.format("%.8f", dT));
-            }
-            float absCurrentLength = Math.abs(currentLength);
-
-            if (((lastUpdate < (lastUpdatedPossition + ACCELEROMETER_UPDATE_TIME_SPAN)) || (absCurrentLength < LENGTH_UPDATE_LOCATION_LIMIT))
-                    && ((lastUpdate < (lastUpdatedPossition + ACCELEROMETER_UPDATE_TIME_SECOND_SPAN)) || (absCurrentLength < LENGTH_UPDATE_LOCATION_SECOND_LIMIT))
-                    && (autolocationForSensorEventAddressFound || (lastUpdate < (lastUpdatedPossition + ACCELEROMETER_UPDATE_TIME_SPAN_NO_LOCATION)) || (absCurrentLength < LENGTH_UPDATE_LOCATION_LIMIT_NO_LOCATION))) {
-                return;
-            }
-
-            appendLog(getBaseContext(), TAG, "end currentLength = " + String.format("%.8f", absCurrentLength) + ", currentLengthLowPassed = " + String.format("%.8f", currentLengthLowPassed));
-        } catch (Exception e) {
-            appendLog(getBaseContext(), TAG, "Exception when processSensorQueue", e);
-            return;
-        }
-        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(getBaseContext());
-        locationsDbHelper.setNoLocationFound(getBaseContext());
-        gravity[0] = 0;
-        gravity[1] = 0;
-        gravity[2] = 0;
-        lastUpdatedPossition = lastUpdate;
-        currentLength = 0;
-        currentLengthLowPassed = 0;
-
-        com.example.commontask.model.Location currentLocationForSensorEvent = locationsDbHelper.getLocationByOrderId(0);
-        locationsDbHelper.updateLocationSource(currentLocationForSensorEvent.getId(), "-");
-        updateNetworkLocation(false);
-    }
-
-    private MoveVector highPassFilter(SensorEvent sensorEvent) {
-        final float alpha = 0.8f;
-
-        gravity[0] = alpha * gravity[0] + (1 - alpha) * sensorEvent.values[0];
-        gravity[1] = alpha * gravity[1] + (1 - alpha) * sensorEvent.values[1];
-        gravity[2] = alpha * gravity[2] + (1 - alpha) * sensorEvent.values[2];
-
-        return new MoveVector(sensorEvent.values[0] - gravity[0], sensorEvent.values[1] - gravity[1], sensorEvent.values[2] - gravity[2]);
-    }
-
-    private class MoveVector {
-        private final float x;
-        private final float y;
-        private final float z;
-
-        public MoveVector(float x, float y, float z) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-
-        public float getX() {
-            return x;
-        }
-        public float getY() {
-            return y;
-        }
-        public float getZ() {
-            return z;
         }
     }
 
@@ -790,5 +706,83 @@ public class LocationUpdateService extends Service implements LocationListener {
             return location.getTime();
         }
 
+    }
+
+    private void resendTheIntentInSeveralSeconds(long timeInMilis, Intent intent) {
+        AlarmManager alarmManager = (AlarmManager) getBaseContext().getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(),
+                0,
+                intent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + timeInMilis, pendingIntent);
+    }
+
+    private void startLocationUpdate(Location inputLocation, boolean resolveAddress) {
+        appendLog(getBaseContext(), TAG, "startLocationUpdate");
+        if (networkLocationProvider == null) {
+            networkLocationProviderActions.add(new NetworkLocationProviderActionData(
+                    NetworkLocationProvider.NetworkLocationProviderActions.START_LOCATION_UPDATE,
+                    inputLocation,
+                    resolveAddress));
+            return;
+        }
+        networkLocationProvider.startLocationUpdate(inputLocation, resolveAddress);
+    }
+
+    private ServiceConnection networkLocationProviderConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            NetworkLocationProvider.NetworkLocationProviderBinder binder =
+                    (NetworkLocationProvider.NetworkLocationProviderBinder) service;
+            networkLocationProvider = binder.getService();
+            NetworkLocationProviderActionData bindedServiceActions;
+            while ((bindedServiceActions = networkLocationProviderActions.poll()) != null) {
+                switch (bindedServiceActions.getAction()) {
+                    case START_LOCATION_UPDATE:
+                        networkLocationProvider.startLocationUpdate(bindedServiceActions.getInputLocation(), bindedServiceActions.isResolveAddress());
+                        break;
+                }
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            networkLocationProvider = null;
+        }
+    };
+
+    public class LocationUpdateServiceBinder extends Binder {
+        public LocationUpdateService getService() {
+            return LocationUpdateService.this;
+        }
+    }
+
+    private class NetworkLocationProviderActionData {
+        NetworkLocationProvider.NetworkLocationProviderActions action;
+        Location inputLocation;
+        boolean resolveAddress;
+
+        public NetworkLocationProviderActionData(NetworkLocationProvider.NetworkLocationProviderActions action,
+                                                 Location inputLocation,
+                                                 boolean resolveAddress) {
+            this.action = action;
+            this.inputLocation = inputLocation;
+            this.resolveAddress = resolveAddress;
+        }
+
+        public NetworkLocationProvider.NetworkLocationProviderActions getAction() {
+            return action;
+        }
+
+        public Location getInputLocation() {
+            return inputLocation;
+        }
+
+        public boolean isResolveAddress() {
+            return resolveAddress;
+        }
     }
 }

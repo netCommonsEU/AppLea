@@ -7,6 +7,7 @@ import android.provider.CalendarContract;
 /**
  * {@link android.provider.CalendarContract.Calendars} cursor wrapper
  */
+
 public class CalendarCursor extends CursorWrapper {
 
     /**

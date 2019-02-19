@@ -8,6 +8,7 @@ import java.util.List;
 import com.example.commontask.fragment.MvpView;
 
 public interface DetailsFragmentView extends MvpView {
+
     void drawPolylinesOnMap(ArrayList<LatLng> decode);
 
     void provideBaliData(List<Place> places);

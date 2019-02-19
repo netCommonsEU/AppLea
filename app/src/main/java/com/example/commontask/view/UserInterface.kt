@@ -23,8 +23,6 @@ import kotlinx.android.synthetic.main.activity_main_weather.*
 import java.util.*
 
 
-
-
 class UserInterface(private val context: Context) {
     private var activity = context as Activity
     private val swipeRefreshLayout = activity.main_swipe_refresh_layout
@@ -38,18 +36,13 @@ class UserInterface(private val context: Context) {
         Log.d(TAG_C_INTERFACE, "initialize() is executed.")
         startSwipeRefresh()
         LocationServices(context).locationPermission()
-        /*
-        Sets up a SwipeRefreshLayout.OnRefreshListener that is invoked when the user
-        performs a swipe-to-refresh gesture.
-        */
-        swipeRefreshLayout.setOnRefreshListener(
-                {
-                    Log.d(TAG_C_INTERFACE, "onRefresh called from swipeRefreshLayout")
-                    // This method performs the actual data-refresh operation.
-                    // The method calls setRefreshing(false) when it's finished.
-                    LocationServices(context).locationPermission()
-                }
-        )
+
+        swipeRefreshLayout.setOnRefreshListener {
+            Log.d(TAG_C_INTERFACE, "onRefresh called from swipeRefreshLayout")
+            // This method performs the actual data-refresh operation.
+            // The method calls setRefreshing(false) when it's finished.
+            LocationServices(context).locationPermission()
+        }
 
         toggleData.setOnCheckedChangeListener { _, checkedId ->
             val forecastDataModel = LocalForecastData(context).retrieve()
@@ -155,7 +148,7 @@ class UserInterface(private val context: Context) {
         Log.d(TAG_C_INTERFACE, "showSnackbar() message: $message")
         retrySnackBar = Snackbar.make(swipeRefreshLayout, message, Snackbar.LENGTH_SHORT)
         if (!retrySnackBar.isShown) {
-            retrySnackBar.setAction("Retry") { _ ->
+            retrySnackBar.setAction("Retry") {
                 Log.d(TAG_C_INTERFACE, "onError() Retry is clicked.")
                 swipeRefreshLayout.isRefreshing = true
                 LocationServices(context).locationPermission()

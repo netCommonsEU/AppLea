@@ -1,4 +1,4 @@
-package com.example.commontask;
+package  com.example.commontask;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import static com.example.commontask.R.string.title_activity_license;
+import static  com.example.commontask.R.string.title_activity_license;
 
 public class LicenseActivity extends AppCompatActivity {
 

@@ -17,6 +17,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.support.design.bottomnavigation.LabelVisibilityMode;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -110,11 +111,14 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
 
       BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
+
       BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
       setUpContentView();
 
      bottomNavigationView.setItemIconTintList(null);
+
+     bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
 
      bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -265,11 +269,11 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
 
         else {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setTitle("Θέλετε να αποχωρήσετε απο την εφαρμογή?");
+            alertDialogBuilder.setTitle("Do you want to quit from app?");
             alertDialogBuilder
-                    .setMessage("Πιέστε Ναι για αποχώρηση")
+                    .setMessage("Press yes to quit")
                     .setCancelable(false)
-                    .setPositiveButton("Ναι",
+                    .setPositiveButton("yes",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     moveTaskToBack(true);
@@ -278,7 +282,7 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
                                 }
                             })
 
-                    .setNegativeButton("Ακύρωση", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                         }

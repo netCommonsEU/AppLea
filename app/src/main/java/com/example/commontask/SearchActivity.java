@@ -13,11 +13,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.events.MapEventsReceiver;
@@ -28,17 +28,21 @@ import org.osmdroid.views.overlay.MapEventsOverlay;
 import com.example.commontask.model.Location;
 import com.example.commontask.model.LocationsContract;
 import com.example.commontask.model.LocationsDbHelper;
-import com.example.commontask.service.LocationUpdateService;
+import com.example.commontask.service.ReconciliationDbService;
+import com.example.commontask.service.SensorLocationUpdateService;
 import com.example.commontask.service.NominatimLocationService;
 import com.example.commontask.service.SearchActivityProcessResultFromAddressResolution;
+import com.example.commontask.service.SensorLocationUpdater;
+import com.example.commontask.utils.PreferenceUtil;
 import com.example.commontask.utils.Utils;
+import com.example.commontask.utils.WidgetUtils;
 
 import java.util.List;
 import java.util.Locale;
 
 import static com.example.commontask.utils.LogToFile.appendLog;
 
-public class SearchActivity extends BaseActivityWeather {
+public class SearchActivity extends WeatherBaseActivity {
 
     public static final String TAG = "SearchActivity";
 
@@ -84,7 +88,7 @@ public class SearchActivity extends BaseActivityWeather {
                 BuildConfig.VERSION_NAME,
                 Build.VERSION.RELEASE));
 
-        setContentView(R.layout.activity_search_weather);
+        setContentView(R.layout.activity_search_weather_city_station);
         setupActionBar();
 
         addLocatonButton = (Button) findViewById(R.id.search_add_location_button);
@@ -137,7 +141,7 @@ public class SearchActivity extends BaseActivityWeather {
 
                 latitude = p.getLatitude();
                 longitude = p.getLongitude();
-                locale = Locale.getDefault().getLanguage();
+                locale = PreferenceUtil.getLanguage(getApplicationContext());
                 Intent resultionResult = new Intent(ACTION_ADDRESS_RESOLUTION_RESULT);
                 resultionResult.setPackage("com.example.commontask");
                 NominatimLocationService.getInstance().getFromLocation(
@@ -156,7 +160,6 @@ public class SearchActivity extends BaseActivityWeather {
             }
         };
 
-
         MapEventsOverlay overlayEvents = new MapEventsOverlay(mReceive);
         map.getOverlays().add(overlayEvents);
 
@@ -165,9 +168,13 @@ public class SearchActivity extends BaseActivityWeather {
 
     public void onResume(){
         super.onResume();
-        LocalBroadcastManager.getInstance(this).registerReceiver(mWeatherUpdateReceiver,
+        registerReceiver(mWeatherUpdateReceiver,
                 new IntentFilter(ACTION_ADDRESS_RESOLUTION_RESULT));
         map.onResume();
+    }
+
+    @Override
+    protected void updateUI() {
     }
 
     public void onPause(){
@@ -186,7 +193,7 @@ public class SearchActivity extends BaseActivityWeather {
             mProgressDialog.dismiss();
             mProgressDialog = null;
         }
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mWeatherUpdateReceiver);
+        unregisterReceiver(mWeatherUpdateReceiver);
     }
 
     private void setupActionBar() {
@@ -203,7 +210,7 @@ public class SearchActivity extends BaseActivityWeather {
     }
 
     private void storeLocation() {
-        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(this);
+        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(this.getApplicationContext());
 
         int currentMaxOrderId = locationsDbHelper.getMaxOrderId();
         SQLiteDatabase db = locationsDbHelper.getWritableDatabase();
@@ -219,12 +226,21 @@ public class SearchActivity extends BaseActivityWeather {
 
         long newLocationRowId = db.insert(LocationsContract.Locations.TABLE_NAME, null, values);
 
-        LocationUpdateService.autolocationForSensorEventAddressFound = true;
+        SensorLocationUpdater.autolocationForSensorEventAddressFound = true;
+        appendLog(this,
+                TAG,
+                "autolocationForSensorEventAddressFound=",
+                        SensorLocationUpdater.autolocationForSensorEventAddressFound);
 
         if (currentMaxOrderId == 0) {
             Intent intentToStartUpdate = new Intent("com.example.commontask.action.RESTART_ALARM_SERVICE");
             intentToStartUpdate.setPackage("com.example.commontask");
-            this.startService(intentToStartUpdate);
+            startService(intentToStartUpdate);
         }
+        Intent reconciliationService = new Intent(this, ReconciliationDbService.class);
+        reconciliationService.putExtra("force", true);
+        WidgetUtils.startBackgroundService(
+                this,
+                reconciliationService);
     }
 }

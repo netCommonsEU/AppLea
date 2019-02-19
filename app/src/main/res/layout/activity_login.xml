@@ -90,10 +90,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
-            android:text="Do you have a account ? if not create one"
+            android:text="Do you have an account ? If not, create one"
             android:gravity="center"
             android:textSize="16dp"
             android:id="@+id/link_signup"
+            android:textColor="@color/white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="Sign In with phone"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:id="@+id/phone_verify"
             android:textColor="@color/white"/>
 
         <TextView

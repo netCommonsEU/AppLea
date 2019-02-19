@@ -11,6 +11,7 @@ import com.example.commontask.model.DetailedWeatherForecast;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 public class WeatherForecastItemAdapter extends RecyclerView.Adapter<WeatherForecastItemViewHolder> {
@@ -18,15 +19,19 @@ public class WeatherForecastItemAdapter extends RecyclerView.Adapter<WeatherFore
     private Context mContext;
     private Set<Integer> visibleColumns;
     private List<DetailedWeatherForecast> mWeatherList;
-
-    private Calendar lastDay;
+    private double latitude;
+    private Locale locale;
 
     public WeatherForecastItemAdapter(Context context,
                                       List<DetailedWeatherForecast> weather,
+                                      double latitude,
+                                      Locale locale,
                                       Set<Integer> visibleColumns) {
         mContext = context;
         mWeatherList = weather;
         this.visibleColumns = visibleColumns;
+        this.latitude = latitude;
+        this.locale = locale;
     }
 
     @Override
@@ -39,7 +44,7 @@ public class WeatherForecastItemAdapter extends RecyclerView.Adapter<WeatherFore
     @Override
     public void onBindViewHolder(WeatherForecastItemViewHolder holder, int position) {
         DetailedWeatherForecast weather = mWeatherList.get(position);
-        holder.bindWeather(weather, visibleColumns);
+        holder.bindWeather(mContext, latitude, locale, weather, visibleColumns);
     }
 
     @Override

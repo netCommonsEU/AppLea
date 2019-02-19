@@ -1,36 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/pref_header_about">
-
-        <Preference
-            android:selectable="false"
-            android:summary="@string/summary_about" />
-
-        <Preference
-            android:title="@string/title_app">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.example.commontask"
-                android:targetClass="com.example.commontask.WhatIsIt"/>
-        </Preference>
-        <Preference
-            android:title="@string/works">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.example.commontask"
-                android:targetClass="com.example.commontask.WorkActivity"/>
-        </Preference>
-
-        <Preference
-            android:summary="@string/summary_faq"
-            android:title="@string/title_faq">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.example.commontask"
-                android:targetClass="com.example.commontask.FaqActivity"/>
-        </Preference>
-        <Preference
-            android:summary="@string/app_version"
-            android:title="@string/title_version" />
-    </PreferenceCategory>
-</PreferenceScreen>
+<?xml version="1.0" encoding="utf-8"?><PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">    <PreferenceCategory android:title="@string/pref_header_about">        <Preference            android:title="@string/title_app">            <intent                android:action="android.intent.action.VIEW"                android:targetPackage="com.example.commontask"                android:targetClass="com.example.commontask.WhatIsIt"/>        </Preference>        <Preference            android:title="@string/works">            <intent                android:action="android.intent.action.VIEW"                android:targetPackage="com.example.commontask"                android:targetClass="com.example.commontask.WorkActivity"/>        </Preference>        <Preference            android:summary="@string/summary_faq"            android:title="@string/title_faq">            <intent                android:action="android.intent.action.VIEW"                android:targetPackage="com.example.commontask"                android:targetClass="com.example.commontask.FaqActivity"/>        </Preference>        <Preference            android:summary="@string/app_version"            android:title="@string/title_version" />						    </PreferenceCategory></PreferenceScreen>

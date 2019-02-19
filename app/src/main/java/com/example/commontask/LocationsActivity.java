@@ -23,11 +23,14 @@ import com.example.commontask.model.CurrentWeatherDbHelper;
 import com.example.commontask.model.Location;
 import com.example.commontask.model.LocationsDbHelper;
 import com.example.commontask.model.WeatherForecastDbHelper;
+import com.example.commontask.service.ReconciliationDbService;
+import com.example.commontask.utils.ApiKeys;
 import com.example.commontask.utils.Utils;
+import com.example.commontask.utils.WidgetUtils;
 
 import java.util.List;
 
-public class LocationsActivity extends BaseActivityWeather {
+public class LocationsActivity extends WeatherBaseActivity {
 
     public static final String TAG = "SearchActivity";
 
@@ -39,6 +42,7 @@ public class LocationsActivity extends BaseActivityWeather {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         ((YourLocalWeather) getApplication()).applyTheme(this);
+
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
@@ -54,10 +58,10 @@ public class LocationsActivity extends BaseActivityWeather {
     public void onResume(){
         super.onResume();
         List<Location> allLocations = locationsDbHelper.getAllRows();
-        if (allLocations.size() > 3) {
-            addLocationButton.setVisibility(View.GONE);
+        if (allLocations.size() >= ApiKeys.getAvailableLocations(this)) {
+            addLocationButton.hide();
         } else {
-            addLocationButton.setVisibility(View.VISIBLE);
+            addLocationButton.show();
         }
         locationsAdapter = new LocationsAdapter(allLocations);
         recyclerView.setAdapter(locationsAdapter);
@@ -78,7 +82,7 @@ public class LocationsActivity extends BaseActivityWeather {
 
     private void setupRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.search_recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(com.example.commontask.LocationsActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(LocationsActivity.this));
 
         final LocationsSwipeController swipeController = new LocationsSwipeController(new LocationsSwipeControllerActions() {
             @Override
@@ -106,17 +110,20 @@ public class LocationsActivity extends BaseActivityWeather {
     private void disableEnableLocation() {
         Location location = locationsAdapter.locations.get(0);
         locationsDbHelper.updateEnabled(location.getId(), !location.isEnabled());
-        Intent intentToStartUpdate = new Intent("com.example.commontask.action.RESTART_ALARM_SERVICE");
-        intentToStartUpdate.setPackage("com.example.commontask");
+        Intent intentToStartUpdate = new Intent("org.thosp.yourlocalweather.action.RESTART_ALARM_SERVICE");
+        intentToStartUpdate.setPackage("org.thosp.yourlocalweather");
         startService(intentToStartUpdate);
         List<Location> allLocations = locationsDbHelper.getAllRows();
         locationsAdapter = new LocationsAdapter(allLocations);
         recyclerView.setAdapter(locationsAdapter);
+        WidgetUtils.startBackgroundService(
+                getBaseContext(),
+                new Intent(getBaseContext(), ReconciliationDbService.class));
     }
 
     private void deleteLocation(int position) {
-        CurrentWeatherDbHelper currentWeatherDbHelper = CurrentWeatherDbHelper.getInstance(com.example.commontask.LocationsActivity.this);
-        WeatherForecastDbHelper weatherForecastDbHelper = WeatherForecastDbHelper.getInstance(com.example.commontask.LocationsActivity.this);
+        CurrentWeatherDbHelper currentWeatherDbHelper = CurrentWeatherDbHelper.getInstance(LocationsActivity.this);
+        WeatherForecastDbHelper weatherForecastDbHelper = WeatherForecastDbHelper.getInstance(LocationsActivity.this);
         Location location = locationsAdapter.locations.get(position);
         int locatonOrder = location.getOrderId();
         currentWeatherDbHelper.deleteRecordByLocation(location);
@@ -124,8 +131,8 @@ public class LocationsActivity extends BaseActivityWeather {
         locationsDbHelper.deleteRecordFromTable(location);
 
         if (locatonOrder == 1) {
-            Intent intentToStartUpdate = new Intent("com.example.commontask.action.RESTART_ALARM_SERVICE");
-            intentToStartUpdate.setPackage("com.example.commontask");
+            Intent intentToStartUpdate = new Intent("org.thosp.yourlocalweather.action.RESTART_ALARM_SERVICE");
+            intentToStartUpdate.setPackage("org.thosp.yourlocalweather");
             this.startService(intentToStartUpdate);
         }
 
@@ -133,13 +140,22 @@ public class LocationsActivity extends BaseActivityWeather {
         locationsAdapter.notifyItemRemoved(position);
         locationsAdapter.notifyItemRangeChanged(position, locationsAdapter.getItemCount());
         List<Location> allLocations = locationsDbHelper.getAllRows();
-        if (allLocations.size() > 3) {
-            addLocationButton.setVisibility(View.GONE);
+        if (allLocations.size() >= ApiKeys.getAvailableLocations(this)) {
+            addLocationButton.hide();
         } else {
-            addLocationButton.setVisibility(View.VISIBLE);
+            addLocationButton.show();
         }
         locationsAdapter = new LocationsAdapter(allLocations);
         recyclerView.setAdapter(locationsAdapter);
+        Intent reconciliationService = new Intent(this, ReconciliationDbService.class);
+        reconciliationService.putExtra("force", true);
+        WidgetUtils.startBackgroundService(
+                this,
+                reconciliationService);
+    }
+
+    @Override
+    protected void updateUI() {
     }
 
     public class LocationHolder extends RecyclerView.ViewHolder {
@@ -210,7 +226,7 @@ public class LocationsActivity extends BaseActivityWeather {
 
         @Override
         public LocationHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater inflater = LayoutInflater.from(com.example.commontask.LocationsActivity.this);
+            LayoutInflater inflater = LayoutInflater.from(LocationsActivity.this);
             View v = inflater.inflate(R.layout.city_item, parent, false);
             return new LocationHolder(v);
         }

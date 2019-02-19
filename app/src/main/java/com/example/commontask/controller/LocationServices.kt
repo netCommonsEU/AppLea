@@ -34,12 +34,6 @@ class LocationServices(private val context: Context) {
 
 
 
-    /*
-    * Refresh the weather location on location changed
-    * */
-
-
-
     private var locationListener: LocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location?) {
             Log.d(TAG_C_LOCATION, "locationListener onLocationChanged() is executed.")
@@ -110,9 +104,9 @@ class LocationServices(private val context: Context) {
                         userInterface.onError(ERR_LOCATE)
                     }
                 })
-                .withErrorListener({ e ->
+                .withErrorListener { e ->
                     Log.d(TAG_C_LOCATION, "locationPermission() PermissionRequestErrorListener: $e")
-                }).check()
+                }.check()
 
 
     }
@@ -120,8 +114,7 @@ class LocationServices(private val context: Context) {
     fun checkLocationEnabledAndPrompt() {
         Log.d(TAG_C_LOCATION, "checkLocationEnabledAndPrompt() is executed.")
         val savedLocation = LocalForecastData(context).retrieveLocation()
-        // Check if Location is enabled
-        // NETWORK_PROVIDER determines location based on availability of cell tower and WiFi access points. Results are retrieved by means of a network lookup.
+
         val isLocationEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         if (!isLocationEnabled && savedLocation != null) {
             Log.d(TAG_C_LOCATION, "isLocationEnabled: $isLocationEnabled && savedLocation: $savedLocation")
@@ -135,16 +128,16 @@ class LocationServices(private val context: Context) {
                     .setCancelable(false)
                     .setTitle("Location permission needed")
                     .setMessage("This app requires GPS to be enabled to get the weather information. Do you want to enable now?")
-                    .setPositiveButton(android.R.string.ok, { dialog, _ ->
+                    .setPositiveButton(android.R.string.ok) { dialog, _ ->
                         val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                         activity.startActivityForResult(intent, enableLocationRequestCode)
                         dialog.dismiss()
-                    })
-                    .setNegativeButton(android.R.string.cancel, { dialog, _ ->
+                    }
+                    .setNegativeButton(android.R.string.cancel) { dialog, _ ->
                         Log.d(TAG_C_LOCATION, "checkLocationEnabledAndPrompt() AlertDialog cancel clicked.")
                         dialog.dismiss()
                         userInterface.onError(ERR_LOCATE)
-                    })
+                    }
                     .create()
                     .show()
         } else {
@@ -155,10 +148,6 @@ class LocationServices(private val context: Context) {
     }
 
 
-
-    /*
-    * Start receiving the location updates
-    * */
     @SuppressLint("MissingPermission")
     private fun requestLocationUpdates() {
         Log.d(TAG_C_LOCATION, "requestLocationUpdates() is executed.")

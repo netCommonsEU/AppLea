@@ -42,6 +42,7 @@ class ForecastListAdapter(private val context: Context, private val dailyForecas
                 val view = LayoutInflater.from(context).inflate(R.layout.forecast_list_item_hourly, parent, false)
                 WeatherInfoHolder(view)
             }
+
             else -> {
                 Log.d(TAG_AD_LIST, "onCreateViewHolder() hourlyForecast: is null")
                 val view = LayoutInflater.from(context).inflate(R.layout.forecast_list_item, parent, false)
@@ -55,6 +56,7 @@ class ForecastListAdapter(private val context: Context, private val dailyForecas
     * to listen to click events
     * when any forecast item is clicked
     * */
+
     private var clickListener: (forecast: Data?, currently: Currently?) -> Unit = { _: Data?, _: Currently? -> }
 
 
@@ -77,15 +79,15 @@ class ForecastListAdapter(private val context: Context, private val dailyForecas
 
 
 
-    inner class WeatherInfoHolder(itemView: View?) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class WeatherInfoHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!), View.OnClickListener {
         init {
             itemView?.setOnClickListener(this)
         }
 
         fun bindForecastItem(forecast: Data? = null, currently: Currently? = null, hourly: Data? = null) {
-            val dayTextView = itemView?.findViewById<TextView>(R.id.list_item_day)
-            val iconImageView = itemView?.findViewById<ImageView>(R.id.list_item_image)
-            val temperatureTextView = itemView?.findViewById<TextView>(R.id.list_item_temperature_high)
+            val dayTextView = itemView.findViewById<TextView>(R.id.list_item_day)
+            val iconImageView = itemView.findViewById<ImageView>(R.id.list_item_image)
+            val temperatureTextView = itemView.findViewById<TextView>(R.id.list_item_temperature_high)
             Log.d(TAG_AD_LIST, "bindForecastItem() is executed.")
             when {
                 forecast != null -> {
@@ -109,9 +111,9 @@ class ForecastListAdapter(private val context: Context, private val dailyForecas
                     temperatureTextView?.text = ForecastCommonMapper.fahrenheitToCelsius(currently.temperature)
                 }
                 hourly != null -> {
-                    val hourTextView = itemView?.findViewById<TextView>(R.id.list_item_hourly_hour)
-                    val hourlyImageView = itemView?.findViewById<ImageView>(R.id.list_item_hourly_image)
-                    val hourlyTemperatureTextView = itemView?.findViewById<TextView>(R.id.list_item_hourly_temperature)
+                    val hourTextView = itemView.findViewById<TextView>(R.id.list_item_hourly_hour)
+                    val hourlyImageView = itemView.findViewById<ImageView>(R.id.list_item_hourly_image)
+                    val hourlyTemperatureTextView = itemView.findViewById<TextView>(R.id.list_item_hourly_temperature)
                     hourTextView?.text = ForecastCommonMapper.timestampToHour(hourly.time.toLong())
 
                     val condition = hourly.icon

@@ -2,50 +2,52 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="Γενικά">
+    <PreferenceCategory android:title="Sharing Options">
 
+        <Preference
+            android:selectable="false"
+            android:summary="@string/sharing_about" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_upload_over_wifi"
+            android:summary="@string/summary_upload_over_wifi"
+            android:title="Dilution Posts" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/key_upload_over_wifi"
             android:summary="@string/summary_upload_over_wifi"
-            android:title="Κοινοποίηση Αραιώματος" />
-
+            android:title="Irrigation Posts" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/key_upload_over_wifi"
             android:summary="@string/summary_upload_over_wifi"
-            android:title="Κοινοποίηση Άδρευσης" />
+            android:title="Fertilization Posts" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/key_upload_over_wifi"
             android:summary="@string/summary_upload_over_wifi"
-            android:title="Κοινοποίηση Λίπανσης" />
+            android:title="Pruning Posts"/>
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/key_upload_over_wifi"
             android:summary="@string/summary_upload_over_wifi"
-            android:title="Κοινοποίηση Κλαδέματος" />
+            android:title="Tillage Posts" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/key_upload_over_wifi"
             android:summary="@string/summary_upload_over_wifi"
-            android:title="Κοινοποίηση Οργώματος" />
+            android:title="Harvesting Posts" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/key_upload_over_wifi"
             android:summary="@string/summary_upload_over_wifi"
-            android:title="Κοινοποίηση Συγκομιδής" />
+            android:title="Spraying Posts" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/key_upload_over_wifi"
             android:summary="@string/summary_upload_over_wifi"
-            android:title="Κοινοποίηση Ψεκασμού" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="@string/key_upload_over_wifi"
-            android:summary="@string/summary_upload_over_wifi"
-            android:title="Κοινοποίηση Καλλιεργητή-Καταστροφέα" />
+            android:title="Post Barlery Farmer-Destroyer Posts" />
 
 
     </PreferenceCategory>

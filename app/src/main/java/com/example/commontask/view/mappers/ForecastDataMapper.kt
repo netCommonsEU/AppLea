@@ -8,7 +8,6 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class ForecastDataMapper(forecastDataModel: ForecastDataModel, geocoder: Geocoder) {
 
 
@@ -22,9 +21,7 @@ class ForecastDataMapper(forecastDataModel: ForecastDataModel, geocoder: Geocode
     var wind = "NA"
 
 
-
     init {
-
 
 
         val simpleDateFormatDate = SimpleDateFormat("E, MMM dd - HH:mm", Locale.getDefault())

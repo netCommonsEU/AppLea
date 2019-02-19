@@ -99,11 +99,6 @@ public class MainActivity extends AppCompatActivity {
         imageView1= (ImageView) findViewById(R.id.imgcalendar);
         imageButton=(ImageButton) findViewById(R.id.weatherpick);
 
-       /* RotateAnimation animation=new RotateAnimation(0.0f,360.0f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-           animation.setInterpolator(new LinearInterpolator());
-           animation.setRepeatCount(Animation.INFINITE);
-           animation.setDuration(700);
-           imageView1.startAnimation(animation);*/
 
         initializeScreen();
 
@@ -189,15 +184,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
-        button.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-                view.startAnimation(buttonClick);
-                Intent intent = new Intent(view.getContext(), ActivityMainStick.class);
-                startActivityForResult(intent, 0);
-            }
-        });
 
         imageButton.setOnClickListener(new View.OnClickListener() {
 

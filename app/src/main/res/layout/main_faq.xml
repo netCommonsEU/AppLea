@@ -26,12 +26,12 @@
             android:layout_marginEnd="20dp"
             android:gravity="start"
             android:id="@+id/first"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/relLayout1"
             android:textStyle="bold|normal"
             android:textSize="18dp"
             android:textColor="@color/black"
-            android:text="Πως ξεκιναώ μια νέα καταχώρηση μου?"/>
+            android:text="How do add a new post (log) in AppLea?"/>
 
       <TextView
           android:layout_width="match_parent"
@@ -40,12 +40,12 @@
           android:layout_marginEnd="20dp"
           android:gravity="start"
           android:id="@+id/first_ans"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           android:layout_below="@+id/first"
           android:textStyle="normal"
           android:textSize="17dp"
           android:textColor="@color/black"
-          android:text="Πατώντας το ημερολόγιο είτε με το κουμπάκι που βρίσκεται κάτω δεξιά συν είτε μέσω την επιθυμητής ημέρας που θα επιλέξω στον τρέχοντα μήνα."/>
+          android:text="You need to either tap on the desired date on the calendar interface or explicitly click the plus button (+) button at the bottom right of the display."/>
 
 
 
@@ -56,12 +56,12 @@
           android:layout_marginEnd="20dp"
           android:gravity="start"
           android:id="@+id/second"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           android:layout_below="@+id/first_ans"
           android:textStyle="bold|normal"
           android:textSize="18dp"
           android:textColor="@color/black"
-          android:text="Πως μπορώ να δώ το ιστορικό μου?"/>
+          android:text="How can I browse my log history?"/>
 
 
       <TextView
@@ -71,12 +71,12 @@
           android:layout_marginEnd="20dp"
           android:gravity="start"
           android:id="@+id/second_ans"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           android:layout_below="@+id/second"
           android:textStyle="normal"
           android:textSize="17dp"
           android:textColor="@color/black"
-          android:text="Πατώντας στο κάτω πλαίσιο που βρίσκεται το κουμπί ιστορικό πηγαίνουμε στο ιστορικό καταχωρήσεων μας."/>
+          android:text="You need to click the (History) button at the menu at the bottom of the homepage."/>
 
 
       <TextView
@@ -86,12 +86,12 @@
           android:layout_marginEnd="20dp"
           android:gravity="start"
           android:id="@+id/third"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           android:layout_below="@+id/second_ans"
           android:textStyle="bold|normal"
           android:textSize="18dp"
           android:textColor="@color/black"
-          android:text="Πως μπορώ να δώ τα στατιστικά μου στοιχεία?"/>
+          android:text="How can I view statistics about my farming activities?"/>
 
       <TextView
           android:layout_width="match_parent"
@@ -100,12 +100,13 @@
           android:layout_marginEnd="20dp"
           android:gravity="start"
           android:id="@+id/third_ans"
-          android:layout_marginTop="20dp"
+          android:layout_marginTop="10dp"
           android:layout_below="@+id/third"
           android:textStyle="normal"
           android:textSize="17dp"
           android:textColor="@color/black"
-          android:text="Πηγαίνοντας στο προφίλ υπάρχει η επιλογή στατιστικά στοιχειά όπου έχουμε μια πλήρη εικόνα για το τι δραστηριότητες έχω κάνει γενικά ή σε ένα συγκεκριμένο χρονικό διάστημα."/>
+          android:text="You need to click on the profile button at the menu at the bottom of the homepage.\nThen you need to choose (Statistics) button, which presents you with different ways to extract statistics information about
+the personal farming activities over a chosen period of time."/>
 
   </RelativeLayout>
 

@@ -100,7 +100,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
 
           EventEditView.Event event = mEventEditView.getEvent();
                 Calendar localStart = Calendar.getInstance();
-              if(event.getTitle().equalsIgnoreCase("Άδρευση")){
+              if(event.getTitle().equalsIgnoreCase("Irrigation")){
                     Intent intent = new Intent(getApplicationContext(), NewPostActivity3.class);
 
                    localStart= Calendar.getInstance();
@@ -110,56 +110,56 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
                     intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                     startActivityForResult(intent, 0);
                 }
-                else if(event.getTitle().equalsIgnoreCase("Λίπανση")){
+                else if(event.getTitle().equalsIgnoreCase("Fertilization")){
                     Intent intent = new Intent(getApplicationContext(), NewPostActivity.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
                   intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                     startActivityForResult(intent, 0);
                 }
-              else if(event.getTitle().equalsIgnoreCase("Αραίωμα")){
+              else if(event.getTitle().equalsIgnoreCase("Dilution")){
                   Intent intent = new Intent(getApplicationContext(), NewPostActivity2.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
                   intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                   startActivityForResult(intent, 0);
               }
-                else   if(event.getTitle().equalsIgnoreCase("Κλάδεμα")){
+                else   if(event.getTitle().equalsIgnoreCase("Pruning")){
                     Intent intent = new Intent(getApplicationContext(), NewPostActivity2.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
                   intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                     startActivityForResult(intent, 0);
                 }
-                else   if(event.getTitle().equalsIgnoreCase("Όργωμα")){
+                else   if(event.getTitle().equalsIgnoreCase("Tillage")){
                     Intent intent = new Intent(getApplicationContext(), NewPostActivity2.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
                   intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                     startActivityForResult(intent, 0);
                 }
-                else   if(event.getTitle().equalsIgnoreCase("Συγκομιδή Πρώτο Χέρι")){
+                else   if(event.getTitle().equalsIgnoreCase("Harvesting")){
                   Intent intent = new Intent(getApplicationContext(), NewPostActivity1.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
                   intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                     startActivityForResult(intent, 0);
                 }
-              else   if(event.getTitle().equalsIgnoreCase("Συγκομιδή Δεύτερο Χέρι")){
+              else   if(event.getTitle().equalsIgnoreCase("Harvesting Second Hand")){
                   Intent intent = new Intent(getApplicationContext(), NewPostActivity1.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
                   intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                   startActivityForResult(intent, 0);
               }
-              else   if(event.getTitle().equalsIgnoreCase("Συγκομιδή Τρίτο Χέρι")){
+              else   if(event.getTitle().equalsIgnoreCase("Harvesting Third Hand")){
                   Intent intent = new Intent(getApplicationContext(), NewPostActivity1.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
                   intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                   startActivityForResult(intent, 0);
               }
-              else   if(event.getTitle().equalsIgnoreCase("Συγκομιδή Τέταρτο Χέρι")){
+              else   if(event.getTitle().equalsIgnoreCase("Harvesting Fourth Hand")){
                   Intent intent = new Intent(getApplicationContext(), NewPostActivity1.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
@@ -167,7 +167,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
                   startActivityForResult(intent, 0);
               }
 
-              else   if(event.getTitle().equalsIgnoreCase("Ψεκασμός")){
+              else   if(event.getTitle().equalsIgnoreCase("Spraying")){
                   Intent intent = new Intent(getApplicationContext(), MainActivity4.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
@@ -175,7 +175,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
                   startActivityForResult(intent, 0);
               }
 
-              else   if(event.getTitle().equalsIgnoreCase("Καλλιεργητής-Καταστροφέας")){
+              else   if(event.getTitle().equalsIgnoreCase("Barlery Farmer-Destroyer")){
                   Intent intent = new Intent(getApplicationContext(), MainActivity5.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
@@ -183,14 +183,14 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
                   startActivityForResult(intent, 0);
               }
 
-              else   if(event.getTitle().equalsIgnoreCase("Αγορά Λιπάσματος")){
+              else   if(event.getTitle().equalsIgnoreCase("Buy Filtize")){
                   Intent intent = new Intent(getApplicationContext(), MainActivity6.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));
                   intent.putExtra("starttime", CalendarUtils.toTimeString(getApplicationContext(), localStart.getTimeInMillis() ));
                   startActivityForResult(intent, 0);
               }
-              else   if(event.getTitle().equalsIgnoreCase("Αγορά Ραντιστικού")){
+              else   if(event.getTitle().equalsIgnoreCase("Buy Atomizer")){
                   Intent intent = new Intent(getApplicationContext(), MainActivity6.class);
                   intent.putExtra("title", event.getTitle());
                   intent.putExtra("startdate",CalendarUtils.toDayString(getApplicationContext(), localStart.getTimeInMillis() ));

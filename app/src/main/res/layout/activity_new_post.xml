@@ -31,7 +31,7 @@
             android:layout_below="@+id/view5"
             android:layout_marginStart="30dp"
             android:layout_marginTop="55dp"
-            android:text="Χωράφι"
+            android:text="Field"
             android:textSize="18dp"
             android:textStyle="normal|italic"
             android:layout_marginLeft="30dp" />
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/spinner2"
             android:layout_marginStart="30dp"
-            android:hint="Επιλέξτε ενα χωράφι"
+            android:hint="Choose field"
             android:textSize="18dp"
             android:textStyle="normal|italic"
             android:layout_marginLeft="30dp" />
@@ -76,7 +76,7 @@
             android:layout_below="@+id/view4"
             android:layout_marginStart="30dp"
             android:layout_marginTop="25dp"
-            android:hint="Είδος Καλλιέργειας"
+            android:hint="Kind"
             android:textSize="18dp"
             android:textColor="@color/black"
             android:textStyle="normal|italic"
@@ -138,14 +138,14 @@
             android:layout_marginTop="30dp"
             android:layout_alignStart="@+id/txtxoraf1i"
             android:layout_below="@+id/txtkind"
-            android:hint="Χημική Σύσταση"
+            android:hint="Chemical info"
             android:textStyle="normal|italic"
             android:layout_alignLeft="@+id/txtxoraf1i" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Ποσότητα"
+            android:hint="Quantity"
             android:textSize="18dp"
             android:id="@+id/count"
             android:textStyle="normal|italic"
@@ -211,7 +211,7 @@
             android:layout_alignStart="@+id/txtxoraf1i"
             android:layout_below="@+id/frame"
             android:layout_marginTop="30dp"
-            android:hint="Μονάδα Μέτρησης"
+            android:hint="Unit Current"
             android:textStyle="normal|italic"
             android:layout_alignLeft="@+id/txtxoraf1i" />
 
@@ -234,7 +234,7 @@
             android:layout_below="@+id/view7"
             android:layout_marginStart="30dp"
             android:layout_marginTop="22dp"
-            android:text="Ημερομηνία"
+            android:text="Day"
             android:textSize="18dp"
             android:textStyle="normal|italic"
             android:layout_marginLeft="30dp" />
@@ -269,7 +269,7 @@
             android:layout_below="@+id/view10"
             android:layout_marginStart="30dp"
             android:layout_marginTop="59dp"
-            android:text="Ώρα"
+            android:text="Time"
             android:textSize="18dp"
             android:textStyle="normal|italic"
             android:layout_marginLeft="30dp" />

@@ -1,6 +1,7 @@
-package com.example.commontask.utils;
+package  com.example.commontask.utils;
 
-public final class Constants {
+public class Constants {
+
 
     public static final String USERS_LOCATION = "users";
     public static final String USERS_POST = "user-posts";
@@ -15,8 +16,6 @@ public final class Constants {
     public static final String POST_ID = "PID";
     public static final String CHAT_NAME = "CNAME";
     public static final String POST_NAME = "PNAME";
-
-
     /**
      * SharedPreference names
      */
@@ -45,21 +44,32 @@ public final class Constants {
     public static final String LAST_FORECAST_UPDATE_TIME_IN_MS = "last_forecast_update";
     public static final String LAST_LOCATION_UPDATE_TIME_IN_MS = "last_location_update";
     public static final String LAST_WEATHER_UPDATE_TIME_IN_MS = "last_weather_update";
+    public static final String LAST_NOTIFICATION_TIME_IN_MS = "last_weather_update";
+    public static final String LAST_SENSOR_SERVICES_CHECK_TIME_IN_MS = "last_weather_update";
     public static final String CURRENT_LOCATION_ID = "current_location_id";
+    public static final String KEY_PREF_OPEN_WEATHER_MAP_API_KEY = "open_weather_map_api_key";
 
+    public static final String KEY_PREF_TIME_STYLE = "time_style_pref_key";
+    public static final String KEY_PREF_DATE_STYLE = "date_style_pref_key";
     public static final String KEY_PREF_IS_NOTIFICATION_ENABLED = "notification_pref_key";
     public static final String KEY_PREF_TEMPERATURE_UNITS = "temperature_units_pref_key";
     public static final String KEY_PREF_TEMPERATURE_TYPE = "temperature_type_pref_key";
     public static final String KEY_PREF_WIND_UNITS = "wind_units_pref_key";
+    public static final String KEY_PREF_WIND_DIRECTION = "wind_direction_pref_key";
+    public static final String KEY_PREF_RAIN_SNOW_UNITS = "rain_snow_units_pref_key";
     public static final String KEY_PREF_PRESSURE_UNITS = "pressure_units_pref_key";
     public static final String KEY_PREF_HIDE_DESCRIPTION = "hide_desc_pref_key";
     public static final String KEY_PREF_INTERVAL_NOTIFICATION = "notification_interval_pref_key";
+    public static final String KEY_PREF_NOTIFICATION_PRESENCE = "notification_presence_pref_key";
+    public static final String KEY_PREF_NOTIFICATION_STATUS_ICON = "notification_status_icon_pref_key";
+    public static final String KEY_PREF_NOTIFICATION_VISUAL_STYLE = "notification_visual_style_pref_key";
     public static final String KEY_PREF_VIBRATE = "notification_vibrate_pref_key";
     public static final String KEY_PREF_WIDGET_SHOW_LABELS = "widget_show_labels_pref_key";
     public static final String KEY_PREF_WIDGET_THEME = "widget_theme_pref_key";
     public static final String KEY_PREF_LOCATION_UPDATE_PERIOD = "location_update_period_pref_key";
     public static final String KEY_PREF_LOCATION_AUTO_UPDATE_PERIOD = "location_auto_update_period_pref_key";
     public static final String PREF_LANGUAGE = "language_pref_key";
+    public static final String PREF_OS_LANGUAGE = "os_language_pref_key";
     public static final String KEY_PREF_LOCATION_GEOCODER_SOURCE = "location_geocoder_source";
     public static final String KEY_PREF_WEATHER_ICON_SET = "weather_icon_set_pref_key";
     public static final String KEY_PREF_LOCATION_UPDATE_STRATEGY = "location_update_strategy";
@@ -71,6 +81,10 @@ public final class Constants {
     public static final String KEY_DEBUG_FILE_LASTING_HOURS = "debug.file.lasting.hours";
     public static final String KEY_WAKE_UP_STRATEGY = "wake.up.strategy";
     public static final String KEY_PREF_FORECAST_ACTIVITY_COLUMNS = "forecast_activity_columns_pref_key";
+    public static final String KEY_PREF_GRAPHS_ACTIVITY_VISIBLE_GRAPHS = "graphs_activity_visible_graphs";
+    public static final String KEY_PREF_COMBINED_GRAPH_VALUES = "graphs_activity_combined_values";
+    public static final String KEY_PREF_WIDGET_GRAPH_NATIVE_SCALE = "widget_graphs_native_scale";
+    public static final String KEY_PREF_WIDGET_SHOW_CONTROLS = "widget_show_controls";
 
     /**
      * About preference screen constants
@@ -97,13 +111,22 @@ public final class Constants {
      */
     public static final String ACTION_FORCED_APPWIDGET_UPDATE =
             "org.thosp.yourlocalweather.action.FORCED_APPWIDGET_UPDATE";
+    public static final String ACTION_APPWIDGET_CHANGE_GRAPH_SCALE =
+            "org.thosp.yourlocalweather.action.ACTION_APPWIDGET_CHANGE_GRAPH_SCALE";
     public static final String ACTION_APPWIDGET_THEME_CHANGED =
             "org.thosp.yourlocalweather.action.APPWIDGET_THEME_CHANGED";
     public static final String ACTION_APPWIDGET_UPDATE_PERIOD_CHANGED =
             "org.thosp.yourlocalweather.action.APPWIDGET_UPDATE_PERIOD_CHANGED";
     public static final String ACTION_APPWIDGET_CHANGE_LOCATION =
             "org.thosp.yourlocalweather.action.ACTION_APPWIDGET_CHANGE_LOCATION";
-
+    public static final String ACTION_APPWIDGET_SETTINGS_OPENED =
+            "org.thosp.yourlocalweather.action.ACTION_APPWIDGET_SETTINGS_OPENED";
+    public static final String ACTION_APPWIDGET_SETTINGS_SHOW_CONTROLS =
+            "org.thosp.yourlocalweather.action.ACTION_APPWIDGET_SETTINGS_SHOW_CONTROLS";
+    public static final String ACTION_APPWIDGET_CHANGE_SETTINGS =
+            "org.thosp.yourlocalweather.action.ACTION_APPWIDGET_CHANGE_SETTINGS";
+    public static final String ACTION_APPWIDGET_START_ACTIVITY =
+            "org.thosp.yourlocalweather.action.ACTION_APPWIDGET_START_ACTIVITY";
     /**
      * URIs constants
      */
@@ -119,6 +142,4 @@ public final class Constants {
     public static final int PARSE_RESULT_SUCCESS = 0;
     public static final int TASK_RESULT_ERROR = -1;
     public static final int PARSE_RESULT_ERROR = -2;
-
-
 }

@@ -1,5 +1,6 @@
 package com.example.commontask;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +21,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.example.commontask.utils.Constants;
 import com.example.commontask.utils.EmailEncoding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,11 +36,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+
 import java.util.HashMap;
 
 
 public class LoginActivity  extends AppCompatActivity implements TextWatcher,
         CompoundButton.OnCheckedChangeListener{
+
 
     private static final String TAG = "LoginActivity";
 
@@ -76,8 +80,10 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
         sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+
         rem_userpass = (CheckBox)findViewById(R.id.checkBox);
         mCbShowPwd = (CheckBox) findViewById(R.id.cbShowPwd);
+
 
         mCbShowPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -176,8 +182,8 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
                                                 @Override
                                                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                                 String currentUserEmailfinal = EmailEncoding.commaDecodePeriod(mAuth.getCurrentUser().getEmail());
-                                                 String  userTestEmail = ((HashMap) dataSnapshot.getValue()).get("email").toString();
+                                            String currentUserEmailfinal = EmailEncoding.commaDecodePeriod(mAuth.getCurrentUser().getEmail());
+                                            String  userTestEmail = ((HashMap) dataSnapshot.getValue()).get("email").toString();
 
                                                     if (userTestEmail.equalsIgnoreCase(currentUserEmailfinal)) {
                                                         Log.d(TAG, "onComplete: success. email is verified.");
@@ -218,6 +224,17 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
             public void onClick(View v) {
                 Log.d(TAG, "onClick: navigating to register screen");
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        TextView linkSignUpPhone = (TextView) findViewById(R.id.phone_verify);
+        linkSignUpPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: navigating to register screen");
+                Intent intent = new Intent(LoginActivity.this, MainPhoneAuthActivity.class);
                 startActivity(intent);
             }
         });

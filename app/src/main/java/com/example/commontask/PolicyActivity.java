@@ -20,7 +20,7 @@ public class PolicyActivity extends AppCompatActivity {
 
 
         mToolBar = (Toolbar) findViewById(R.id.toolbar);
-        mToolBar.setTitle("Πολιτική απορρήτου");
+        mToolBar.setTitle("Policy");
 
         setSupportActionBar(mToolBar);
 

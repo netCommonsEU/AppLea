@@ -33,7 +33,14 @@ public class PermissionUtil {
         return true;
     }
 
-    public static boolean areAllPermissionsGranted(Context context) {
+    public static boolean noPermissionGranted(Context context) {
+        LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(context);
+        Location autoLocation = locationsDbHelper.getLocationByOrderId(0);
+        if (!autoLocation.isEnabled()) {
+            appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS,
+                    "locationUpdateStrategy is set to update_location_none, return false");
+            return false;
+        }
         List<String> permissions = getAllPermissions(context);
         if ((permissions != null) && (permissions.size() > 0)) {
             return true;
@@ -41,7 +48,7 @@ public class PermissionUtil {
         return false;
     }
 
-    public static List<String> getAllPermissions(Context context) {
+    private static List<String> getAllPermissions(Context context) {
         List<String> permissions = new ArrayList<>();
 
         LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
@@ -71,7 +78,8 @@ public class PermissionUtil {
         LocationsDbHelper locationsDbHelper = LocationsDbHelper.getInstance(context);
         Location autoLocation = locationsDbHelper.getLocationByOrderId(0);
         if (!autoLocation.isEnabled()) {
-            appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "locationUpdateStrategy is set to update_location_none, return false");
+            appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS,
+                    "locationUpdateStrategy is set to update_location_none, return false");
             return false;
         }
 
@@ -85,9 +93,10 @@ public class PermissionUtil {
         boolean gpsNotSet = AppPreference.isGpsEnabledByPreferences(context) && !isGPSEnabled;
         boolean networkNotSet = "location_geocoder_system".equals(geocoder) && !isNetworkEnabled;
 
-        appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "isGPSEnabled=" + isGPSEnabled + ", isNetworkEnabled=" + isNetworkEnabled);
+        appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS,
+                "isGPSEnabled=", isGPSEnabled, ", isNetworkEnabled=", isNetworkEnabled);
         if (gpsNotSet && networkNotSet) {
-            appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "isGPSEnabled and isNetworkEnabled is not set, returning false");
+            appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "isGPSEnabled and isNetworkEnabled are not set, returning false");
             return false;
         } else {
             List<String> permissions = new ArrayList<>();
@@ -101,12 +110,12 @@ public class PermissionUtil {
             } else if ("location_geocoder_system".equals(geocoder) && isNetworkEnabled && ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
             }
-            appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "permissions is empty = " + permissions.isEmpty());
+            appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "permissions are empty = ", permissions.isEmpty());
             if (permissions.isEmpty()) {
-                appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "permissions is empty, returning true");
+                appendLog(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "permissions are empty, returning true");
                 return true;
             } else {
-                appendLogWithParams(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "permissions is not empty, returning false, permissions = ", permissions);
+                appendLogWithParams(context, TAG_CHECK_PERMISSIONS_AND_SETTINGS, "permissions are not empty, returning false, permissions = ", permissions);
                 return false;
             }
         }

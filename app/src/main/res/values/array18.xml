@@ -2,15 +2,15 @@
 
 <resources>
     <string-array name="diafilika">
-        <item>Κάλιο</item>
-        <item>Άζωτο</item>
-        <item>Φώσφορο</item>
-        <item>Σίδηρος</item>
-        <item>Ιώδιο</item>
-        <item>Ψευδάργυρος</item>
-        <item>Χαλκός</item>
-        <item>Φθόριο</item>
-        <item>Μαγγάνιο</item>
-        <item>Σελήνιο</item>
+        <item>Potassium</item>
+        <item>Nitrogen</item>
+        <item>Phosphorus</item>
+        <item>Iron</item>
+        <item>Iodine</item>
+        <item>Zinc</item>
+        <item>Copper</item>
+        <item>Fluorine</item>
+        <item>Manganese</item>
+        <item>Selenium</item>
     </string-array>
 </resources>

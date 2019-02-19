@@ -20,7 +20,7 @@ public class UseConditions extends AppCompatActivity {
 
 
         mToolBar = (Toolbar) findViewById(R.id.toolbar);
-        mToolBar.setTitle("Όροι Χρήσης");
+        mToolBar.setTitle("Terms of use");
 
         setSupportActionBar(mToolBar);
 

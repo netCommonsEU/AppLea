@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Χωράφι"
+            android:text="Field"
             android:textSize="18dp"
             android:textStyle="normal|italic"
             android:id="@+id/textView7"
@@ -52,7 +52,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Επιλέξτε ενα χωράφι"
+            android:hint="Field"
             android:textSize="18dp"
             android:id="@+id/txtxorafi"
             android:textStyle="normal|italic"
@@ -69,7 +69,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Είδος Καλλιέργειας"
+            android:hint="Cultivation"
             android:textSize="18dp"
             android:textStyle="normal|italic"
             android:id="@+id/txtxoraf1i"
@@ -110,7 +110,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Ποσότητα"
+            android:hint="Quantity"
             android:textSize="18dp"
             android:textStyle="normal|italic"
             android:layout_marginTop="15dp"
@@ -169,16 +169,44 @@
 
         </FrameLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="normal"
+            android:layout_marginStart="30dp"
+            android:id="@+id/txttaskharve"
+            android:text="Harvesting Type"
+            android:layout_below="@+id/frame"
+            android:layout_marginLeft="30dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/txttask"
+            android:background="@color/grey"
+            android:id="@+id/view71" />
+
+
+        <com.weiwangcn.betterspinner.library.BetterSpinner
+            android:id="@+id/spinner51"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txtxoraf1i"
+            android:layout_below="@+id/txttaskharve"
+            android:layout_marginTop="10dp"
+            android:hint="Type"
+            android:textStyle="normal"
+            android:layout_alignLeft="@+id/txtxoraf1i" />
 
         <com.weiwangcn.betterspinner.library.BetterSpinner
             android:id="@+id/spinner5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/txtxoraf1i"
-            android:layout_below="@+id/frame"
+            android:layout_below="@+id/spinner51"
             android:layout_marginTop="30dp"
-            android:hint="Μονάδα Μέτρησης"
-            android:textStyle="normal|italic"
+            android:hint="Unit amount"
+            android:textStyle="normal"
             android:layout_alignLeft="@+id/txtxoraf1i" />
 
 
@@ -201,7 +229,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ημερομηνία"
+            android:text="Day"
             android:id="@+id/tvDate"
             android:textSize="18dp"
             android:textStyle="normal|italic"
@@ -231,7 +259,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ώρα"
+            android:text="Time"
             android:id="@+id/tvTime"
             android:textSize="18dp"
             android:textStyle="normal|italic"

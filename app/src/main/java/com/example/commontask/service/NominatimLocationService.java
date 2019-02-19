@@ -47,12 +47,10 @@ public class NominatimLocationService {
 
     private volatile long nextAlowedRequestTimestamp;
 
-
     private NominatimLocationService() {
-
     }
 
-    public static NominatimLocationService getInstance() {
+    public synchronized static NominatimLocationService getInstance() {
         if (instance == null) {
             instance = new NominatimLocationService();
             try {
@@ -65,14 +63,9 @@ public class NominatimLocationService {
         return instance;
     }
 
-
-
-
     private static final String SERVICE_URL_OSM = "https://nominatim.openstreetmap.org";
-
     private static final String REVERSE_GEOCODE_URL =
             "%s/reverse?%sformat=json&accept-language=%s&lat=%f&lon=%f";
-
     private static final String WIRE_LATITUDE = "lat";
     private static final String WIRE_LONGITUDE = "lon";
     private static final String WIRE_ADDRESS = "address";
@@ -95,42 +88,31 @@ public class NominatimLocationService {
                                             final String locale,
                                             final ProcessResultFromAddressResolution processResultFromAddressResolution) {
 
-
-      appendLog(context, TAG, "getFromLocation:" + latitude + ", " + longitude + ", " + locale);
-
-      final ReverseGeocodingCacheDbHelper mDbHelper = ReverseGeocodingCacheDbHelper.getInstance(context);
-
+        appendLog(context, TAG, "getFromLocation:", latitude, ", ", longitude, ", ", locale);
+        final ReverseGeocodingCacheDbHelper mDbHelper = ReverseGeocodingCacheDbHelper.getInstance(context);
 
         List<Address> addressesFromCache = retrieveLocationFromCache(context, mDbHelper, latitude, longitude, locale);
-
         if (addressesFromCache != null) {
             processResultFromAddressResolution.processAddresses(addressesFromCache);
             return;
         }
 
-
         long now = System.currentTimeMillis();
-
-
         if (nextAlowedRequestTimestamp > now) {
-
-
-            appendLog(context, TAG, "request to nominatim in less than 1.4s - nextAlowedRequestTimestamp=" +
-                    nextAlowedRequestTimestamp + ", now=" + now);
+            appendLog(context, TAG,
+                    "request to nominatim in less than 1.4s - nextAlowedRequestTimestamp=",
+                    nextAlowedRequestTimestamp,
+                    ", now=",
+                    now);
             processResultFromAddressResolution.processAddresses(null);
             return;
-
-
         }
 
         nextAlowedRequestTimestamp = 1400 + now;
-
         final String url = String.format(Locale.US, REVERSE_GEOCODE_URL, SERVICE_URL_OSM, "",
                 locale.split("_")[0], latitude, longitude);
-
-        appendLog(context, TAG, "Constructed URL " + url);
+        appendLog(context, TAG, "Constructed URL ", url);
         Handler mainHandler = new Handler(Looper.getMainLooper());
-
         Runnable myRunnable = new Runnable() {
             @Override
             public void run() {
@@ -144,9 +126,9 @@ public class NominatimLocationService {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] response) {
                         try {
-
-                            JSONObject result = new JSONObject(new String(response));
-                            appendLog(context, TAG, "result from nominatim server:" + result);
+                            String rawResult = new String(response);
+                            JSONObject result = new JSONObject(rawResult);
+                            appendLog(context, TAG, "result from nominatim server:", rawResult);
 
                             Address address = parseResponse(localeFromLocaleString(locale), result);
                             if (address != null) {
@@ -155,18 +137,15 @@ public class NominatimLocationService {
                                 storeAddressToCache(context, mDbHelper, latitude, longitude, locale, address);
                                 processResultFromAddressResolution.processAddresses(addresses);
                             }
-                        }
-                        catch (JSONException jsonException) {
-                            appendLog(context, TAG, "jsonException:" + jsonException);
+                        } catch (JSONException jsonException) {
+                            appendLog(context, TAG, "jsonException:", jsonException);
                         }
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e) {
-
-                        appendLog(context, TAG, "onFailure:" + statusCode);
+                        appendLog(context, TAG, "onFailure:", statusCode);
                         processResultFromAddressResolution.processAddresses(null);
-
                     }
 
                     @Override
@@ -176,18 +155,14 @@ public class NominatimLocationService {
                 });
             }
         };
-
         mainHandler.post(myRunnable);
-
     }
 
     private Address parseResponse(Locale locale, JSONObject result) throws JSONException {
-
         if (!result.has(WIRE_LATITUDE) || !result.has(WIRE_LONGITUDE) ||
                 !result.has(WIRE_ADDRESS)) {
             return null;
         }
-
         Address address = new Address(locale);
         address.setLatitude(result.getDouble(WIRE_LATITUDE));
         address.setLongitude(result.getDouble(WIRE_LONGITUDE));
@@ -224,27 +199,21 @@ public class NominatimLocationService {
         }
 
         return address;
-
     }
 
     private static Locale localeFromLocaleString(String localeString) {
         String[] split = localeString.split("_");
-
-
         if (split.length == 1) {
             return new Locale(split[0]);
-        }
-        else if (split.length == 2) {
+        } else if (split.length == 2) {
             return new Locale(split[0], split[1]);
-        }
-        else if (split.length == 3) {
+        } else if (split.length == 3) {
             return new Locale(split[0], split[1], split[2]);
         }
-
-   throw new RuntimeException("That's not a locale: " + localeString);
+        throw new RuntimeException("That's not a locale: " + localeString);
     }
 
-   private List<Address> retrieveLocationFromCache(Context context, ReverseGeocodingCacheDbHelper mDbHelper, double latitude, double longitude, String locale) {
+    private List<Address> retrieveLocationFromCache(Context context, ReverseGeocodingCacheDbHelper mDbHelper, double latitude, double longitude, String locale) {
         boolean useCache = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(Constants.APP_SETTINGS_LOCATION_CACHE_ENABLED, false);
 
         if (!useCache) {
@@ -252,7 +221,7 @@ public class NominatimLocationService {
         }
 
         Address addressFromCache = getResultFromCache(mDbHelper, latitude, longitude, locale);
-        appendLog(context, TAG, "address retrieved from cache:" + addressFromCache);
+        appendLog(context, TAG, "address retrieved from cache:", addressFromCache);
         if (addressFromCache == null) {
             return null;
         }
@@ -282,9 +251,7 @@ public class NominatimLocationService {
 
         long newLocationRowId = db.insert(LocationAddressCache.TABLE_NAME, null, values);
 
-        appendLog(context, TAG, "storedAddress:" + latitude + ", " + longitude + ", " + newLocationRowId + ", " + address);
-
-
+        appendLog(context, TAG, "storedAddress:", latitude, ", ", longitude, ", ", newLocationRowId, ", ", address);
     }
 
     private Address getResultFromCache(ReverseGeocodingCacheDbHelper mDbHelper, double latitude, double longitude, String locale) {

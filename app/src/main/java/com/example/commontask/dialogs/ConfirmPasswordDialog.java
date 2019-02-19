@@ -14,10 +14,6 @@ import android.widget.Toast;
 import com.example.commontask.R;
 
 
-/**
- * Created by User on 7/10/2017.
- */
-
 public class ConfirmPasswordDialog extends DialogFragment {
 
     private static final String TAG = "ConfirmPasswordDialog";
