@@ -5,6 +5,8 @@ AppLea is the evolution of what was earlier the CommonTasker app, an app that in
 
 This repository hosts exclusively the code of the AppLea app. The link to the CommonTasker repository is https://github.com/netCommonsEU/CommonTasker
 
+
+re
 ## Requirements
 
 AppLea requires the following libraries for in order to compile:
