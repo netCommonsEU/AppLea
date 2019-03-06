@@ -5,8 +5,11 @@ AppLea is the evolution of what was earlier the CommonTasker app, an app that in
 
 This repository hosts exclusively the code of the AppLea app. The link to the CommonTasker repository is https://github.com/netCommonsEU/CommonTasker
 
+Application uses cell network, WIFI and GPS to get your location from metterological stations and show you weather on the place where you are actually.Update of location could be used by some specific period (ex. hourly) or application can use accelerometer to detect movement.
 
-re
+## Features
+
+
 ## Requirements
 
 AppLea requires the following libraries for in order to compile:
