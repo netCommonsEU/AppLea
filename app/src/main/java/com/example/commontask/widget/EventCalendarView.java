@@ -22,6 +22,8 @@ public class EventCalendarView extends ViewPager {
                     notifyDayChange(dayMillis);
                 }
             };
+
+
     private MonthViewPagerAdapter mPagerAdapter;
     private OnChangeListener mListener;
     private CalendarAdapter mCalendarAdapter;

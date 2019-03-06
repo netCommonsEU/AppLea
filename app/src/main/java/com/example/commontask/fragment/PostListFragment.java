@@ -1,6 +1,7 @@
 package com.example.commontask.fragment;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -169,6 +170,7 @@ public  class PostListFragment extends AppCompatActivity {
         mRecycler = (RecyclerView) findViewById(R.id.messages_list);
         mRecycler.setHasFixedSize(true);
         imageButton=(ImageButton)findViewById(R.id.sendButton);
+
         v1=findViewById(R.id.messages_list);
 
          BottomNavigationView bottomNavigationView = (BottomNavigationView)
@@ -177,54 +179,6 @@ public  class PostListFragment extends AppCompatActivity {
          BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
          bottomNavigationView.setItemIconTintList(null);
-
-
-      Bundle extras = getIntent().getExtras();
-
-  if (extras != null) {
-
-
-         changed = true;
-         flag=true;
-
-            str4 = extras.getString("str4");
-            str5 = extras.getString("str5");
-            str6 = extras.getString("str6");
-            str7= extras.getString("str7");
-            str8= extras.getString("str8");
-            str9= extras.getString("str9");
-            str10= extras.getString("str10");
-            str11= extras.getString("str11");
-            str12= extras.getString("str12");
-            str13= extras.getString("str13");
-            str14= extras.getString("str14");
-            str15= extras.getString("str15");
-            str16= extras.getString("str16");
-
-
-       if(str4!=null || str5!=null ||str6!=null || str7!=null|| str8!=null||str9!=null || str10!=null|| str11!=null||str12!=null ||str13!=null||str14!=null||str15!=null||str16!=null){
-
-                    sort_select();
-
-                    }
-       else {
-
-          default_query();
-      }
-
-
-      }
-
-        if (extras == null) {
-
-      default_query();
-
-  }
-
-
-        // Set up Layout Manager, reverse layout
-
-
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -244,17 +198,17 @@ public  class PostListFragment extends AppCompatActivity {
                             case R.id.pdf:
 
                                 // Get runtime permissions if build version >= Android M
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        if ((ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                                   != PackageManager.PERMISSION_GRANTED) ||
-                                  (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA)
-                                   != PackageManager.PERMISSION_GRANTED) ||
-                                   (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)
-                                    != PackageManager.PERMISSION_GRANTED)) {
-                                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                     Manifest.permission.READ_EXTERNAL_STORAGE,
-                                     Manifest.permission.CAMERA},
-                                  PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE_RESULT);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                    if ((ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                            != PackageManager.PERMISSION_GRANTED) ||
+                                            (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA)
+                                                    != PackageManager.PERMISSION_GRANTED) ||
+                                            (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)
+                                                    != PackageManager.PERMISSION_GRANTED)) {
+                                        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                                                        Manifest.permission.CAMERA},
+                                                PERMISSION_REQUEST_WRITE_EXTERNAL_STORAGE_RESULT);
 
 
                                     }
@@ -288,6 +242,47 @@ public  class PostListFragment extends AppCompatActivity {
                     }
                 });
 
+
+
+
+      Bundle extras = getIntent().getExtras();
+
+
+
+         if (extras != null) {
+
+         changed = true;
+         flag=true;
+
+            str4 = extras.getString("str4");
+            str5 = extras.getString("str5");
+            str6 = extras.getString("str6");
+            str7= extras.getString("str7");
+            str8= extras.getString("str8");
+            str9= extras.getString("str9");
+            str10= extras.getString("str10");
+            str11= extras.getString("str11");
+            str12= extras.getString("str12");
+            str13= extras.getString("str13");
+            str14= extras.getString("str14");
+            str15= extras.getString("str15");
+            str16= extras.getString("str16");
+
+
+       if(str4!=null || str5!=null ||str6!=null || str7!=null|| str8!=null||str9!=null || str10!=null|| str11!=null||str12!=null ||str13!=null||str14!=null||str15!=null||str16!=null){
+
+                    sort_select();
+
+                    }
+
+
+      }
+
+
+        // Set up Layout Manager, reverse layout
+
+
+        default_query();
     }
 
 
@@ -404,6 +399,7 @@ public  class PostListFragment extends AppCompatActivity {
 
         }
 
+        @SuppressLint("WrongThread")
         @Override
       protected String doInBackground(String... params) {
 
@@ -1052,7 +1048,6 @@ public  class PostListFragment extends AppCompatActivity {
                  };
 
                 mRecycler.setAdapter(mAdapter);
-                mAdapter.notifyDataSetChanged();
 
             }
 
@@ -1241,6 +1236,15 @@ public  class PostListFragment extends AppCompatActivity {
         if (mAdapter != null) {
             mAdapter.cleanup();
         }
+
+    }
+
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+            mAdapter.cleanup();
 
     }
     public String getUid() {

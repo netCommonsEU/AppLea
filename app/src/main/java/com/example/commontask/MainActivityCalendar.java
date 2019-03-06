@@ -1,5 +1,6 @@
 package com.example.commontask;
 
+
 import android.Manifest;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
@@ -22,7 +23,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -39,6 +39,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckedTextView;
 import android.widget.TextView;
+
+
 import com.example.commontask.Home.HomeActivity;
 import com.example.commontask.content.CalendarCursor;
 import com.example.commontask.content.EventCursor;
@@ -49,10 +51,14 @@ import com.example.commontask.widget.AgendaAdapter;
 import com.example.commontask.widget.AgendaView;
 import com.example.commontask.widget.CalendarSelectionView;
 import com.example.commontask.widget.EventCalendarView;
+
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashSet;
+
+
+
 
 public class MainActivityCalendar extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -74,19 +80,37 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
                     }
                 }
             };
+
+
+
+
     private final CalendarSelectionView.OnSelectionChangeListener mCalendarSelectionListener
             = new CalendarSelectionView.OnSelectionChangeListener() {
         @Override
         public void onSelectionChange(long id, boolean enabled) {
+
+
+
             if (!enabled) {
                 mExcludedCalendarIds.add(String.valueOf(id));
-            } else {
+            }
+
+
+
+            else {
                 mExcludedCalendarIds.remove(String.valueOf(id));
             }
+
+
             mCalendarView.invalidateData();
             mAgendaView.invalidateData();
+
+
+
         }
     };
+
+
     private final Coordinator mCoordinator = new Coordinator();
     private View mCoordinatorLayout;
     private CheckedTextView mToolbarToggle;
@@ -102,25 +126,29 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
+
         setUpPreferences();
+
+
         setContentView(R.layout.activity_calendar);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        //noinspection ConstantConditions
 
 
-      BottomNavigationView bottomNavigationView = (BottomNavigationView)
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
 
-      BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
-      setUpContentView();
+        setUpContentView();
 
-     bottomNavigationView.setItemIconTintList(null);
+        bottomNavigationView.setItemIconTintList(null);
 
-     bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+        bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
 
-     bottomNavigationView.setOnNavigationItemSelectedListener(
+        bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
 
                     @Override
@@ -136,10 +164,6 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
                                 Intent intent1 = new Intent(getApplicationContext(), PostListFragment.class);
                                 startActivityForResult(intent1, 0);
 
-                              /*  PostListFragment fragment=new PostListFragment();
-                                FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
-                                transaction.replace(R.id.container,fragment);
-                                transaction.commit();*/
 
                                 break;
                             case R.id.action_weather:
@@ -161,6 +185,9 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
                 ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_HOME_AS_UP);
 
         setUpContentView();
+        requestCalendarPermissions();
+
+
     }
 
     @Override
@@ -178,16 +205,18 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+
         mDrawerToggle.syncState();
+
         mCoordinator.coordinate(mToolbarToggle, mCalendarView, mAgendaView);
+
         if (checkCalendarPermissions()) {
             loadEvents();
-        } else {
-            toggleEmptyView(true);
         }
         if (mWeatherEnabled && !checkLocationPermissions()) {
             explainLocationPermissions();
         }
+
     }
 
     @Override
@@ -304,10 +333,8 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
         switch (requestCode) {
             case REQUEST_CODE_CALENDAR:
                 if (checkCalendarPermissions()) {
-                    toggleEmptyView(false);
+
                     loadEvents();
-                } else {
-                    toggleEmptyView(true);
                 }
                 break;
 
@@ -359,17 +386,23 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
     }
 
     private void setUpPreferences() {
+
+
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         mWeatherEnabled = mPendingWeatherEnabled = sp.getBoolean(
                 WeatherSyncService.PREF_WEATHER_ENABLED, false);
         String exclusions = PreferenceManager.getDefaultSharedPreferences(this)
                 .getString(CalendarUtils.PREF_CALENDAR_EXCLUSIONS, null);
+
         if (!TextUtils.isEmpty(exclusions)) {
             mExcludedCalendarIds.addAll(Arrays.asList(exclusions.split(SEPARATOR)));
         }
         CalendarUtils.sWeekStart = sp.getInt(CalendarUtils.PREF_WEEK_START, Calendar.SUNDAY);
         PreferenceManager.getDefaultSharedPreferences(this)
                 .registerOnSharedPreferenceChangeListener(mWeatherChangeListener);
+
+
+
     }
 
     private void setUpContentView() {
@@ -414,22 +447,7 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
         }
     }
 
-    @SuppressWarnings("ConstantConditions")
-    private void toggleEmptyView(boolean visible) {
-        if (visible) {
-            findViewById(R.id.empty).setVisibility(View.VISIBLE);
-            findViewById(R.id.empty).bringToFront();
-            findViewById(R.id.button_permission)
-                    .setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            requestCalendarPermissions();
-                        }
-                    });
-        } else {
-            findViewById(R.id.empty).setVisibility(View.GONE);
-        }
-    }
+
 
     private void changeWeekStart(@IdRes int selection) {
         switch (selection) {
@@ -443,11 +461,17 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
                 CalendarUtils.sWeekStart = Calendar.MONDAY;
                 break;
         }
+
+
         PreferenceManager.getDefaultSharedPreferences(this)
                 .edit()
                 .putInt(CalendarUtils.PREF_WEEK_START, CalendarUtils.sWeekStart)
                 .apply();
+
+
         supportInvalidateOptionsMenu();
+
+
         mCoordinator.reset();
     }
 
@@ -456,7 +480,7 @@ public class MainActivityCalendar extends AppCompatActivity implements LoaderMan
     }
 
     private void loadEvents() {
-        getSupportLoaderManager().initLoader(LOADER_CALENDARS, null, this);
+        //getSupportLoaderManager().initLoader(LOADER_CALENDARS, null, this);
         getSupportLoaderManager().initLoader(LOADER_LOCAL_CALENDAR, null, this);
         mFabAdd.show();
         mCalendarView.setCalendarAdapter(new CalendarCursorAdapter(this, mExcludedCalendarIds));

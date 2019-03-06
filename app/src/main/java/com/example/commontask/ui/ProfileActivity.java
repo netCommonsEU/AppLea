@@ -208,11 +208,7 @@ public class ProfileActivity extends AppCompatActivity implements  CompoundButto
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_edit_profile) {
-            Intent intent = new Intent(getApplicationContext(), SettingsPrefActivity.class);
-            startActivityForResult(intent, 0);
 
-        }
             if (item.getItemId()  == R.id.sign_out) {
                 AuthUI.getInstance()
                         .signOut(this);
@@ -367,7 +363,24 @@ public class ProfileActivity extends AppCompatActivity implements  CompoundButto
     }
 
 
+
+
+
+
     private void init(){
+
+
+        buttonprivacy = (FButton) findViewById(R.id.buttonprivacy);
+
+        buttonprivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(buttonClick);
+                Intent intent = new Intent(getApplicationContext(), SettingsPrefActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
 
         buttonfield = (FButton) findViewById(R.id.buttonfield);
 
@@ -379,7 +392,11 @@ public class ProfileActivity extends AppCompatActivity implements  CompoundButto
                 startActivity(intent);
             }
         });
+
+
     }
+
+
 
     public boolean isServicesOK(){
         Log.d(TAG, "isServicesOK: checking google services version");

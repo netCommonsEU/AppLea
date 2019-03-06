@@ -192,9 +192,11 @@ public class EventEditView extends RelativeLayout {
 
     @VisibleForTesting
     void changeCalendar(int selection) {
+
         mCursor.moveToPosition(selection);
         mTextViewCalendar.setText(mCursor.getDisplayName());
         setCalendarId(mCursor.getId());
+
     }
 
     private void setCalendarId(long calendarId) {

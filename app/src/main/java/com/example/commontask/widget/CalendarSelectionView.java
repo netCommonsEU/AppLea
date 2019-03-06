@@ -1,5 +1,6 @@
 package com.example.commontask.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.Cursor;
@@ -102,6 +103,7 @@ public class CalendarSelectionView extends ListView {
             return true;
         }
 
+        @SuppressLint("RestrictedApi")
         @Override
         public long getItemId(int position) {
             if (mCursor == null || !mCursor.moveToPosition(position)) {

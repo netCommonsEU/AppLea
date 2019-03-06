@@ -1,4 +1,4 @@
-<ScrollView
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -37,7 +37,7 @@
         android:id="@+id/textView7"
         android:layout_marginStart="30dp"
         android:layout_below="@+id/view5"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:layout_marginTop="55dp"
         android:layout_marginLeft="30dp" />
     <View
@@ -62,7 +62,7 @@
         android:textSize="18sp"
         android:layout_marginStart="30dp"
         android:id="@+id/txtxorafi"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:layout_below="@+id/spinner2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -78,10 +78,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kind"
+        android:text="Cultivation"
         android:textSize="18sp"
         android:layout_marginStart="30dp"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:id="@+id/txtxoraf1i"
         android:layout_marginTop="25dp"
         android:layout_below="@+id/view4"
@@ -108,7 +108,7 @@
         android:textSize="18dp"
         android:textColor="@color/black"
         android:id="@+id/txtkind"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:layout_marginStart="30dp"
         android:layout_below="@+id/txtxoraf1i"
         android:layout_marginLeft="30dp" />
@@ -168,7 +168,7 @@
         android:text="Day"
         android:id="@+id/tvDate"
         android:textSize="18dp"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
         android:layout_below="@+id/view7"
@@ -185,7 +185,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:layout_marginStart="30dp"
         android:id="@+id/textView4"
         android:layout_below="@+id/view10"
@@ -196,16 +196,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Time"
+        android:text="Start Time"
         android:id="@+id/tvTime"
         android:layout_marginStart="30dp"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:textSize="18dp"
         android:layout_below="@+id/view10"
         android:layout_alignParentStart="true"
         android:layout_marginTop="59dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp" />
+        android:layout_marginLeft="30dp"
+        tools:ignore="HardcodedText" />
 
 
 
@@ -223,7 +224,7 @@
         android:textSize="18dp"
         android:layout_marginStart="30dp"
         android:id="@+id/textView5"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:layout_below="@+id/tvTime"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -242,7 +243,7 @@
         android:textSize="18sp"
         android:id="@+id/ques"
         android:layout_marginStart="30dp"
-        android:textStyle="normal|italic"
+        android:textStyle="normal"
         android:layout_below="@+id/spinner5"
         android:text="Quantity"
         android:layout_marginLeft="30dp" />

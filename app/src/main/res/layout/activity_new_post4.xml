@@ -34,7 +34,7 @@
             android:layout_marginTop="55dp"
             android:text="Field"
             android:textSize="18dp"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal" />
 
 
         <View
@@ -59,7 +59,7 @@
             android:layout_marginStart="30dp"
             android:hint="Field"
             android:textSize="18dp"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal" />
 
         <View
             android:id="@+id/view4"
@@ -75,10 +75,10 @@
             android:layout_below="@+id/view4"
             android:layout_marginStart="30dp"
             android:layout_marginTop="25dp"
-            android:hint="Kind"
+            android:text="Cultivation"
             android:textSize="18dp"
             android:textColor="@color/black"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal" />
 
         <Spinner
             android:id="@+id/spinner3"
@@ -95,7 +95,7 @@
             android:layout_below="@+id/txtxoraf1i"
             android:layout_marginStart="30dp"
             android:textSize="18dp"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal" />
 
 
         <TextView
@@ -107,7 +107,7 @@
             android:layout_marginTop="20dp"
             android:textSize="18dp"
             android:text="Kind Spraying"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal" />
 
         <View
             android:layout_width="match_parent"
@@ -132,7 +132,7 @@
             android:layout_alignStart="@+id/txtxoraf1i"
             android:layout_below="@+id/txtspray"
             android:focusableInTouchMode="false"
-            android:textStyle="normal|italic"
+            android:textStyle="normal"
             android:hint="Type"
             android:layout_marginTop="10dp"
             android:layout_alignLeft="@+id/txtxoraf1i" />
@@ -163,7 +163,7 @@
             android:layout_alignStart="@+id/txtxoraf1i"
             android:layout_below="@+id/txtspraychemistry"
             android:hint="Substance"
-            android:textStyle="normal|italic"
+            android:textStyle="normal"
             android:layout_marginTop="10dp"
             android:layout_alignLeft="@+id/txtxoraf1i" />
 
@@ -173,7 +173,7 @@
             android:hint="Quantity"
             android:textSize="18dp"
             android:id="@+id/count"
-            android:textStyle="normal|italic"
+            android:textStyle="normal"
             android:layout_marginTop="15dp"
             android:layout_marginStart="30dp"
             android:textColor="@color/black"
@@ -237,7 +237,7 @@
             android:layout_below="@+id/frame"
             android:layout_marginTop="30dp"
             android:hint="Unit measure"
-            android:textStyle="normal|italic"
+            android:textStyle="normal"
             android:layout_alignLeft="@+id/txtxoraf1i" />
 
         <View
@@ -281,7 +281,7 @@
             android:layout_marginTop="22dp"
             android:text="Day"
             android:textSize="18dp"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal" />
 
         <View
             android:id="@+id/view6"
@@ -299,7 +299,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginStart="30dp"
             android:textSize="18dp"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal" />
 
         <View
             android:id="@+id/view12"
@@ -317,9 +317,9 @@
             android:layout_below="@+id/view10"
             android:layout_marginStart="30dp"
             android:layout_marginTop="59dp"
-            android:text="Time"
+            android:text="Start Time"
             android:textSize="18dp"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal"/>
 
         <View
             android:id="@+id/view"
@@ -335,7 +335,7 @@
             android:layout_below="@+id/tvTime"
             android:layout_marginStart="30dp"
             android:textSize="18dp"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal" />
 
         <View
             android:id="@+id/view5"

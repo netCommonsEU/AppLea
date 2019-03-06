@@ -170,6 +170,13 @@
                 android:id="@+id/include"
                 layout="@layout/profile_button"/>
 
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="10dp" />
+            <include
+                android:id="@+id/include"
+                layout="@layout/profile_personal_settings"/>
+
         </LinearLayout>
 
     </ScrollView>

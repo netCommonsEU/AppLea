@@ -60,7 +60,7 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Splash"
             android:theme="@style/SplashTheme1">
             <meta-data
                 android:name="com.google.android.backup.api_key"
@@ -140,7 +140,7 @@
 
         <activity android:name=".HistoryActivity"/>
         <activity android:name=".EditProfileActivity" />
-        <activity android:name=".Splash" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".fragment.PostListFragment"/>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".FilterTask" />

@@ -15,6 +15,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         multiDexEnabled true
+        publishNonDefault true
+        defaultPublishConfig 'release'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "FORECAST_IO_API_KEY", "\"97b232a76771e4bd5fcd985da278ac0d\""
         vectorDrawables.useSupportLibrary = true
@@ -57,7 +59,8 @@ ext {
     assertjVersion = '1.1.1'
 }
 dependencies {
-    //noinspection GradleCompatible
+
+       //noinspection GradleCompatible
     implementation 'com.android.support:support-vector-drawable:28.0.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -96,6 +99,8 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:2.0.1'
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+
     implementation 'com.weiwangcn.betterspinner:library-material:1.1.0'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.5.1'
     implementation 'com.itextpdf:itextg:5.5.9'
@@ -121,7 +126,7 @@ dependencies {
     //BottomNavigationViewEx library
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.1.9'
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
     implementation "com.squareup.retrofit2:retrofit:$retrofit2Version",
             "com.squareup.retrofit2:converter-gson:$retrofit2Version"
     testImplementation "org.robolectric:robolectric:$robolectricVersion",
@@ -160,6 +165,7 @@ dependencies {
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+
     reports {
         xml.enabled true
         xml.destination "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
@@ -175,6 +181,8 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
         println "coveralls report has been generated to file://${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
         println "coverage report generated at file://${reports.html.destination}/index.html"
     }
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'

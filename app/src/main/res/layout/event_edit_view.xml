@@ -110,7 +110,6 @@
         android:layout_height="?attr/listPreferredItemHeight"/>
 
 
-
     <!-- Row 3 -->
     <TextView
         android:id="@+id/text_view_start_date"
@@ -124,6 +123,7 @@
         android:layout_alignEnd="@id/column2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         tools:ignore="RtlHardcoded" />
 
     <TextView
@@ -138,6 +138,7 @@
         android:layout_alignEnd="@id/column3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         tools:ignore="RtlHardcoded" />
 
     <!-- Row 4 -->
@@ -153,6 +154,7 @@
         android:layout_alignEnd="@id/column2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         tools:ignore="RtlHardcoded" />
 
     <TextView
@@ -167,6 +169,7 @@
         android:layout_alignEnd="@id/column3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         tools:ignore="RtlHardcoded" />
 
 

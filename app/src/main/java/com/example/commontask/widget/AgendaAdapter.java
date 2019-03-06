@@ -32,10 +32,7 @@ import com.example.commontask.R;
 import com.example.commontask.content.EventCursor;
 import com.example.commontask.weather.Weather;
 
-/**
- * 'Unlimited' adapter that load more and prune items
- * as users scroll to top or bottom
- */
+
 public abstract class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.RowViewHolder> {
     private static final String STATE_EVENT_GROUPS = "state:eventGroups";
     private static final int VIEW_TYPE_HEADER = 0;

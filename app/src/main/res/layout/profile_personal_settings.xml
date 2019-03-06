@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="#00BFFF"
+    android:divider="@drawable/vertical_divider_1"
+    android:dividerPadding="12dip"
+    android:showDividers="middle"
+    android:layout_gravity="center"
+    android:weightSum="2"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <info.hoang8f.widget.FButton
+        android:id="@+id/buttonprivacy"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/my_button"
+        android:drawableTop="@android:drawable/ic_lock_idle_lock"
+        android:drawablePadding="0dp"
+        android:minWidth="250dp"
+        android:minHeight="80dp"
+        android:text="Personal Settings"
+        android:textColor="@android:color/white"
+        android:textSize="12dp"
+        android:textStyle="normal"
+        fbutton:cornerRadius="15dp"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="6dp"
+        tools:ignore="ObsoleteLayoutParam" />
+
+
+
+
+
+</RelativeLayout>

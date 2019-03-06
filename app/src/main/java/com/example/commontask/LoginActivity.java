@@ -61,7 +61,7 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
     private static final String KEY_REMEMBER = "remember";
     private static final String KEY_USERNAME = "username";
     private static final String KEY_PASS = "password";
-
+    String  currentUserEmail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -135,6 +135,8 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
 
         //initialize the button for logging in
         Button btnLogin = (Button) findViewById(R.id.btn_login);
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,6 +148,8 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
                 if(isStringNull(email) || isStringNull(password)){
                     Toast.makeText(mContext, "Πρέπει να συμπληρώσετε όλα τα πεδία για να συνδεθείτε!", Toast.LENGTH_SHORT).show();
                 }
+
+
                 else if(!HelperLogin.isValidEmail(email)){
 
                     HelperLogin.displayMessageToast(LoginActivity.this, "Το email που γράψατε δεν έχει την κατάλληλη δομή για την αυθεντικοποιήση των στοιχειων σας!");
@@ -156,15 +160,24 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
 
                     mPleaseWait.setVisibility(View.VISIBLE);
 
-                    mAuth.signInWithEmailAndPassword(email, password)
+            mAuth.signInWithEmailAndPassword(email, password)
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
+
+
                                     Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    mFirebaseDatabase = FirebaseDatabase.getInstance();
-                                    String  currentUserEmail = EmailEncoding.commaEncodePeriod(mAuth.getCurrentUser().getEmail());
-                                    if (!task.isSuccessful()) {
+
+
+
+                              FirebaseUser user = mAuth.getCurrentUser();
+                              mFirebaseDatabase = FirebaseDatabase.getInstance();
+
+
+
+
+
+                              if (!task.isSuccessful()) {
                                         Log.w(TAG, "signInWithEmail:failed", task.getException());
 
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed),
@@ -172,42 +185,29 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
 
                                         mPleaseWait.setVisibility(View.GONE);
                                     }
-                                    else{
-                                        try{
-                                            mCurrentUserDatabaseReference = mFirebaseDatabase.getReference().child(Constants.USERS_LOCATION
-                                                                    + "/" + currentUserEmail);
-                                            Query query = mCurrentUserDatabaseReference;
-
-                                            query.addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(DataSnapshot dataSnapshot) {
-
-                                            String currentUserEmailfinal = EmailEncoding.commaDecodePeriod(mAuth.getCurrentUser().getEmail());
-                                            String  userTestEmail = ((HashMap) dataSnapshot.getValue()).get("email").toString();
-
-                                                    if (userTestEmail.equalsIgnoreCase(currentUserEmailfinal)) {
-                                                        Log.d(TAG, "onComplete: success. email is verified.");
-                                                        Intent intent = new Intent(LoginActivity.this, MainActivityCalendar.class);
-                                                        startActivity(intent);
-                                                    }
-
-                                                    else{
-                                                        Toast.makeText(mContext, "To Email δεν είναι επικυρωμένο \n παρακαλώ ξαναδοκιμάστε!", Toast.LENGTH_SHORT).show();
-
-                                                        mPleaseWait.setVisibility(View.GONE);
-                                                        mAuth.signOut();
-                                                    }
-                                                }
-                                                @Override
-                                                public void onCancelled(DatabaseError databaseError) {
-
-                                                }
-                                            });
 
 
-                                        }catch (NullPointerException e){
+
+                                else{
+
+                              try{
+
+
+                                     Log.d(TAG, "onComplete: success. email is verified.");
+
+                           Intent intent = new Intent(LoginActivity.this, MainActivityCalendar.class);
+                                 startActivity(intent);
+
+                                                 mPleaseWait.setVisibility(View.GONE);
+
+
+                                        }
+
+                                        catch (NullPointerException e){
                                             Log.e(TAG, "onComplete: NullPointerException: " + e.getMessage() );
                                         }
+
+
                                     }
 
                                     // ...
@@ -217,6 +217,12 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
 
             }
         });
+
+
+
+
+
+
 
         TextView linkSignUp = (TextView) findViewById(R.id.link_signup);
         linkSignUp.setOnClickListener(new View.OnClickListener() {
@@ -229,6 +235,9 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
         });
 
 
+
+
+
         TextView linkSignUpPhone = (TextView) findViewById(R.id.phone_verify);
         linkSignUpPhone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -238,6 +247,11 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
                 startActivity(intent);
             }
         });
+
+
+
+
+
         resettext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,9 +260,16 @@ public class LoginActivity  extends AppCompatActivity implements TextWatcher,
                 startActivity(intent);
             }
         });
+
+
+
+
          /*
          If the user is logged in then navigate to HomeActivity and call 'finish()'
           */
+
+
+
         if(mAuth.getCurrentUser() != null){
             Intent intent = new Intent(LoginActivity.this, MainActivityCalendar.class);
             startActivity(intent);
