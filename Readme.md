@@ -14,17 +14,16 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 2. Current weather
    * 7-day forecast
    * Support different measuring units 
-   
-   
+      
 3. History Logs Entry
    * Update-Delete Logs
    * Filtering Logs By Activity
    * Filtering Logs By Time
    * Pdf Logs
    
- 4.Statistics
+4.Statistics
   
- 5.Social NetWork
+5.Social NetWork
    
 
 ## Requirements
