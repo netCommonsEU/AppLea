@@ -47,6 +47,18 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 
 AppLea requires the following libraries for in order to compile:
 
+```
+  //Jackson Databind
+implementation 'com.fasterxml.jackson.core:jackson-databind:2.7.2'
+```
+
+  ```
+   // FirebaseUI
+implementation 'com.firebaseui:firebase-ui:0.6.0'
+```
+ 
+
+
 ## Installation
 The executable .apk file can be found in the TBD directory 
 
