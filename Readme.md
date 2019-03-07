@@ -17,7 +17,9 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 * Firebase authentication for login and register
 
 ### &nbsp;  Simple event calendar, with agenda view.
- 
+* Insert Entries By Date-Time
+* Update Entries in Agenda View 
+* Delete Events in Agenda View 
 ### &nbsp;  Current weather
  
 *  7-day forecast
