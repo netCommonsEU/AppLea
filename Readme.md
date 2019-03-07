@@ -9,7 +9,7 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 
 ## Features
 
-### &nbsp;  LOGIN , REGISTER
+### &nbsp;  Login , Register
 
 * Register new account
 * Login with existing account
