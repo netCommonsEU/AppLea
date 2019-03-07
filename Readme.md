@@ -74,31 +74,7 @@ implementation 'com.firebaseui:firebase-ui:0.6.0'
     // Recycler Pull and Refresh
     implementation 'com.loopj.android:android-async-http:1.4.9'
      ```
-      ```
-    // GSON
-    implementation 'com.google.code.gson:gson:2.8.2'
-     ```
-       ```
-    // Dexter, requesting permissions
-    implementation 'com.karumi:dexter:4.2.0'
-    implementation 'com.github.dmytrodanylyk:android-morphing-button:98a4986e56'
-    implementation 'com.github.ParkSangGwon:TedPicker:v1.0.10'
-    implementation 'com.squareup.okhttp:okhttp:2.7.2'
-    implementation 'com.jakewharton:butterknife:8.4.0'
-    ```
-     ```
-    //Circle ImageView
-    implementation 'de.hdodenhof:circleimageview:2.1.0'
-     ```
-      ```
-    //Universal image loader
-    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-     ```
-      ```
-    //BottomNavigationViewEx library
-    implementation 'com.github.ittianyu:BottomNavigationViewEx:1.1.9'
-     ```
-     
+
      
  
 ## Installation
