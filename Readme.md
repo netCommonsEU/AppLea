@@ -41,7 +41,6 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 AppLea requires the following libraries for in order to compile:
 
 ## Installation
-* Install and load font-awesome font to your project
 The executable .apk file can be found in the TBD directory 
 
 ## Usage
