@@ -24,15 +24,15 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 * Support different measuring units 
 * Forecasting
       
-3. History Logs Entry
-   * Update-Delete Logs
-   * Filtering Logs By Activity
-   * Filtering Logs By Time
-   * Pdf Logs
+### &nbsp;  History Logs Entry
+ * Update-Delete Logs
+ * Filtering Logs By Activity
+ * Filtering Logs By Time
+ * Pdf Logs
    
-4.Statistics
+### &nbsp; Statistics
   
-5.Social NetWork
+### &nbsp; Social NetWork
    
 
 ## Requirements
