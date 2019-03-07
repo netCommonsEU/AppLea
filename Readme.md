@@ -36,7 +36,7 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 ### &nbsp; Social NetWork
    
 
-#### &nbsp; CHAT WITH FRIENDS
+#### &nbsp; Chat With Friends
 * Send Messages
 * Send Images
 * Delete Messages
