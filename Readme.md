@@ -21,8 +21,8 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
    * Filtering Logs By Activity
    * Filtering Logs By Time
    * Pdf Logs
-1. Statistics
-1.Social NetWork
+4. Statistics
+5.Social NetWork
    
 
 ## Requirements
