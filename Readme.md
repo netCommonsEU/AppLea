@@ -69,11 +69,6 @@ implementation 'com.firebaseui:firebase-ui:0.6.0'
     implementation 'com.google.firebase:firebase-core:11.6.0'
  ```
  
- 
-  ```
-    // Recycler Pull and Refresh
-    implementation 'com.loopj.android:android-async-http:1.4.9'
-     ```
 
      
  
