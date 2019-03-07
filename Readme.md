@@ -36,6 +36,13 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 ### &nbsp; Social NetWork
    
 
+#### &nbsp; CHAT WITH FRIENDS
+* Send Messages
+* Send Images
+* Delete Messages
+* Last seen 
+* Friend is Online or not
+
 ## Requirements
 
 AppLea requires the following libraries for in order to compile:
