@@ -60,13 +60,13 @@ implementation 'com.firebaseui:firebase-ui:0.6.0'
 
  ```
   // Firebase
- implementation 'com.google.firebase:firebase-messaging:11.6.0'
+    implementation 'com.google.firebase:firebase-messaging:11.6.0'
     implementation 'com.github.bluejamesbond:textjustify-android:2.1.0'
     implementation 'com.google.firebase:firebase-config:11.6.0'
     implementation 'com.google.firebase:firebase-storage:11.6.0'
     implementation 'com.google.firebase:firebase-database:11.6.0'
     implementation 'com.google.firebase:firebase-auth:11.6.0'
-implementation 'com.google.firebase:firebase-core:11.6.0'
+    implementation 'com.google.firebase:firebase-core:11.6.0'
  ```
  
  
