@@ -18,9 +18,11 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
 
 ### &nbsp;  Simple event calendar, with agenda view.
  
-2. Current weather
-   * 7-day forecast
-   * Support different measuring units 
+### &nbsp;  Current weather
+ 
+*  7-day forecast
+* Support different measuring units 
+* Forecasting
       
 3. History Logs Entry
    * Update-Delete Logs
