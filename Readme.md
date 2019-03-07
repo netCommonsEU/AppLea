@@ -23,7 +23,7 @@ Application uses cell network, WIFI and GPS to get your location from metterolog
    * Pdf Logs
    
  4.Statistics
-  *By Field
+  
  5.Social NetWork
    
 
