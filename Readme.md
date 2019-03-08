@@ -82,6 +82,3 @@ implementation 'com.firebaseui:firebase-ui:0.6.0'
 ## Installation
 The executable .apk file can be found in the root directory 
 
-## Usage
-
-Work in progress
