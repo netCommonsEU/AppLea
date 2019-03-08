@@ -5,38 +5,43 @@ AppLea is the evolution of what was earlier the CommonTasker app, an app that in
 
 This repository hosts exclusively the code of the AppLea app. The link to the CommonTasker repository is https://github.com/netCommonsEU/CommonTasker
 
-Application uses cell network, WIFI and GPS to get your location from metterological stations and show you weather on the place where you are actually.Update of location could be used by some specific period (ex. hourly) or application can use accelerometer to detect movement.
+The application uses cellular network, WiFi and GPS technologies to get the location of meteorological stations in the vicinity of the user and show the weather where he or she actually stands. The location updates could be carried out periodically (e.g. hourly); alternatively, the app can use the accelerometer to detect movement.
 
 ## Features
 
 ### &nbsp;  Login , Register
 
-* Register new account
-* Login with existing account
+* Register new account with email or mobile phone
+* Login with existing account 
 * Logout
 * Firebase authentication for login and register
 
+### &nbsp;  User profile and preferences
+*  Fill in personal information (name, age group, residence)
+*  Enter the fields/farms through a map interface
+*  Determine which entries will be shared and which ones not
+*  Access statistics about the logged activities
+
 ### &nbsp;  Simple event calendar, with agenda view.
-* Insert Entries By Date-Time
-* Update Entries in Agenda View 
-* Delete Events in Agenda View 
-### &nbsp;  Current weather
- 
-*  7-day forecast
-* Support different measuring units 
-* Forecasting
+* Insert entries By Date-Time
+* Update entries in Agenda View 
+* Delete events in Agenda View
+
+### &nbsp;  Embedded weather module
+* Extract info from local weather stations
+* 7-day forecast in hourly intervals
       
-### &nbsp;  History Logs Entry
- * Update-Delete Logs
- * Filtering Logs By Activity
- * Filtering Logs By Time
- * Pdf Logs
+### &nbsp;  Log history
+ * Update-Delete existing entries 
+ * Filter entries by activity
+ * Filter entries by time
+ * Generate .pdf file out of logs
    
 ### &nbsp; Statistics
- * By Activity
+ * by activity
   
 ### &nbsp; Social NetWork
-   
+ * Exchange photos
 
 #### &nbsp; Chat With Friends
 * Send Messages
@@ -75,7 +80,7 @@ implementation 'com.firebaseui:firebase-ui:0.6.0'
      
  
 ## Installation
-The executable .apk file can be found in the TBD directory 
+The executable .apk file can be found in the root directory 
 
 ## Usage
 
